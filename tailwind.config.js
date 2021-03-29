@@ -16,6 +16,16 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
-    },
+      animation: {
+        cursor: 'cursor 1s infinite'
+      },
+      keyframes: {
+        cursor: {
+          '0%, 40%': { opacity: 0 },
+          '50%, 90%': { opacity: 1 },
+          '100%': { opacity: 0 }
+        }
+      }
+    }
   }
 }
