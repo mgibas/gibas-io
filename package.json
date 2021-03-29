@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "serve": "eleventy --serve & postcss assets/css/index.css --o _tmp/index.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss assets/css/index.css --o _site/index.css"
+    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss assets/css/index.css --o _site/index.css"
   },
   "keywords": [],
   "author": "",
