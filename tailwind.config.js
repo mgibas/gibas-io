@@ -6,6 +6,7 @@ module.exports = {
     './*.njk',
     './_includes/**/*.njk'
   ],
+  darkMode: 'media',
   theme: {
     colors: {
       transparent: 'transparent',
