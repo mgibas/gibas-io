@@ -8,16 +8,14 @@
     {% if description %}
       <meta name="description" content="{{description}}"/>
     {% endif %}
-    <link rel="preload" href="/index.css?v={% version %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/index.css?v={% version %}"></noscript>
-    <link rel="preload" href="https://rsms.me/inter/inter.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://rsms.me/inter/inter.css"></noscript>
+    <link rel="stylesheet" href="/index.css?v={% version %}"/>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script type="module" src="/js/alpine.js?v={% version %}"></script>
-    {% block head %}{% endblock %}
   </head>
   <body class="min-h-screen min-w-screen">
     {% block content %}
       {{ content | safe }}
     {% endblock %}
+    {% block scripts %}{% endblock %}
   </body>
 </html>
