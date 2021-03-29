@@ -8,8 +8,10 @@
     {% if description %}
       <meta name="description" content="{{description}}"/>
     {% endif %}
-    <link rel="stylesheet" href="/index.css?v={% version %}"/>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="preload" href="/index.css?v={% version %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/index.css?v={% version %}"></noscript>
+    <link rel="preload" href="https://rsms.me/inter/inter.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://rsms.me/inter/inter.css"></noscript>
     <script type="module" src="/js/alpine.js?v={% version %}"></script>
     {% block head %}{% endblock %}
   </head>
