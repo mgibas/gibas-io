@@ -5,7 +5,7 @@
 {% block content %}
   <main class="grid place-items-center min-h-screen">
     <div>
-      <header class="relative pb-12">
+      <header class="relative pb-[72px] sm:pb-12">
         <h1 class="text-4xl tracking-tight font-extrabold text-gray-800 sm:text-5xl md:text-6xl">
           Maciej Gibas
         </h1>
@@ -18,7 +18,7 @@
                   x-data="rolesTyper(['architect', 'developer', 'designer'])"
                   x-init="erase()">
               <template x-for="(char, index) in role">
-                <span x-text="char" :class="{ '-ml-2': index }" aria-hidden="true"></span>
+                <span x-text="char" :class="{ '-ml-1 sm:-ml-2': index }" aria-hidden="true"></span>
               </template>
             </span>
             <span class="animate-cursor">_</span>
@@ -74,4 +74,5 @@ const rolesTyper = (roles) => {
   }   
 }
 </script>
+
 {% endblock %}
