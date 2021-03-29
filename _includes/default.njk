@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% block title %}Does it work?{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
     <meta charset="UTF-8"/>
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/index.css?v={% version %}"/>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script type="module" src="/js/alpine.js?v={% version %}"></script>
-    {% block head %}{% endblock %}
+    {% block head %}{{ content | safe }}{% endblock %}
   </head>
   <body class="min-h-screen min-w-screen">
     {% block content %}
