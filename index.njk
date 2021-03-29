@@ -18,10 +18,8 @@
           <span class="whitespace-nowrap" aria-hidden="true">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-rose-400 to-rose-600" 
                   x-data="rolesTyper(['architect', 'developer', 'designer'])"
-                  x-init="erase()">
-              <template x-for="(char, index) in role">
-                <span x-text="char" :class="{ '-ml-1 sm:-ml-2': index }" aria-hidden="true"></span>
-              </template>
+                  x-init="setTimeout(() => erase(), 3000)">
+              <template x-for="char in role"><span x-text="char"></span></template>
             </span>
             <span class="animate-cursor">_</span>
           </span>
