@@ -3,25 +3,16 @@
   <head>
     <title>{% block title %}{% endblock %}</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
     <meta charset="UTF-8" />
     {% if description %}
     <meta name="description" content="{{description}}" />
     {% endif %}
     <link rel="stylesheet" href="/index.css?v={% version %}" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <script
-      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-      defer
-    ></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   </head>
-  <body
-    class="min-w-screen bg-white text-gray-800 dark:bg-gray-800 dark:text-white"
-  >
-    {% block content %} {{ content | safe }} {% endblock %} {% block scripts
-    %}{% endblock %}
+  <body class="min-w-screen bg-white text-gray-800 dark:bg-gray-800 dark:text-white">
+    {% block content %} {{ content | safe }} {% endblock %} {% block scripts %}{% endblock %}
   </body>
 </html>
