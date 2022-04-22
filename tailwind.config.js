@@ -1,7 +1,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  content: ['./src/**/*.{njk,html}'],
+  content: ['./src/**/*.{md,njk,html}'],
+  plugins: [require('@tailwindcss/forms')],
   theme: {
     extend: {
       colors: {

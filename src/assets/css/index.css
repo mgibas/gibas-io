@@ -2,11 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  height: -webkit-fill-available;
-}
+@layer base {
+  html {
+    height: -webkit-fill-available;
+  }
 
-body {
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  :focus-visible {
+    @apply outline-rose-500;
+  }
 }

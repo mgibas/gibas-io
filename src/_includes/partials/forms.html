@@ -1,0 +1,43 @@
+{% set focus = "focus-visible:border-rose-500 focus-visible:ring-rose-500" %}
+<!-- -->
+{% set offsetFocus = "focus:outline-none focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2" %}
+<!-- -->
+{% macro field(label, value='', type='text', class, autocomplete, rows) %}
+<div class="field {{class}}">
+  <label for="{{ label | kebabCase}}" class="block text-sm font-medium text-gray-700">{{ label }}</label>
+
+  <div class="mt-1">
+    {% if type == 'textarea' -%}
+    <textarea
+      name="{{ label | kebabCase }}"
+      id="{{ label | kebabCase }}"
+      value="{{ value | escape }}"
+      autocomplete="{{autocomplete}}"
+      rows="{{rows}}"
+      class="block w-full rounded border border-gray-300 py-3 px-4 shadow-sm {{focus}}"></textarea>
+    {% else -%}
+    <input
+      type="{{ type }}"
+      name="{{ label | kebabCase }}"
+      id="{{ label | kebabCase }}"
+      value="{{ value | escape }}"
+      autocomplete="{{autocomplete}}"
+      class="block w-full rounded border-gray-300 py-3 px-4 shadow-sm {{focus}}" />
+    {% endif -%}
+  </div>
+</div>
+{% endmacro %}
+<!-- -->
+{% macro submit(copy, class) %}
+<div class="{{class}}">
+  <button
+    type="submit"
+    class="inline-flex w-full items-center justify-center rounded border border-transparent bg-rose-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-rose-700 transition {{offsetFocus}}">
+    {{copy}}
+  </button>
+</div>
+{% endmacro %}
+<!-- -->
+{% macro form(name, class, netlify=true) %}
+<form name="{{name}}" class="{{class}}" {% if netlify %}netlify{% endif %}>{{ caller() }}</form>
+{% endmacro %}
