@@ -2,27 +2,33 @@
 <!-- -->
 {% set offsetFocus = "focus:outline-none focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2" %}
 <!-- -->
-{% macro field(label, value='', type='text', class, autocomplete, rows) %}
+{% macro field(label, value='', type='text', required=true, class, autocomplete, rows) %}
 <div class="field {{class}}">
-  <label for="{{ label | kebabCase}}" class="block text-sm font-medium text-gray-700">{{ label }}</label>
+  <label for="{{ label | kebabCase}}" class="block text-sm font-medium text-gray-700 dark:text-gray-400">
+    {{ label }}
+  </label>
 
   <div class="mt-1">
     {% if type == 'textarea' -%}
+    <!-- prettier-ignore -->
     <textarea
       name="{{ label | kebabCase }}"
       id="{{ label | kebabCase }}"
       value="{{ value | escape }}"
       autocomplete="{{autocomplete}}"
       rows="{{rows}}"
-      class="block w-full rounded border border-gray-300 py-3 px-4 shadow-sm {{focus}}"></textarea>
+      {% if required %}required{% endif %}
+      class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm dark:bg-gray-700 dark:border-0 {{focus}}"></textarea>
     {% else -%}
+    <!-- prettier-ignore -->
     <input
       type="{{ type }}"
       name="{{ label | kebabCase }}"
       id="{{ label | kebabCase }}"
       value="{{ value | escape }}"
       autocomplete="{{autocomplete}}"
-      class="block w-full rounded border-gray-300 py-3 px-4 shadow-sm {{focus}}" />
+      {% if required %}required{% endif %}
+      class="block w-full rounded-md border-gray-300 shadow-sm sm:text-sm dark:bg-gray-700 dark:border-0 {{focus}}" />
     {% endif -%}
   </div>
 </div>
@@ -32,7 +38,7 @@
 <div class="{{class}}">
   <button
     type="submit"
-    class="inline-flex w-full items-center justify-center rounded border border-transparent bg-rose-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-rose-700 transition {{offsetFocus}}">
+    class="inline-flex w-full justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm bg-rose-600 text-rose-50 hover:bg-rose-700 transition {{offsetFocus}}">
     {{copy}}
   </button>
 </div>

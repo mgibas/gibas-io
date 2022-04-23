@@ -1,13 +1,15 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: ['./src/**/*.{md,njk,html}'],
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
   theme: {
     extend: {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
+        gray: colors.slate,
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
