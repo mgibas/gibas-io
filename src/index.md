@@ -5,6 +5,7 @@ templateEngineOverride: njk,md
 ---
 
 {% import "partials/forms.html" as forms %}
+{% import "partials/timeline.html" as timeline %}
 
 ## About me
 
@@ -16,6 +17,8 @@ Beyond these boring technical aspects I love brewing a ☕ coffee, bake a 🍞 b
 I started my career in 2007, straight out of high school, and since then worked in many environments, teams and projects.
 I won't go to details and _names_ in here but instead will try to present everything in a meaningful timeline so you can have
 overall picture
+
+{{ timeline.timeline(experience) }}
 
 ### 2007 - 2011
 

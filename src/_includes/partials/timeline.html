@@ -1,0 +1,32 @@
+{% macro timeline(entries) %}
+<div
+  class="not-prose grid grid-cols-1 gap-2 gap-x-16 pl-8 lg:relative lg:left-[calc(-50vw+50%)] lg:w-screen lg:grid-cols-2 lg:px-16">
+  {% for e in entries %} {% set alt = loop.index0 % 2 %}
+  <div></div>
+  <section class="{% if alt %}lg:text-right lg:col-start-1{% else %}lg:col-start-2{% endif %} group relative">
+    <h3 class="{% if alt %}lg:flex-row-reverse{% endif %} flex gap-4 text-base">
+      <span>{{ e.title }}</span>
+      <span class="text-lg grayscale transition-all group-hover:grayscale-0">{{e.subtitle}}</span>
+    </h3>
+    <p class="italic">{{e.description}}</p>
+    <dl class="mt-4">
+      <dt class="text-sm text-gray-500">Skills/tools</dt>
+      <dd class="mt-2">
+        <ul class="{% if alt %}lg:justify-end{% endif %} flex flex-wrap items-center gap-2">
+          {% for tag in e.tags -%}
+          <li
+            class="inline-flex items-center whitespace-nowrap rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+            {{tag}}
+          </li>
+          {% endfor -%}
+        </ul>
+      </dd>
+    </dl>
+    <div
+      class="{% if alt %}lg:-right-10 lg:left-auto{% endif %} absolute -left-10 top-2 h-4 w-4 rounded-full bg-gray-700 transition-colors group-hover:bg-rose-700"></div>
+    <div
+      class="{% if alt %}lg:-right-8 lg:left-auto{% endif %} absolute -left-8 top-10 bottom-0 w-px rounded bg-gray-700 transition-colors group-hover:bg-rose-700"></div>
+  </section>
+  {% endfor%}
+</div>
+{% endmacro %}
