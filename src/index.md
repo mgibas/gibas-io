@@ -26,7 +26,7 @@ I won't go to details and _names_ in here but instead will try to present everyt
     I'm not giving my e-mail just like that, but if you want to get in touch please use this form 🙂
   </span>
 
-{% call forms.form('contact', netlify=true, class='grid grid-cols-1 gap-y-6 sm:gap-x-8') -%}
+{% call forms.form('contact', action='/sent', netlify=true, class='grid grid-cols-1 gap-y-6 sm:gap-x-8') -%}
 {{ forms.field('Full name', autocomplet='name') }}
 {{ forms.field('Email', autocomplet='email') }}
 {{ forms.field('Message', type='textarea', rows='3') }}
