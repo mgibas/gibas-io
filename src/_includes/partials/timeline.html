@@ -1,16 +1,19 @@
-{% macro timeline(entries) %}
+{% macro timeline(entries) -%}
 <div
   class="not-prose grid grid-cols-1 gap-2 gap-x-16 pl-8 lg:relative lg:left-[calc(-50vw+50%)] lg:w-screen lg:grid-cols-2 lg:px-16">
-  {% for e in entries %} {% set alt = loop.index0 % 2 %}
+  {% for e in entries %} {% set alt = loop.index0 % 2 -%}
   <div></div>
-  <section class="{% if alt %}lg:text-right lg:col-start-1{% else %}lg:col-start-2{% endif %} group relative">
-    <h3 class="{% if alt %}lg:flex-row-reverse{% endif %} flex gap-4 text-base">
-      <span>{{ e.title }}</span>
-      <span class="text-lg grayscale transition-all group-hover:grayscale-0">{{e.subtitle}}</span>
-    </h3>
-    <p class="italic">{{e.description}}</p>
-    <dl class="mt-4">
-      <dt class="text-sm text-gray-500">Skills/tools</dt>
+  <section
+    class="{% if alt %}lg:text-right lg:col-start-1{% else %}lg:col-start-2{% endif %} group relative flex flex-col gap-4">
+    <header class="flex flex-col gap-1 text-xl">
+      <span class="text-xl font-semibold text-primary dark:text-dark-primary">{{ e.title }}</span>
+      <span class="text-base text-secondary grayscale transition-all group-hover:grayscale-0 dark:text-dark-secondary">
+        {{e.subtitle}}
+      </span>
+    </header>
+    <p class="text-primary dark:text-dark-primary">{{e.description}}</p>
+    <dl>
+      <dt class="text-sm text-secondary dark:text-dark-secondary">Skills/tools</dt>
       <dd class="mt-2">
         <ul class="{% if alt %}lg:justify-end{% endif %} flex flex-wrap items-center gap-2">
           {% for tag in e.tags -%}
@@ -27,6 +30,6 @@
     <div
       class="{% if alt %}lg:-right-8 lg:left-auto{% endif %} absolute -left-8 top-10 bottom-0 w-px rounded bg-gray-700 transition-colors group-hover:bg-rose-700"></div>
   </section>
-  {% endfor%}
+  {% endfor -%}
 </div>
-{% endmacro %}
+{% endmacro -%}

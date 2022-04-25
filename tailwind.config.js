@@ -11,6 +11,14 @@ module.exports = {
         current: 'currentColor',
         gray: colors.slate,
       },
+      textColor: (theme) => ({
+        primary: theme('colors.gray.700'),
+        secondary: theme('colors.gray.500'),
+        dark: {
+          primary: theme('colors.gray.300'),
+          secondary: theme('colors.gray.500'),
+        },
+      }),
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
