@@ -16,12 +16,12 @@ module.exports = {
   social: [
     {
       name: 'Twitter',
-      ulr: 'https://twitter.com/gibasmaciej',
+      url: 'https://twitter.com/gibasmaciej',
       icon: '/src/assets/img/twitter.svg',
     },
     {
       name: 'GitHub',
-      ulr: 'https://twitter.com/gibasmaciej',
+      url: 'https://github.com/mgibas',
       icon: '/src/assets/img/github.svg',
     },
   ],
