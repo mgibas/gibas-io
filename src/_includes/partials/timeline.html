@@ -18,17 +18,16 @@
         </span>
         <span class="text-base text-secondary dark:text-dark-secondary"> {{e.subtitle}} </span>
       </header>
-      <p class="m-0 text-primary dark:text-dark-primary">{{e.description}}</p>
+      <p class="text-primary dark:text-dark-primary">{{e.description}}</p>
       <dl>
         <dt class="text-sm text-secondary dark:text-dark-secondary">
           {% if e.tagsTitle %}{{e.tagsTitle}}{% else %}Learned / practiced{% endif %}
         </dt>
         <dd class="mt-2">
-          <ul
-            class="{% if alt %}lg:justify-start{% else %}lg:justify-end{% endif %} m-0 flex flex-wrap items-center gap-2 p-0">
+          <ul class="{% if alt %}lg:justify-start{% else %}lg:justify-end{% endif %} flex flex-wrap items-center gap-2">
             {% for tag in e.tags | sort(false, false) -%}
             <li
-              class="m-0 inline-flex items-center whitespace-nowrap rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+              class="inline-flex items-center whitespace-nowrap rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
               {{tag}}
             </li>
             {% endfor -%}
