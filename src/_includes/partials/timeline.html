@@ -4,7 +4,7 @@
   {% for e in entries %} {% set alt = loop.index0 % 2 -%}
   <section
     class="{% if alt %}lg:flex-row lg:self-end{% else %}lg:flex-row-reverse lg:text-right{% endif %} group relative flex gap-8 lg:w-1/2">
-    <div class="relative">
+    <div class="relative" aria-hidden="true">
       <div
         class="absolute top-2 h-4 w-4 rounded-full bg-gray-200 transition-colors group-hover:bg-rose-500 dark:bg-gray-700"></div>
       <div
