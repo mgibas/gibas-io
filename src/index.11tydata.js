@@ -1,4 +1,30 @@
 module.exports = {
+  menu: [
+    {
+      name: 'About',
+      url: '/#about-me',
+    },
+    {
+      name: 'Experience',
+      url: '/#experience',
+    },
+    {
+      name: 'Contact',
+      url: '/#lets-get-in-touch!',
+    },
+  ],
+  social: [
+    {
+      name: 'Twitter',
+      ulr: 'https://twitter.com/gibasmaciej',
+      icon: '/src/assets/img/twitter.svg',
+    },
+    {
+      name: 'GitHub',
+      ulr: 'https://twitter.com/gibasmaciej',
+      icon: '/src/assets/img/github.svg',
+    },
+  ],
   experience: [
     {
       title: '2007 - 2011',

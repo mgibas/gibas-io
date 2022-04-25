@@ -18,8 +18,19 @@
     </h2>
   </div>
 
-  <nav>
-    <ul class="mt-3 flex space-x-6">
+  <nav class="mt-3 flex items-center text-sm">
+    <ul class="flex flex-1 gap-2">
+      {% for link in menu %}
+      <li>
+        <a
+          href="{{link.url}}"
+          class="transition-color text-secondary transition-colors hover:text-gray-600 dark:text-dark-secondary dark:hover:text-rose-500">
+          {{link.name}}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <ul class="flex gap-2">
       {% for link in social %}
       <li>
         <a
