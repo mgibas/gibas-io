@@ -15,8 +15,7 @@ Beyond these boring technical aspects I love brewing a ☕ coffee, bake a 🍞 b
 ## Experience
 
 I started my career in 2007, straight out of high school, and since then worked in many environments, teams and projects.
-I won't go to details and _names_ in here but instead will try to present everything in a meaningful timeline so you can have
-overall picture
+I won't go to details and _names_ in here but instead will try to present everything in a meaningful timeline so you can have a big picture.
 
 {{ timeline.timeline(experience) }}
 
@@ -24,7 +23,7 @@ overall picture
 
 <div class="grid gap-4 sm:grid-cols-2">
   <span>
-    Hey! I'm not giving my e-mail just like that, but if you want to get in touch please use this form.
+    I'm not giving my e-mail just like that, but if you want to get in touch please use this form 🙂
   </span>
 
 {% call forms.form('contact', netlify=true, class='grid grid-cols-1 gap-y-6 sm:gap-x-8') -%}

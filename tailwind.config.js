@@ -14,9 +14,11 @@ module.exports = {
       textColor: (theme) => ({
         primary: theme('colors.gray.700'),
         secondary: theme('colors.gray.500'),
+        heading: theme('colors.gray.900'),
         dark: {
           primary: theme('colors.gray.300'),
-          secondary: theme('colors.gray.500'),
+          secondary: theme('colors.gray.400'),
+          heading: 'white',
         },
       }),
       fontFamily: {

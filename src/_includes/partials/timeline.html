@@ -1,34 +1,40 @@
 {% macro timeline(entries) -%}
 <div
-  class="not-prose grid grid-cols-1 gap-2 gap-x-16 pl-8 lg:relative lg:left-[calc(-50vw+50%)] lg:w-screen lg:grid-cols-2 lg:px-16">
+  class="not-prose mb-14 flex flex-col gap-x-4 gap-y-8 lg:relative lg:left-1/2 lg:w-screen lg:max-w-screen-2xl lg:-translate-x-1/2 lg:px-16">
   {% for e in entries %} {% set alt = loop.index0 % 2 -%}
-  <div></div>
   <section
-    class="{% if alt %}lg:text-right lg:col-start-1{% else %}lg:col-start-2{% endif %} group relative flex flex-col gap-4">
-    <header class="flex flex-col gap-1 text-xl">
-      <span class="text-xl font-semibold text-primary dark:text-dark-primary">{{ e.title }}</span>
-      <span class="text-base text-secondary grayscale transition-all group-hover:grayscale-0 dark:text-dark-secondary">
-        {{e.subtitle}}
-      </span>
-    </header>
-    <p class="text-primary dark:text-dark-primary">{{e.description}}</p>
-    <dl>
-      <dt class="text-sm text-secondary dark:text-dark-secondary">Skills/tools</dt>
-      <dd class="mt-2">
-        <ul class="{% if alt %}lg:justify-end{% endif %} flex flex-wrap items-center gap-2">
-          {% for tag in e.tags -%}
-          <li
-            class="inline-flex items-center whitespace-nowrap rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
-            {{tag}}
-          </li>
-          {% endfor -%}
-        </ul>
-      </dd>
-    </dl>
-    <div
-      class="{% if alt %}lg:-right-10 lg:left-auto{% endif %} absolute -left-10 top-2 h-4 w-4 rounded-full bg-gray-700 transition-colors group-hover:bg-rose-700"></div>
-    <div
-      class="{% if alt %}lg:-right-8 lg:left-auto{% endif %} absolute -left-8 top-10 bottom-0 w-px rounded bg-gray-700 transition-colors group-hover:bg-rose-700"></div>
+    class="{% if alt %}lg:flex-row lg:place-self-end{% else %}lg:flex-row-reverse lg:text-right{% endif %} group relative flex gap-8 lg:w-1/2">
+    <div class="relative">
+      <div
+        class="absolute top-2 h-4 w-4 rounded-full bg-gray-200 transition-colors group-hover:bg-rose-500 dark:bg-gray-700"></div>
+      <div
+        class="absolute top-10 -bottom-6 left-[7.5px] w-px rounded bg-gray-200 transition-colors group-hover:bg-rose-500 dark:bg-gray-700"></div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <header class="flex flex-col gap-1 text-xl">
+        <span
+          class="text-xl font-semibold text-heading transition-colors group-hover:text-rose-500 dark:text-dark-heading">
+          {{ e.title }}
+        </span>
+        <span class="text-base text-secondary dark:text-dark-secondary"> {{e.subtitle}} </span>
+      </header>
+      <p class="text-primary dark:text-dark-primary">{{e.description}}</p>
+      <dl>
+        <dt class="text-sm text-secondary dark:text-dark-secondary">
+          {% if e.tagsTitle %}{{e.tagsTitle}}{% else %}Learned / practiced{% endif %}
+        </dt>
+        <dd class="mt-2">
+          <ul class="{% if alt %}lg:justify-start{% else %}lg:justify-end{% endif %} flex flex-wrap items-center gap-2">
+            {% for tag in e.tags | sort(false, false) -%}
+            <li
+              class="inline-flex items-center whitespace-nowrap rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800">
+              {{tag}}
+            </li>
+            {% endfor -%}
+          </ul>
+        </dd>
+      </dl>
+    </div>
   </section>
   {% endfor -%}
 </div>
