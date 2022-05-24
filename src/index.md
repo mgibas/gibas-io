@@ -9,17 +9,17 @@ templateEngineOverride: njk,md
 
 ## About me
 
-Hi! As you already know I'm Maciej Gibas, I know something about software and a little bit more about web development.
-Beyond these boring technical aspects I love brewing a ☕ coffee, bake a 🍞 bread (yes, pandemic) and spend time with my loved ones.
+Hi! As you already know I'm Maciej Gibas. I know something about software and a little bit more about web development.
+Beyond these boring technical aspects, I love brewing a ☕ coffee, bakeing 🍞 (yes, pandemic) and spending time with my loved ones.
 
 ## Experience
 
-I started my career in 2007, straight out of high school, and since then worked in many environments, teams and projects.
-I won't go to details and _names_ in here but instead will try to present everything in a meaningful timeline so you can have a big picture.
+I started my career in 2007, straight out of high school, and have since worked in many environments, teams, and projects.
+I won't go into details and _names_ here, but instead will try to present everything in a meaningful timeline so you can have the big picture.
 
 {{ timeline.timeline(experience) }}
 
-## Lets get in touch!
+## Let's get in touch!
 
 <div class="grid gap-4 sm:grid-cols-2">
   <span>

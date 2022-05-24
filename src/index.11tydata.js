@@ -29,10 +29,10 @@ module.exports = {
     {
       title: '2007 - 2011',
       subtitle: 'Fundamentals • 🇵🇱',
-      description: `Started bachelor degree in computer science and first job as a software engineer. Quickly transitioned to
-      senior software engineer. I have a lot of found memories from this period and one thing that I'll never forget was growth rate -
+      description: `I started bachelor's degree in computer science and my first job as a software engineer. Shortly after I transitioned to
+      senior software engineer. I have a lot of fond memories from this period. One thing that I'll never forget was growth rate -
       I don't think it will ever happen again! I worked, studied, had multiple personal projects and a little bit of freelancing.
-      These years where all about growth and fundamentals.`,
+      These years were all about growth and fundamentals.`,
       tags: [
         'C#',
         'VB',
@@ -52,10 +52,10 @@ module.exports = {
     {
       title: '2011-2012',
       subtitle: 'Maturing • 🇺🇸',
-      description: `Big year in my career - I got a job in Florida based company and back in the days that meant I need to move there
-      with my family. Me and my wife packed our bags and went head first into the adventure. I was very lucky - people I worked with
-      taught me a lot. Everything I learned in previous years felt like nothing, these guys where doing real sh\*t I thought,
-      I looked up to them and learned a lot. Some of them are my programming gurus to this day.`,
+      description: `This was a big year in my career - I got a job at a Florida based company which back in the day meant I needed to move there with my family.
+      My wife and I packed our bags and went head first into the adventure. I was very lucky. People I worked with taught me a lot.
+      Everything I learned in previous years felt like nothing. These guys were doing real sh*t I thought, I looked up to them and learned a lot.
+      Some of them are my programming gurus to this day.`,
       tags: [
         'TDD',
         'Unit testing',
@@ -81,11 +81,11 @@ module.exports = {
     {
       title: '2012-2015',
       subtitle: 'Frontend focus • 🇵🇱',
-      description: `Interesting time in my career - I worked in two companies, one of them with over 100k employees around the world.
-      I learned a lot about specifics of work for giant corporation, designing and working with large micro service architecture and
-      I met a lot of great people during that time and grown my soft skills. It was a time when JS ecosystem and libraries like Require,
-      Knockout and AngularJS gained a lot of traction. I shifted almost entirely to frontent development, lots of personal projects and
-      little bit of freelancing. My frontend skills started picking up the speed.`,
+      description: `This was an interesting time in my career. I worked at two companies, one of them with over 100k employees around the world. 
+      I learned a lot about the specifics of working for a giant corporation, designing and working with large micro service architecture. 
+      I met a lot of great people during that time and grew my soft skills. It was a time when the JS ecosystem and libraries like Require, Knockout, and AngularJS 
+      gained a lot of traction. I shifted almost entirely to frontend development and spent lots of time on personal projects and freelancing. 
+      My frontend skills started picking up speed.`,
       tags: [
         'Soft skills',
         'AngularJS',
@@ -106,10 +106,9 @@ module.exports = {
     {
       title: '2015-2018',
       subtitle: 'Frontend & design • 🇺🇸',
-      description: `Florida called again! This time around I knew I want to do frontend so in 2016 I joined small team that was tasked to
-      create a new SaaS product - I was a frontend developer. This project and first and foremost this team was exceptional. I learned a
-      ton during that time and for sure it accelerated my carrerr. This was also moment where I focused on my design skills and worked
-      on a large Design System for current company.`,
+      description: `Florida called again! This time around I knew I wanted to do frontend. In 2016, I joined a small team that was tasked to create a new SaaS product, 
+      and I was the frontend developer. This project, and first and foremost, this team, was exceptional. I learned a ton during that time and it accelerated my 
+      career. This was also the moment where I focused on my design skills and worked on a large Design System for my current company.`,
       tags: [
         'Frontend development',
         'CSS',
@@ -140,10 +139,9 @@ module.exports = {
     {
       title: '2018-2021',
       subtitle: 'Self employement • 🇵🇱',
-      description: `I continue working as a designer/developer, this time around as a contractor/consultant. I learned how to work with
-      clients, how to manage my time and focus on delivery. I really like design and I felt like I'm growing every day but eventually I
-      leaned towards frontend development and that became my main focus. I did a lot of work around design systems, components and
-      scalable frontend architecture`,
+      description: `I continue to work as a designer/developer, this time around as a contractor/consultant. I learned how to work with clients, how to manage my time, 
+      and focus on delivery. I really enjoyed design, and felt like I was growing every day, but eventually I leaned towards frontend development and that became my main focus. 
+      I did a lot of work around design systems, components, and scalable frontend architecture`,
       tags: [
         'Remote',
         'Delivery',
@@ -172,11 +170,10 @@ module.exports = {
     {
       title: '2021 - Now',
       subtitle: 'Leadership • 🇺🇸',
-      description: `Back in States! My career took unexpected shift and I became Frontend Lead Engineer. I switched from individual
-      contributor to manager role and yet again I had tons of stuff to learn. This still feels new to me but I've been very lucky and
-      had a great mentors on the way. I'm learning a lot about team building, strategy and how to aproach day to day duties. I try to
-      focus on human aspect of the team, resiliency and cohesive vision. On top of that I'm not slowing down as a developer - this is
-      something that got me here and I still love that.`,
+      description: `Back in the States! My career took an unexpected shift and I became the Frontend Lead Engineer. I switched from an individual contributor to 
+      manager role and yet again had tons of stuff to learn. This still feels new to me, but I've been very lucky and had great mentors on the way. 
+      I'm learning a lot about team building, strategy, and how to approach day to day duties. I try to focus on the human aspect of the team, resiliency and 
+      cohesive vision. On top of that, I'm not slowing down as a developer - this is the thing that got me here and I still love it.`,
       tags: [
         'Leadership',
         'Team building',
