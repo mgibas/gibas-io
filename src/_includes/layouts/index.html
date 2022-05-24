@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% block title %}{% endblock %}</title>
+    <title>{{ title }}</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
     <meta charset="UTF-8" />
     {% if description %}
     <meta name="description" content="{{description}}" />
     {% endif %}
+
     <link rel="stylesheet" href="/index.css?v={% version %}" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body class="min-w-screen bg-white text-gray-800 dark:bg-gray-800 dark:text-white">
-    {% block content %} {{ content | safe }} {% endblock %} {% block scripts %}{% endblock %}
+    {% if header %} {% include header ignore missing %} {% endif %}
+    <main class="prose prose-lg prose-slate prose-rose mx-auto px-4 py-16 dark:prose-invert">
+      {% block content %} {{ content | safe }} {% endblock %}
+    </main>
+    {% block scripts %} {% endblock %}
   </body>
 </html>
