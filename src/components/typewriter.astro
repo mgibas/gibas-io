@@ -1,0 +1,55 @@
+---
+const { prefix, copy, class: classes } = Astro.props
+---
+
+<div
+  class:list={[
+    classes,
+    'grid gap-x-2 text-2xl font-semibold uppercase tracking-tight text-gray-600 dark:text-gray-300 sm:grid-flow-col sm:text-3xl md:text-4xl',
+  ]}
+  role="img"
+  aria-label={prefix + ' ' + copy.join(', ')}>
+  <span class="col-span-2 whitespace-nowrap" aria-hidden="true">{prefix}</span>
+  <span class="whitespace-nowrap" aria-hidden="true">
+    <span
+      class="bg-gradient-to-r from-rose-400 to-rose-600 bg-clip-text text-transparent"
+      x-data="typewriter()"
+      x-init="setTimeout(() => erase(), 3000)">
+      <template x-for="char in text"><span x-text="char"></span></template>
+    </span>
+    <span class="animate-cursor">_</span>
+  </span>
+</div>
+
+<script define:vars={{ copy }}>
+  window.typewriter = () => {
+    console.log(copy)
+    const randomTimeout = (from, to) => Math.floor(Math.random() * to) + from
+
+    return {
+      text: copy[0].split(''),
+      current: 0,
+      erase() {
+        this.text
+          .reduce((promise) => {
+            return promise.then(() => {
+              return new Promise((res) => setTimeout(() => res(this.text.pop()), randomTimeout(40, 60)))
+            })
+          }, Promise.resolve())
+          .then(() => setTimeout(() => this.type(), 1000))
+      },
+      type() {
+        this.current = this.current + 1 === copy.length ? 0 : this.current + 1
+        const text = copy[this.current].split('')
+
+        text
+          .reduce((promise, char) => {
+            return promise.then(() => {
+              return new Promise((res) => setTimeout(() => res(this.text.push(char)), randomTimeout(90, 150)))
+            })
+          }, Promise.resolve())
+          .then(() => setTimeout(() => this.erase(), 3000))
+      },
+    }
+  }
+</script>
