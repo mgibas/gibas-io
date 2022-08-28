@@ -1,21 +1,21 @@
 {
-  "name": "portfolio",
+  "name": "gibas-io",
   "version": "1.0.0",
   "scripts": {
-    "dev": "run-p watch:*",
-    "clean": "rm -rf ./_site",
-    "watch:css": "tailwindcss -i ./src/assets/css/index.css -o ./_site/index.css --watch",
-    "watch:eleventy": "eleventy --serve",
-    "build:css": "tailwindcss -i ./src/assets/css/index.css -o ./_site/index.css",
-    "build:eleventy": "eleventy",
-    "build": "NODE_ENV=production run-s clean build:css build:css build:eleventy"
-  },
-  "dependencies": {
-    "@tailwindcss/forms": "^0.5.0",
-    "@tailwindcss/typography": "^0.5.2"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "devDependencies": {
-    "prettier": "^2.6.2",
-    "prettier-plugin-tailwindcss": "^0.1.10"
+    "@astrojs/alpinejs": "^0.1.1",
+    "@astrojs/tailwind": "^1.0.0",
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.4",
+    "alpinejs": "^3.10.3",
+    "astro": "^1.1.1",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.5.3"
   }
 }
