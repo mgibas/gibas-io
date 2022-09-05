@@ -1,0 +1,9 @@
+---
+const { class: classes, href = '' } = Astro.props
+const external = href.startsWith('http')
+const externalClasses = external ? `after:content-['↗']` : ''
+---
+
+<a href={href} target={external ? '_blank' : ''} class:list={['font-bold hover:underline', externalClasses, classes]}>
+  <slot />
+</a>

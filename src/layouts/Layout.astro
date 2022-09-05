@@ -1,13 +1,10 @@
 ---
-export interface Props {
-  title: string
-}
-
+import '../styles.css'
 const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
@@ -17,17 +14,11 @@ const { title } = Astro.props
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   </head>
-  <body class="min-w-screen bg-white text-gray-800 dark:bg-gray-800 dark:text-white">
-    <header>
-      <slot name="header" />
-    </header>
-
-    <main class="prose prose-lg prose-slate prose-rose mx-auto px-4 py-16 dark:prose-invert">
+  <body class="min-w-screen bg-theme text-primary text-xl">
+    <slot name="header" />
+    <main>
       <slot />
     </main>
-
-    <footer>
-      <slot name="footer" />
-    </footer>
+    <slot name="footer" />
   </body>
 </html>

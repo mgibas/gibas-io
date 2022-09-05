@@ -3,6 +3,6 @@ import tailwind from '@astrojs/tailwind'
 import alpinejs from '@astrojs/alpinejs'
 
 export default defineConfig({
-  integrations: [tailwind(), alpinejs()],
+  integrations: [tailwind({ config: { applyBaseStyles: false } }), alpinejs()],
   outDir: './_site',
 })

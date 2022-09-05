@@ -2,17 +2,11 @@
 const { prefix, copy, class: classes } = Astro.props
 ---
 
-<div
-  class:list={[
-    classes,
-    'grid gap-x-2 text-2xl font-semibold uppercase tracking-tight text-gray-600 dark:text-gray-300 sm:grid-flow-col sm:text-3xl md:text-4xl',
-  ]}
-  role="img"
-  aria-label={prefix + ' ' + copy.join(', ')}>
-  <span class="col-span-2 whitespace-nowrap" aria-hidden="true">{prefix}</span>
+<div class:list={[classes, 'flex gap-x-2']} role="img" aria-label={prefix + ' ' + copy.join(', ')}>
+  <span class="whitespace-nowrap" aria-hidden="true">{prefix}</span>
   <span class="whitespace-nowrap" aria-hidden="true">
     <span
-      class="bg-gradient-to-r from-rose-400 to-rose-600 bg-clip-text text-transparent"
+      class="bg-gradient-to-r from-sunset-orange to-sunset-violet bg-clip-text text-transparent"
       x-data="typewriter()"
       x-init="setTimeout(() => erase(), 3000)">
       <template x-for="char in text"><span x-text="char"></span></template>

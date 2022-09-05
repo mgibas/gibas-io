@@ -1,0 +1,29 @@
+---
+const { title, level = 1, inverted, class: classes } = Astro.props
+const HeaderTag = `h${Number(level) + 1}`
+const levelClasses = {
+  '1': {
+    root: 'mb-32 last:mb-0',
+    header: 'content text-base uppercase font-bold underline underline-offset-4 mb-4',
+  },
+  '2': {
+    root: 'mb-12 last:mb-0',
+    header: 'content text-5xl mb-5',
+    content: 'content leading-normal',
+  },
+}
+const colorClasses = {
+  root: inverted ? 'py-12 bg-theme-inverted' : 'bg-theme',
+  header: inverted ? 'text-secondary-inverted' : 'text-secondary',
+  content: inverted ? 'text-primary-inverted' : 'text-primary',
+}
+---
+
+<section class:list={[colorClasses.root, levelClasses[level].root, classes]}>
+  <HeaderTag class:list={[colorClasses.header, levelClasses[level].header]}>
+    {title}
+  </HeaderTag>
+  <div class:list={[colorClasses.content, levelClasses[level].content]}>
+    <slot />
+  </div>
+</section>
