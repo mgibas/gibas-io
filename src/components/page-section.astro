@@ -1,29 +1,72 @@
 ---
 const { title, level = 1, inverted, class: classes } = Astro.props
 const HeaderTag = `h${Number(level) + 1}`
-const levelClasses = {
-  '1': {
-    root: 'mb-32 last:mb-0',
-    header: 'content text-base uppercase font-bold underline underline-offset-4 mb-4',
-  },
-  '2': {
-    root: 'mb-12 last:mb-0',
-    header: 'content text-5xl mb-5',
-    content: 'content leading-normal',
-  },
-}
-const colorClasses = {
-  root: inverted ? 'py-12 bg-theme-inverted' : 'bg-theme',
-  header: inverted ? 'text-secondary-inverted' : 'text-secondary',
-  content: inverted ? 'text-primary-inverted' : 'text-primary',
-}
 ---
 
-<section class:list={[colorClasses.root, levelClasses[level].root, classes]}>
-  <HeaderTag class:list={[colorClasses.header, levelClasses[level].header]}>
-    {title}
-  </HeaderTag>
-  <div class:list={[colorClasses.content, levelClasses[level].content]}>
+<section inverted={inverted}>
+  <HeaderTag>{title}</HeaderTag>
+  <div class="content">
     <slot />
   </div>
+  <slot name="fullbleed" />
 </section>
+
+<style>
+  section {
+    line-height: theme('lineHeight.8');
+    background-color: var(--theme-background);
+    color: var(--theme-text-primary);
+  }
+  section[inverted] {
+    padding-top: theme('spacing.12');
+    padding-bottom: theme('spacing.12');
+    background-color: var(--theme-inverted-background);
+    color: var(--theme-inverted-text-primary);
+  }
+  section > h2,
+  section > h3,
+  section:has(> h3) .content {
+    max-width: theme('screens.lg');
+    margin-left: auto;
+    margin-right: auto;
+  }
+  section:has(> h2):not(:last-child) {
+    margin-bottom: theme('spacing.32');
+  }
+  section:has(> h3):not(:last-child) {
+    margin-bottom: theme('spacing.12');
+  }
+  section h2 {
+    margin-bottom: theme('spacing.4');
+    font-size: theme('fontSize.base');
+    font-weight: theme('fontWeight.bold');
+    text-decoration: underline;
+    text-underline-offset: theme('spacing.1');
+    text-transform: uppercase;
+    color: var(--theme-text-secondary);
+  }
+  section[inverted] h2 {
+    color: var(--theme-inverted-text-secondary);
+  }
+  section h3 {
+    margin-bottom: theme('spacing.5');
+    font-size: theme('fontSize.5xl');
+  }
+  section :global(p) {
+    margin: theme('spacing.4') 0;
+  }
+  section :global(ul) {
+    list-style-type: disc;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    padding-left: 1.6em;
+  }
+  section :global(ul li) {
+    padding-left: 0.4em;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+  }
+  section :global(ul li::marker) {
+    color: var(--theme-text-tertiary);
+  }
+</style>

@@ -3,10 +3,14 @@ import Layout from '../layouts/Layout.astro'
 import PageHeader from '../components/page-header.astro'
 import PageSection from '../components/page-section.astro'
 import Typewriter from '../components/typewriter.astro'
+import PhotoGrid from '../components/photo-grid.astro'
 import Link from '../components/link.astro'
 
-const PageHero = 'div'
 const ContactForm = 'div'
+
+const photos = [...Array(8).keys()].map((index) => ({
+  src: `/photo-grid-${index + 1}.jpeg`,
+}))
 ---
 
 <Layout title="Maciej Gibas">
@@ -18,7 +22,7 @@ const ContactForm = 'div'
 
   <PageSection title="About">
     <PageSection title="Engineer, designer and manager" level="2">
-      <p class="mb-4">
+      <p>
         I love solving user and engineering problems equally. Having a backend background helps me see the bigger
         picture and architect software as a whole. Designer and frontend background lets me focus on users, empathize
         with them, and deliver a beautiful and functional experience. Even though my skills are heavily on the frontend
@@ -32,13 +36,13 @@ const ContactForm = 'div'
       </p>
     </PageSection>
     <PageSection title="My aproach" level="2">
-      <p class="mb-4">
+      <p>
         I'm very passionate about what I do and deliver but at the same time I'm first to criticize my work and pivot if
         necessary. I'm focused on my craft, peace and quality. I emphatize with users and always try to solve their
         problems and achive business goals. I strongly believe that software is 50% about engineering and 50% about
         people and collaboration.
       </p>
-      <ul class="list-disc">
+      <ul>
         <li>Software - perfect is an enemy of good, fail fast, iterate</li>
         <li>Design - user centric, function over form yet beautiful</li>
         <li>Frontend - light, accessible, close to platform</li>
@@ -47,11 +51,14 @@ const ContactForm = 'div'
       </ul>
     </PageSection>
     <PageSection title="Personal life" level="2" inverted>
-      After work I spend most of my time with family and friends. I like brewing speciality ☕️ coffee, baking artisan
-      🍞 bread, watching 🎬 movies, traveling (mostly for food 😉), hiking and couple other minor things 🏎 🏋🏼‍♀️ 🏓 🏃🏼
-      <photo-grid />
+      <p>
+        After work I spend most of my time with family and friends. I like brewing speciality ☕️ coffee, baking artisan
+        🍞 bread, watching 🎬 movies, traveling (mostly for food 😉), hiking and couple other minor things 🏎 🏋🏼‍♀️ 🏓 🏃🏼
+      </p>
+      <PhotoGrid slot="fullbleed" photos={photos} />
     </PageSection>
   </PageSection>
+
   <PageSection title="Contact">
     <PageSection title="Lets get in touch" level="2">
       You have something interesting to share, or simply want to say hi - use the form or send me a message on

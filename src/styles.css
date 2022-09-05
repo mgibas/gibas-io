@@ -10,9 +10,9 @@
     --theme-light-tertiary-text: theme('colors.zinc.500');
 
     --theme-dark-background: theme('colors.zinc.900');
-    --theme-dark-primary-text: theme('colors.zinc.300');
-    --theme-dark-secondary-text: theme('colors.zinc.400');
-    --theme-dark-tertiary-text: theme('colors.zinc.500');
+    --theme-dark-primary-text: theme('colors.zinc.200');
+    --theme-dark-secondary-text: theme('colors.zinc.300');
+    --theme-dark-tertiary-text: theme('colors.zinc.400');
   }
   html {
     --theme-background: var(--theme-light-background);

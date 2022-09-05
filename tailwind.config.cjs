@@ -67,14 +67,10 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(({ matchVariant, addUtilities, theme }) => {
       addUtilities({
         '.cq': { 'container-type': 'inline-size' },
-        '.content': {
-          maxWidth: theme('screens.lg'),
-          marginLeft: 'auto',
-          marginRight: 'auto',
-        },
       })
       matchVariant({
         'cq-h': (value) => `@container (min-height: ${value})`,
