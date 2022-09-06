@@ -7,10 +7,6 @@ import PhotoGrid from '../components/photo-grid.astro'
 import Link from '../components/link.astro'
 
 const ContactForm = 'div'
-
-const photos = [...Array(8).keys()].map((index) => ({
-  src: `/photo-grid-${index + 1}.jpeg`,
-}))
 ---
 
 <Layout title="Maciej Gibas">
@@ -55,7 +51,7 @@ const photos = [...Array(8).keys()].map((index) => ({
         After work I spend most of my time with family and friends. I like brewing speciality ☕️ coffee, baking artisan
         🍞 bread, watching 🎬 movies, traveling (mostly for food 😉), hiking and couple other minor things 🏎 🏋🏼‍♀️ 🏓 🏃🏼
       </p>
-      <PhotoGrid slot="fullbleed" photos={photos} />
+      <PhotoGrid slot="fullbleed" />
     </PageSection>
   </PageSection>
 

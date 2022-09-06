@@ -43,6 +43,10 @@ module.exports = {
       gridTemplateColumns: {
         content: '1fr min(65ch, 100%) 1fr',
       },
+      spacing: {
+        100: '25rem',
+        150: '37.5rem',
+      },
       animation: {
         cursor: 'cursor 1s infinite',
         wave: 'wave 2.5s infinite',
@@ -68,7 +72,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    plugin(({ matchVariant, addUtilities, theme }) => {
+    plugin(({ matchVariant, addUtilities, addVariant }) => {
       addUtilities({
         '.cq': { 'container-type': 'inline-size' },
       })
@@ -76,6 +80,7 @@ module.exports = {
         'cq-h': (value) => `@container (min-height: ${value})`,
         'cq-w': (value) => `@container (min-width: ${value})`,
       })
+      addVariant('odd-alternate', ['&:nth-child(4n)', '&:nth-child(4n + 1)'])
     }),
   ],
 }
