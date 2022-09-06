@@ -13,7 +13,7 @@ const HeaderTag = `h${Number(level) + 1}`
 
 <style>
   section {
-    line-height: theme('lineHeight.8');
+    line-height: theme('lineHeight.normal');
     background-color: var(--theme-background);
     color: var(--theme-text-primary);
   }
@@ -29,6 +29,8 @@ const HeaderTag = `h${Number(level) + 1}`
     max-width: theme('screens.lg');
     margin-left: auto;
     margin-right: auto;
+    padding-left: theme('spacing.4');
+    padding-right: theme('spacing.4');
   }
   section:has(> h2):not(:last-child) {
     margin-bottom: theme('spacing.32');
@@ -37,6 +39,7 @@ const HeaderTag = `h${Number(level) + 1}`
     margin-bottom: theme('spacing.12');
   }
   section h2 {
+    line-height: theme('lineHeight.tight');
     margin-bottom: theme('spacing.4');
     font-size: theme('fontSize.base');
     font-weight: theme('fontWeight.bold');
@@ -49,6 +52,7 @@ const HeaderTag = `h${Number(level) + 1}`
     color: var(--theme-inverted-text-secondary);
   }
   section h3 {
+    line-height: theme('lineHeight.tight');
     margin-bottom: theme('spacing.5');
     font-size: theme('fontSize.5xl');
   }
@@ -68,5 +72,14 @@ const HeaderTag = `h${Number(level) + 1}`
   }
   section :global(ul li::marker) {
     color: var(--theme-text-tertiary);
+  }
+
+  @media screen(sm) {
+    section > h2,
+    section > h3,
+    section:has(> h3) .content {
+      padding-left: theme('spacing.8');
+      padding-right: theme('spacing.8');
+    }
   }
 </style>
