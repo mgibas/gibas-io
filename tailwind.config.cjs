@@ -20,24 +20,12 @@ module.exports = {
         },
       },
       backgroundColor: {
-        theme: {
-          DEFAULT: 'var(--theme-background)',
-          inverted: 'var(--theme-inverted-background)',
-        },
+        theme: 'var(--theme-background)',
       },
       textColor: (theme) => ({
-        primary: {
-          DEFAULT: 'var(--theme-text-primary)',
-          inverted: 'var(--theme-inverted-text-primary)',
-        },
-        secondary: {
-          DEFAULT: 'var(--theme-text-secondary)',
-          inverted: 'var(--theme-inverted-text-secondary)',
-        },
-        tertiary: {
-          DEFAULT: 'var(--theme-text-tertiary)',
-          inverted: 'var(--theme-inverted-text-tertiary)',
-        },
+        primary: 'var(--theme-text-primary)',
+        secondary: 'var(--theme-text-secondary)',
+        tertiary: 'var(--theme-text-tertiary)',
       }),
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],

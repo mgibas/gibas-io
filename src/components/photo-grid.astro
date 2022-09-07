@@ -1,6 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components'
-const { class: classes } = Astro.props
+const { class: classes, imgClass } = Astro.props
 
 import photo1 from '../assets/photos/photo-grid-1.jpeg'
 import photo2 from '../assets/photos/photo-grid-2.jpeg'
@@ -18,7 +18,10 @@ const photos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8].
   {
     photos.map(({ src }) => (
       <Image
-        class="md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150 mb-2 max-h-80 w-full object-cover object-center brightness-200 saturate-0 transition-all duration-500 ease-in-out hover:brightness-100 hover:saturate-100 md:aspect-video"
+        class:list={[
+          'md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150 mb-2 max-h-80 w-full object-cover object-center saturate-0 transition-all duration-500 ease-in-out md:aspect-video',
+          imgClass,
+        ]}
         src={src}
         width={600}
         alt="descriptive text"
