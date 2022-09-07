@@ -4,6 +4,6 @@ const external = href.startsWith('http')
 const externalClasses = external ? `after:content-['↗']` : ''
 ---
 
-<a href={href} target={external ? '_blank' : ''} class:list={['font-bold hover:underline', externalClasses, classes]}>
+<a href={href} target={external ? '_blank' : ''} class:list={[externalClasses, classes]}>
   <slot />
 </a>

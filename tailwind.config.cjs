@@ -6,7 +6,7 @@ module.exports = {
   experimental: { matchVariant: true },
   content: ['./src/**/*.{astro,html,js,md,mdx}'],
   safelist: ['html'],
-  corePlugins: { content: false },
+  corePlugins: { container: false },
   theme: {
     container: {
       center: true,
@@ -71,6 +71,10 @@ module.exports = {
           css: {
             color: 'var(--theme-text-primary)',
             maxWidth: '100%',
+            a: {
+              color: 'var(--theme-text-primary)',
+              fontWeight: theme('fontWeight.bold'),
+            },
             h2: {
               textDecoration: 'underline',
               textUnderlineOffset: theme('spacing.1'),
@@ -151,44 +155,44 @@ module.exports = {
     require('@tailwindcss/typography'),
     plugin(({ matchVariant, addUtilities, addVariant, matchUtilities, addBase, theme }) => {
       addBase({
-        '.content > *': {
+        '.container > *': {
           gridColumn: '2',
         },
       })
       addUtilities({
         '.cq': { 'container-type': 'inline-size' },
-        '.content': {
+        '.container': {
           display: 'grid',
-          gridTemplateColumns: `1fr min(${theme('screens.lg')}, calc(100% - calc(2 * var(--content-gap, ${theme(
+          gridTemplateColumns: `1fr min(${theme('screens.lg')}, calc(100% - calc(2 * var(--container-gap, ${theme(
             'spacing.8'
           )})))) 1fr`,
           width: '100%',
         },
-        '.content-bleed': {
+        '.container-bleed': {
           width: '100%',
           gridColumn: '1 / -1',
         },
       })
       matchUtilities(
         {
-          'content-gap': (value) => ({
-            '--content-gap': value,
+          'container-gap': (value) => ({
+            '--container-gap': value,
           }),
         },
         { values: theme('spacing') }
       )
       matchUtilities(
         {
-          content: (value) => ({
+          container: (value) => ({
             display: 'grid',
-            gridTemplateColumns: `1fr min(${value}, calc(100% - calc(2 * var(--content-gap, ${theme(
+            gridTemplateColumns: `1fr min(${value}, calc(100% - calc(2 * var(--container-gap, ${theme(
               'spacing.8'
             )})))) 1fr`,
             width: '100%',
             '& > *': {
               gridColumn: '2',
             },
-            '& > .content-bleed': {
+            '& > .container-bleed': {
               width: '100%',
               gridColumn: '1 / -1',
             },
