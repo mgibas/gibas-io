@@ -20,28 +20,30 @@ const social = [
 ---
 
 <header class:list={['flex items-center', classes]}>
-  <div class="max-w-screen-lg mx-auto flex flex-col items-start w-full px-4 sm:px-8">
-    <div class="flex text-base text-secondary gap-1 items-center">
-      <IconMapPin class="text-tertiary w-5 h-5" />
-      <span>{location}</span>
-    </div>
-    <div>
-      <h1 class="text-6xl"><slot /></h1>
-      <ul class="flex gap-4 text-tertiary mt-4">
-        {
-          social.map(({ url, name, Icon }) => (
-            <li>
-              <a href="url" class="hover:text-secondary transition-colors" target="_blank" rel="noopener noreferrer">
-                <span class="sr-only">{name}</span>
-                <Icon class="h-6 w-6 transition-transform hover:rotate-12" />
-              </a>
-            </li>
-          ))
-        }
-        <li class="ml-auto">
-          <ThemeToggle class="w-6 h-6 transition-all hover:rotate-12 hover:text-secondary" />
-        </li>
-      </ul>
+  <div class="content">
+    <div class="flex flex-col items-start w-full">
+      <div class="flex text-base text-secondary gap-1 items-center">
+        <IconMapPin class="text-tertiary w-5 h-5" />
+        <span>{location}</span>
+      </div>
+      <div>
+        <h1 class="text-6xl"><slot /></h1>
+        <ul class="flex gap-4 text-tertiary mt-4">
+          {
+            social.map(({ url, name, Icon }) => (
+              <li>
+                <a href="url" class="hover:text-secondary transition-colors" target="_blank" rel="noopener noreferrer">
+                  <span class="sr-only">{name}</span>
+                  <Icon class="h-6 w-6 transition-transform hover:rotate-12" />
+                </a>
+              </li>
+            ))
+          }
+          <li class="ml-auto">
+            <ThemeToggle class="w-6 h-6 transition-all hover:rotate-12 hover:text-secondary" />
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </header>

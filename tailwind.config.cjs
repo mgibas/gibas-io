@@ -6,6 +6,7 @@ module.exports = {
   experimental: { matchVariant: true },
   content: ['./src/**/*.{astro,html,js,md,mdx}'],
   safelist: ['html'],
+  corePlugins: { content: false },
   theme: {
     container: {
       center: true,
@@ -40,9 +41,6 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
-      gridTemplateColumns: {
-        content: '1fr min(65ch, 100%) 1fr',
-      },
       spacing: {
         100: '25rem',
         150: '37.5rem',
@@ -68,14 +66,136 @@ module.exports = {
           '100%': { transform: 'rotate( 0.0deg)' },
         },
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: 'var(--theme-text-primary)',
+            maxWidth: '100%',
+            h2: {
+              textDecoration: 'underline',
+              textUnderlineOffset: theme('spacing.1'),
+              textTransform: 'uppercase',
+              color: 'var(--theme-text-tertiary)',
+            },
+            h3: {
+              color: 'var(--theme-text-primary)',
+            },
+          },
+        },
+        inverted: {
+          css: {
+            color: 'var(--theme-inverted-text-primary)',
+            backgroundColor: 'var(--theme-inverted-background)',
+            h2: {
+              color: 'var(--theme-inverted-text-tertiary)',
+            },
+            h3: {
+              color: 'var(--theme-inverted-text-primary)',
+            },
+          },
+        },
+        lg: {
+          css: {
+            lineHeight: theme('lineHeight.normal'),
+            h2: {
+              fontSize: theme('fontSize.base'),
+              marginTop: theme('spacing.32'),
+              marginBottom: theme('spacing.4'),
+              lineHeight: theme('lineHeight.tight'),
+              fontWeight: theme('fontWeight.bold'),
+            },
+            h3: {
+              fontSize: theme('fontSize.5xl'),
+              marginTop: theme('spacing.12'),
+              marginBottom: theme('spacing.6'),
+              lineHeight: theme('lineHeight.tight'),
+            },
+            p: {
+              marginTop: theme('spacing.3'),
+              marginBottom: theme('spacing.3'),
+            },
+            ul: {
+              marginTop: theme('spacing.3'),
+              marginBottom: theme('spacing.3'),
+            },
+            ':not(.prose-inverted) + =.prose-inverted > h2': {
+              marginTop: 0,
+            },
+            ':not(.prose-inverted) + .prose-inverted:has(> h2)': {
+              marginTop: theme('spacing.32'),
+              paddingTop: theme('spacing.32'),
+              paddingBottom: theme('spacing.32'),
+            },
+            '.prose-inverted + .prose-inverted:has(> h2)': {
+              marginTop: `-${theme('spacing.32')}`,
+              paddingBottom: theme('spacing.32'),
+            },
+            ':not(.prose-inverted) + .prose-inverted > h3': {
+              marginTop: 0,
+            },
+            ':not(.prose-inverted) + .prose-inverted:has(>h3)': {
+              marginTop: theme('spacing.12'),
+              paddingTop: theme('spacing.12'),
+              paddingBottom: theme('spacing.12'),
+            },
+            '.prose-inverted + .prose-inverted:has(> h3)': {
+              marginTop: `-${theme('spacing.12')}`,
+              paddingBottom: theme('spacing.12'),
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [
     require('@tailwindcss/typography'),
-    plugin(({ matchVariant, addUtilities, addVariant }) => {
+    plugin(({ matchVariant, addUtilities, addVariant, matchUtilities, addBase, theme }) => {
+      addBase({
+        '.content > *': {
+          gridColumn: '2',
+        },
+      })
       addUtilities({
         '.cq': { 'container-type': 'inline-size' },
+        '.content': {
+          display: 'grid',
+          gridTemplateColumns: `1fr min(${theme('screens.lg')}, calc(100% - calc(2 * var(--content-gap, ${theme(
+            'spacing.8'
+          )})))) 1fr`,
+          width: '100%',
+        },
+        '.content-bleed': {
+          width: '100%',
+          gridColumn: '1 / -1',
+        },
       })
+      matchUtilities(
+        {
+          'content-gap': (value) => ({
+            '--content-gap': value,
+          }),
+        },
+        { values: theme('spacing') }
+      )
+      matchUtilities(
+        {
+          content: (value) => ({
+            display: 'grid',
+            gridTemplateColumns: `1fr min(${value}, calc(100% - calc(2 * var(--content-gap, ${theme(
+              'spacing.8'
+            )})))) 1fr`,
+            width: '100%',
+            '& > *': {
+              gridColumn: '2',
+            },
+            '& > .content-bleed': {
+              width: '100%',
+              gridColumn: '1 / -1',
+            },
+          }),
+        },
+        { values: theme('screens') }
+      )
       matchVariant({
         'cq-h': (value) => `@container (min-height: ${value})`,
         'cq-w': (value) => `@container (min-width: ${value})`,

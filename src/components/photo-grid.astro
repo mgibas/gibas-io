@@ -14,7 +14,7 @@ import photo8 from '../assets/photos/photo-grid-8.jpeg'
 const photos = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8].map((src) => ({ src }))
 ---
 
-<div class="flex gap-2 overflow-x-scroll md:block md:columns-4">
+<div class:list={['flex gap-2 overflow-x-scroll md:block md:columns-4', classes]}>
   {
     photos.map(({ src }) => (
       <Image

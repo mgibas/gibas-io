@@ -3,21 +3,20 @@ const { title, level = 1, inverted, class: classes } = Astro.props
 const HeaderTag = `h${Number(level) + 1}`
 ---
 
-<section inverted={inverted}>
-  <HeaderTag>{title}</HeaderTag>
-  <div class="content">
-    <slot />
-  </div>
-  <div class="mt-12">
-    <slot name="fullbleed" />
+<section inverted={inverted} level={level}>
+  <div class="prose md:prose-lg">
+    <HeaderTag>{title}</HeaderTag>
+    <div>
+      <slot />
+    </div>
   </div>
 </section>
 
 <style>
-  section {
-    line-height: theme('lineHeight.normal');
-    background-color: var(--theme-background);
-    color: var(--theme-text-primary);
+  /* section {
+    // line-height: theme('lineHeight.normal');
+    ?background-color: var(--theme-background);
+    // color: var(--theme-text-primary);
   }
   section[inverted] {
     padding-top: theme('spacing.12');
@@ -28,11 +27,11 @@ const HeaderTag = `h${Number(level) + 1}`
   section > h2,
   section > h3,
   section:has(> h3) .content {
-    max-width: theme('screens.lg');
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: theme('spacing.4');
-    padding-right: theme('spacing.4');
+    //max-width: theme('screens.lg');
+    //margin-left: auto;
+    //margin-right: auto;
+    padding-left: theme('spacing.4'); ? part of the component?
+    padding-right: theme('spacing.4');? part of the component?
   }
   section:has(> h2) {
     margin-bottom: theme('spacing.32');
@@ -83,5 +82,5 @@ const HeaderTag = `h${Number(level) + 1}`
       padding-left: theme('spacing.8');
       padding-right: theme('spacing.8');
     }
-  }
+  } */
 </style>

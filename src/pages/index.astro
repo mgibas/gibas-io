@@ -16,50 +16,50 @@ const ContactForm = 'div'
     <Typewriter class="text-xl" prefix="Frontend" copy={['leader', 'architect', 'developer', 'designer']} />
   </PageHeader>
 
-  <PageSection title="About">
-    <PageSection title="Engineer, designer and manager" level="2">
-      <p>
-        I love solving user and engineering problems equally. Having a backend background helps me see the bigger
-        picture and architect software as a whole. Designer and frontend background lets me focus on users, empathize
-        with them, and deliver a beautiful and functional experience. Even though my skills are heavily on the frontend
-        side I love all aspects of product development!
-      </p>
-      <p>
-        Currently I work as a frontend engineering lead at
-        <Link href="https://infotechinc.com">Infotech</Link> with 5 briliant developers. Together we take care of everything
-        frontend, includding new and existing products (~10 apps), development of our internal design system and frontend
-        strategy.
-      </p>
-    </PageSection>
-    <PageSection title="My aproach" level="2">
-      <p>
-        I'm very passionate about what I do and deliver but at the same time I'm first to criticize my work and pivot if
-        necessary. I'm focused on my craft, peace and quality. I emphatize with users and always try to solve their
-        problems and achive business goals. I strongly believe that software is 50% about engineering and 50% about
-        people and collaboration.
-      </p>
-      <ul>
-        <li>Software - perfect is an enemy of good, fail fast, iterate</li>
-        <li>Design - user centric, function over form yet beautiful</li>
-        <li>Frontend - light, accessible, close to platform</li>
-        <li>Leadership - deeply care, guide and drive results collectively.</li>
-        <li>Collaboration - full ownership of your work, influence others and accept their influence</li>
-      </ul>
-    </PageSection>
-    <PageSection title="Personal life" level="2" inverted>
-      <p>
-        After work I spend most of my time with family and friends. I like brewing speciality ☕️ coffee, baking artisan
-        🍞 bread, watching 🎬 movies, traveling (mostly for food 😉), hiking and couple other minor things 🏎 🏋🏼‍♀️ 🏓 🏃🏼
-      </p>
-      <PhotoGrid slot="fullbleed" />
-    </PageSection>
-  </PageSection>
+  <h2>About</h2>
 
-  <PageSection title="Contact">
-    <PageSection title="Lets get in touch" level="2">
-      You have something interesting to share, or simply want to say hi - use the form or send me a message on
-      <Link href="https://twitter.com/gibasmaciej">Twitter</Link>.
-      <ContactForm />
-    </PageSection>
-  </PageSection>
+  <h3>Engineer, designer and manager</h3>
+  <p>
+    I love solving user and engineering problems equally. Having a backend background helps me see the bigger picture
+    and architect software as a whole. Designer and frontend background lets me focus on users, empathize with them, and
+    deliver a beautiful and functional experience. Even though my skills are heavily on the frontend side I love all
+    aspects of product development!
+  </p>
+  <p>
+    Currently I work as a frontend engineering lead at
+    <Link href="https://infotechinc.com">Infotech</Link> with 5 briliant developers. Together we take care of everything
+    frontend, includding new and existing products (~10 apps), development of our internal design system and frontend strategy.
+  </p>
+
+  <h3>My aproach</h3>
+  <p>
+    I'm very passionate about what I do and deliver but at the same time I'm first to criticize my work and pivot if
+    necessary. I'm focused on my craft, peace and quality. I emphatize with users and always try to solve their problems
+    and achive business goals. I strongly believe that software is 50% about engineering and 50% about people and
+    collaboration.
+  </p>
+  <ul>
+    <li>Software - perfect is an enemy of good, fail fast, iterate</li>
+    <li>Design - user centric, function over form yet beautiful</li>
+    <li>Frontend - light, accessible, close to platform</li>
+    <li>Leadership - deeply care, guide and drive results collectively.</li>
+    <li>Collaboration - full ownership of your work, influence others and accept their influence</li>
+  </ul>
+
+  <section class="content content-bleed prose-inverted">
+    <h3>Personal life</h3>
+    <p>
+      After work I spend most of my time with family and friends. I like brewing speciality ☕️ coffee, baking artisan
+      🍞 bread, watching 🎬 movies, traveling (mostly for food 😉), hiking and couple other minor things 🏎 🏋🏼‍♀️ 🏓 🏃🏼
+    </p>
+    <PhotoGrid class="not-prose content-bleed mt-6" />
+  </section>
+
+  <h2>Contact</h2>
+  <h3>Lets get in touch</h3>
+  <p>
+    You have something interesting to share, or simply want to say hi - use the form or send me a message on
+    <Link href="https://twitter.com/gibasmaciej">Twitter</Link>.
+  </p>
+  <ContactForm />
 </Layout>
