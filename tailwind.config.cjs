@@ -13,6 +13,9 @@ module.exports = {
       center: true,
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         sunset: {
           orange: '#FCB827',

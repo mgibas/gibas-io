@@ -1,4 +1,6 @@
 ---
+import PageHeroM from './page-hero-m.astro'
+import PageHeroG from './page-hero-g.astro'
 import ThemeToggle from './theme-toggle.astro'
 import IconMapPin from '../icons/map-pin.astro'
 import IconGithub from '../icons/github.astro'
@@ -19,7 +21,10 @@ const social = [
 ]
 ---
 
-<header class:list={['flex items-center', classes]}>
+
+
+<header class:list={['flex items-center relative', classes]}>
+
   <div class="container">
     <div class="flex flex-col items-start w-full">
       <div class="flex text-base text-secondary gap-1 items-center">
@@ -44,6 +49,10 @@ const social = [
           </li>
         </ul>
       </div>
+    </div>
+    <div class="inline-block absolute top-1/2 right-0 -translate-y-[250%] sm:-translate-y-[170%] lg:-translate-y-[110%]" aria-hidden="true">
+      <PageHeroM class="transition-all h-[100px] sm:h-[200px] lg:h-[325px]" imgClass="saturate-0" />
+      <PageHeroG class="ralative transition-all h-[100px]  sm:h-[200px] lg:h-[325px] translate-x-[-33%] translate-y-[75%]" imgClass="saturate-0" />
     </div>
   </div>
 </header>

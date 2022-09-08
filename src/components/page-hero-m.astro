@@ -1,0 +1,26 @@
+---
+import { Image } from '@astrojs/image/components'
+import photo from '../assets/photos/photo-grid-1.jpeg'
+const { class: classes, imgClass } = Astro.props
+---
+
+<div role="img" class:list={['inline-block', classes]}>
+  <Image src={photo} class:list={['object-cover object-top block h-full w-auto aspect-[448/429]', imgClass]} class="" width={800} format="webp" />
+  
+  <svg width="0" height="0" viewBox="0 0 448 429">
+    <defs>
+      <clipPath id="m-clip" clipPathUnits="objectBoundingBox">
+        <path d="M185 429L67.4 78H65C65.4 86 66 97.4 66.8 112.2C67.6 126.6 68.2 142.4 68.6 159.6C69.4 176.4 69.8 192.2 69.8 207V429H0.799988V0.599976H107.6L220.4 337.2H222.8L340.4 0.599976H447.2V429H374V203.4C374 189.8 374.2 175 374.6 159C375.4 142.6 376 127.2 376.4 112.8C377.2 98 377.8 86.6 378.2 78.6H375.8L253.4 429H185Z" />
+      </clipPath>
+    </defs>
+  </svg>
+</div>
+
+<style>
+  img {
+    clip-path: url(#m-clip);
+  }
+  #m-clip{
+    transform:scale(calc(1 / 448), calc(1 / 429));
+  }
+</style>
