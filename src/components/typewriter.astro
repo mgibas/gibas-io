@@ -17,7 +17,6 @@ const { prefix, copy, class: classes } = Astro.props
 
 <script define:vars={{ copy }}>
   window.typewriter = () => {
-    console.log(copy)
     const randomTimeout = (from, to) => Math.floor(Math.random() * to) + from
 
     return {
