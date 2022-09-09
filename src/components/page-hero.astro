@@ -1,5 +1,5 @@
 ---
-const { class: classes, mClass, gClass } = Astro.props
+const { class: classes } = Astro.props
 ---
 
 <svg class:list={['overflow-visible', classes]} viewBox="0 0 681 821" xmlns="http://www.w3.org/2000/svg">
@@ -18,6 +18,9 @@ const { class: classes, mClass, gClass } = Astro.props
       <stop offset="80%" stop-color="black" stop-opacity=".6"></stop>
       <stop offset="100%" stop-color="black"></stop>
     </linearGradient>
+    <filter id="image-filter">
+      <feColorMatrix in="SourceGraphic" type="saturate" values="0"></feColorMatrix>
+    </filter>
   </defs>
 
   <path
@@ -25,12 +28,12 @@ const { class: classes, mClass, gClass } = Astro.props
     d="M194.287 450.6L70.758 81.9025H68.237C68.6571 90.3059 69.2874 102.281 70.1277 117.827C70.9681 132.953 71.5983 149.55 72.0185 167.617C72.8588 185.264 73.279 201.861 73.279 217.407V450.6H0.799988V0.599976H112.985L231.472 354.171H233.993L357.523 0.599976H469.708V450.6H392.817V213.625C392.817 199.339 393.027 183.793 393.447 166.987C394.287 149.76 394.918 133.583 395.338 118.457C396.178 102.911 396.808 90.9361 397.229 82.5327H394.708L266.136 450.6H194.287Z">
   </path>
   <image
-    class="saturate-0 dark:brightness-150 transition-all"
     x="-40"
     y="-100"
     width="510"
     clip-path="url(#clipping-m)"
     xlink:href="/hero-1.jpeg"
+    filter="url(#image-filter)"
   />
   <rect
     width="500"
@@ -43,12 +46,12 @@ const { class: classes, mClass, gClass } = Astro.props
     d="M514.972 574.142H680.503V796.69C657.206 804.456 633.296 810.382 608.773 814.469C584.25 818.556 556.457 820.6 525.394 820.6C481.253 820.6 443.855 811.812 413.201 794.238C382.547 776.663 359.25 751.118 343.31 717.603C327.37 684.088 319.4 643.216 319.4 594.987C319.4 549.21 328.392 509.565 346.375 476.05C364.359 442.535 390.108 416.581 423.623 398.189C457.547 379.796 498.828 370.6 547.465 370.6C571.171 370.6 594.059 373.052 616.13 377.957C638.61 382.453 659.046 388.788 677.438 396.962L650.463 461.336C636.566 454.387 620.422 448.665 602.029 444.169C584.046 439.265 565.245 436.812 545.626 436.812C515.79 436.812 490.04 443.352 468.378 456.431C446.716 469.51 429.959 488.107 418.106 512.221C406.662 535.927 400.939 563.924 400.939 596.213C400.939 627.276 405.435 654.864 414.427 678.979C423.419 702.684 437.724 721.281 457.343 734.769C476.961 747.848 502.506 754.387 533.978 754.387C544.604 754.387 553.801 753.979 561.566 753.161C569.741 752.344 577.098 751.322 583.637 750.096C590.585 748.87 597.125 747.644 603.256 746.417V640.968H514.972V574.142Z"
     class="stroke-theme stroke-[20px] transition-all"></path>
   <image
-    class="saturate-0 dark:brightness-150 transition-all"
     y="330"
     x="225"
     height="490"
     clip-path="url(#clipping-g)"
     xlink:href="/hero-2.jpeg"
+    filter="url(#image-filter)"
   />
   <rect
     y="330"
@@ -58,46 +61,3 @@ const { class: classes, mClass, gClass } = Astro.props
     clip-path="url(#clipping-g)"
     class="fill-[url(#gradient-dark)] dark:fill-[url(#gradient-light)]"></rect>
 </svg>
-
-<!-- <svg class:list={['relative inline-block overflow-visible h-full', classes]} viewBox="0 0 645 900" xml:space="preserve">
-  <use x="0" xlink:href="#m-symbol"></use>
-  <use y="400" x="270" xlink:href="#g-symbol"></use>
-
-  <symbol id="m-symbol" viewBox="0 0 522 501">
-    <defs>
-      <clipPath id="clipping-m">
-        <use xlink:href="#m"></use>
-      </clipPath>
-    </defs>
-    <path
-      id="m"
-      d="M215.786 500.6L78.5311 90.9361H75.73C76.1968 100.273 76.8971 113.579 77.8308 130.852C78.7645 147.659 79.4648 166.1 79.9316 186.174C80.8653 205.782 81.3322 224.223 81.3322 241.496V500.6H0.799988V0.599976H125.45L257.103 393.457H259.904L397.159 0.599976H521.808V500.6H436.374V237.295C436.374 221.422 436.608 204.148 437.074 185.474C438.008 166.333 438.709 148.359 439.175 131.552C440.109 114.279 440.809 100.973 441.276 91.6364H438.475L295.618 500.6H215.786Z"
-      style="stroke:white;stroke-width:0">
-    </path>
-    <image
-      class="w-full"
-      clip-path="url(#clipping-m)"
-      xlink:href="src/assets/photos/photo-grid-1.jpeg"
-      preserveAspectRatio="xMidYMid slice"
-    />
-  </symbol>
-  <symbol id="g-symbol" viewBox="0 0 393 501">
-    <defs>
-      <clipPath id="clipping-g">
-        <use xlink:href="#g"></use>
-      </clipPath>
-    </defs>
-    <path
-      id="g"
-      d="M217.602 226.358H401.526V473.633C375.641 482.262 349.074 488.847 321.826 493.388C294.578 497.929 263.697 500.2 229.183 500.2C180.136 500.2 138.583 490.436 104.523 470.908C70.4635 451.381 44.5779 422.997 26.8667 385.759C9.15557 348.52 0.299988 303.106 0.299988 249.519C0.299988 198.656 10.2909 154.605 30.2727 117.366C50.2546 80.1273 78.8649 51.2899 116.104 30.8539C153.797 10.418 199.664 0.199982 253.706 0.199982C280.046 0.199982 305.477 2.92478 330 8.37438C354.978 13.3698 377.684 20.4089 398.12 29.4915L368.147 101.017C352.707 93.2971 334.769 86.9393 314.333 81.9438C294.351 76.4942 273.461 73.7694 251.662 73.7694C218.511 73.7694 189.9 81.0356 165.831 95.5678C141.762 110.1 123.143 130.763 109.973 157.557C97.2573 183.897 90.8994 215.005 90.8994 250.881C90.8994 285.395 95.8949 316.049 105.886 342.843C115.877 369.183 131.771 389.846 153.57 404.832C175.368 419.364 203.751 426.63 238.72 426.63C250.527 426.63 260.745 426.176 269.374 425.268C278.456 424.36 286.631 423.224 293.897 421.862C301.617 420.5 308.883 419.137 315.695 417.775V300.609H217.602V226.358Z"
-      style="stroke:white;stroke-width:0">
-    </path>
-    <image
-      x="-90px"
-      class="h-full"
-      clip-path="url(#clipping-g)"
-      xlink:href="src/assets/photos/photo-grid-2.jpeg"
-      preserveAspectRatio="xMidYMid slice"
-    />
-  </symbol>
-</svg> -->
