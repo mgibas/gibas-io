@@ -6,20 +6,18 @@ const { class: classes, mClass, gClass } = Astro.props
   <defs>
     <clipPath id="clipping-m"><use xlink:href="#letter-m"></use></clipPath>
     <clipPath id="clipping-g"><use xlink:href="#letter-g"></use></clipPath>
-    <defs>
-      <linearGradient id="gradient-light" x1="0" x2="0" y1="0" y2="1" gradientTransform="rotate(35)">
-        <stop offset="0%" stop-color="white" stop-opacity=".7"></stop>
-        <stop offset="40%" stop-color="white" stop-opacity=".09"></stop>
-        <stop offset="80%" stop-color="white" stop-opacity=".6"></stop>
-        <stop offset="100%" stop-color="white"></stop>
-      </linearGradient>
-      <linearGradient id="gradient-dark" x1="0" x2="0" y1="0" y2="1" gradientTransform="rotate(35)">
-        <stop offset="0%" stop-color="black" stop-opacity=".7"></stop>
-        <stop offset="40%" stop-color="black" stop-opacity=".09"></stop>
-        <stop offset="80%" stop-color="black" stop-opacity=".6"></stop>
-        <stop offset="100%" stop-color="black"></stop>
-      </linearGradient>
-    </defs>
+    <linearGradient id="gradient-light" x1="0" x2="0" y1="0" y2="1" gradientTransform="rotate(35)">
+      <stop offset="0%" stop-color="white" stop-opacity=".7"></stop>
+      <stop offset="40%" stop-color="white" stop-opacity=".09"></stop>
+      <stop offset="80%" stop-color="white" stop-opacity=".6"></stop>
+      <stop offset="100%" stop-color="white"></stop>
+    </linearGradient>
+    <linearGradient id="gradient-dark" x1="0" x2="0" y1="0" y2="1" gradientTransform="rotate(35)">
+      <stop offset="0%" stop-color="black" stop-opacity=".7"></stop>
+      <stop offset="40%" stop-color="black" stop-opacity=".09"></stop>
+      <stop offset="80%" stop-color="black" stop-opacity=".6"></stop>
+      <stop offset="100%" stop-color="black"></stop>
+    </linearGradient>
   </defs>
 
   <path
@@ -32,7 +30,7 @@ const { class: classes, mClass, gClass } = Astro.props
     y="-100"
     width="510"
     clip-path="url(#clipping-m)"
-    xlink:href="src/assets/photos/photo-grid-1.jpeg"
+    xlink:href="/hero-1.jpeg"
   />
   <rect
     width="500"
@@ -50,7 +48,7 @@ const { class: classes, mClass, gClass } = Astro.props
     x="225"
     height="490"
     clip-path="url(#clipping-g)"
-    xlink:href="src/assets/photos/photo-grid-2.jpeg"
+    xlink:href="/hero-2.jpeg"
   />
   <rect
     y="330"
