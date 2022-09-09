@@ -22,6 +22,9 @@ module.exports = {
           violet: '#FC14E6',
         },
       },
+      stroke: {
+        theme: 'var(--theme-background)',
+      },
       backgroundColor: {
         theme: 'var(--theme-background)',
       },
