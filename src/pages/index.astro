@@ -4,8 +4,7 @@ import PageHeader from '../components/page-header.astro'
 import Typewriter from '../components/typewriter.astro'
 import PhotoGrid from '../components/photo-grid.astro'
 import Link from '../components/link.astro'
-
-const ContactForm = 'div'
+import ContactForm from '../components/contact-form.astro'
 ---
 
 <Layout title="Maciej Gibas">
@@ -38,11 +37,11 @@ const ContactForm = 'div'
     collaboration.
   </p>
   <ul>
-    <li>Software - perfect is an enemy of good, fail fast, iterate</li>
-    <li>Design - user centric, function over form yet beautiful</li>
-    <li>Frontend - light, accessible, close to platform</li>
-    <li>Leadership - deeply care, guide and drive results collectively.</li>
-    <li>Collaboration - full ownership of your work, influence others and accept their influence</li>
+    <li><b>Software</b> - perfect is an enemy of good, fail fast, iterate</li>
+    <li><b>Design</b> - user centric, function over form yet beautiful</li>
+    <li><b>Frontend</b> - light, accessible, close to platform</li>
+    <li><b>Leadership</b> - deeply care, guide and drive results collectively.</li>
+    <li><b>Collaboration</b> - full ownership of your work, influence others and accept their influence</li>
   </ul>
 
   <section class="container container-bleed prose-inverted">
@@ -59,9 +58,11 @@ const ContactForm = 'div'
 
   <h2>Contact</h2>
   <h3>Lets get in touch</h3>
-  <p>
-    You have something interesting to share, or simply want to say hi - use the form or send me a message on
-    <Link href="https://twitter.com/gibasmaciej">Twitter</Link>.
-  </p>
-  <ContactForm />
+  <div class="flex flex-col gap-4 mt-3 md:flex-row md:gap-16">
+    <p class="flex-1 mt-0">
+      You have something interesting to share, or simply want to say hi - use the form or send me a message on
+      <Link href="https://twitter.com/gibasmaciej">Twitter</Link>.
+    </p>
+    <ContactForm class="flex-1" />
+  </div>
 </Layout>
