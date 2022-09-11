@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
+const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default
 
 module.exports = {
   experimental: { matchVariant: true },
@@ -152,6 +153,11 @@ module.exports = {
         '.container > *': {
           gridColumn: '2',
         },
+        '*': {
+          outlineColor: theme('colors.zinc.400'),
+          outlineWidth: '2px',
+          outlineOffset: '4px',
+        },
       })
       addUtilities({
         '.cq': { 'container-type': 'inline-size' },
@@ -174,6 +180,14 @@ module.exports = {
           }),
         },
         { values: theme('spacing') }
+      )
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: `4px 8px ${value}`,
+          }),
+        },
+        { values: flattenColorPalette(theme('colors')) }
       )
       matchUtilities(
         {
