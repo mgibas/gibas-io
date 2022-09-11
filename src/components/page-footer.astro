@@ -1,0 +1,13 @@
+---
+const { class: classes } = Astro.props
+---
+
+<footer class:list={['max-w-screen-2xl mx-auto py-12', classes]}>
+  <span class="leading-none text-[12rem] sm:text-[13rem] md:text-[15rem] lg:text-[20rem] text-zinc-900">BYE</span>
+</footer>
+
+<style>
+  span {
+    text-shadow: 4px 8px theme('colors.zinc.600');
+  }
+</style>
