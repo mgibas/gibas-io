@@ -29,7 +29,7 @@ const photos = [
 <div class:list={['flex gap-2 overflow-x-scroll md:block md:columns-4', classes]}>
   {
     photos.map((photo) => (
-      <div class="md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150 group relative mb-2 max-h-80 md:aspect-video">
+      <div class="basis-content md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150 group relative mb-2 max-h-80 shrink-0 md:aspect-video">
         <Image
           class:list={[
             'h-full w-full object-cover object-center saturate-0 transition-all duration-500 ease-in-out brightness-90 group-hover:brightness-100 group-hover:saturate-100 dark:brightness-150 dark:group-hover:brightness-100',

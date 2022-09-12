@@ -33,6 +33,12 @@ module.exports = {
         secondary: 'var(--theme-text-secondary)',
         tertiary: 'var(--theme-text-tertiary)',
       }),
+      flexBasis: {
+        content: 'content',
+        max: 'max-content',
+        min: 'min-content',
+        fit: 'fit-content',
+      },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
