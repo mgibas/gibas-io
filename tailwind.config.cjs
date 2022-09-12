@@ -28,7 +28,7 @@ module.exports = {
       backgroundColor: {
         theme: 'var(--theme-background)',
       },
-      textColor: (theme) => ({
+      textColor: () => ({
         primary: 'var(--theme-text-primary)',
         secondary: 'var(--theme-text-secondary)',
         tertiary: 'var(--theme-text-tertiary)',

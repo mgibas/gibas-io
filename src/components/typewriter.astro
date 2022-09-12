@@ -22,7 +22,7 @@ const { prefix, copy, class: classes } = Astro.props
     return {
       text: copy[0].split(''),
       current: 0,
-      erase() {
+      erase () {
         this.text
           .reduce((promise) => {
             return promise.then(() => {
@@ -31,7 +31,7 @@ const { prefix, copy, class: classes } = Astro.props
           }, Promise.resolve())
           .then(() => setTimeout(() => this.type(), 1000))
       },
-      type() {
+      type () {
         this.current = this.current + 1 === copy.length ? 0 : this.current + 1
         const text = copy[this.current].split('')
 
@@ -42,7 +42,7 @@ const { prefix, copy, class: classes } = Astro.props
             })
           }, Promise.resolve())
           .then(() => setTimeout(() => this.erase(), 3000))
-      },
+      }
     }
   }
 </script>

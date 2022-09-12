@@ -10,26 +10,26 @@ const social = [
   {
     name: 'Twitter',
     url: 'https://twitter.com/gibasmaciej',
-    Icon: IconTwitter,
+    Icon: IconTwitter
   },
   {
     name: 'GitHub',
     url: 'https://github.com/mgibas',
-    Icon: IconGithub,
-  },
+    Icon: IconGithub
+  }
 ]
 ---
 
 <header class:list={['flex items-center relative overflow-x-hidden', classes]}>
   <div class="container">
-    <div class="flex flex-col items-start w-full">
-      <div class="flex text-base text-secondary gap-1 items-center">
-        <IconMapPin class="text-tertiary w-5 h-5" />
+    <div class="flex w-full flex-col items-start">
+      <div class="flex items-center gap-1 text-base text-secondary">
+        <IconMapPin class="h-5 w-5 text-tertiary" />
         <span>{location}</span>
       </div>
       <div>
         <h1 class="text-6xl"><slot /></h1>
-        <ul class="flex gap-4 text-tertiary mt-4">
+        <ul class="mt-4 flex gap-4 text-tertiary">
           {
             social.map(({ url, name, Icon }) => (
               <li>
@@ -41,13 +41,13 @@ const social = [
             ))
           }
           <li class="ml-auto">
-            <ThemeToggle class="w-6 h-6 transition-all hover:rotate-12 hover:text-secondary" />
+            <ThemeToggle class="h-6 w-6 transition-all hover:rotate-12 hover:text-secondary" />
           </li>
         </ul>
       </div>
     </div>
     <PageHero
-      class="absolute top-[calc(50%_-_290px)] -right-3 h-[200px] sm:h-[400px] sm:top-[calc(50%_-_250px)] lg:h-[550px] lg:top-[calc(50%_-_350px)] lg:right-[calc(50%_-_600px)]"
+      class="absolute top-[calc(50%_-_290px)] -right-3 h-[200px] sm:top-[calc(50%_-_250px)] sm:h-[400px] lg:top-[calc(50%_-_350px)] lg:right-[calc(50%_-_600px)] lg:h-[550px]"
     />
   </div>
 </header>

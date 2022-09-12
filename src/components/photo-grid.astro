@@ -1,6 +1,5 @@
 ---
 import { Image } from '@astrojs/image/components'
-const { class: classes, imgClass } = Astro.props
 
 import photo1 from '../assets/photos/photo-grid-1.jpeg'
 import photo2 from '../assets/photos/photo-grid-2.jpeg'
@@ -13,6 +12,7 @@ import photo6 from '../assets/photos/photo-grid-6.jpeg'
 import photo7 from '../assets/photos/photo-grid-7.jpeg'
 import photo8 from '../assets/photos/photo-grid-8.jpeg'
 import photo8Alt from '../assets/photos/photo-grid-8-alt.jpeg'
+const { class: classes, imgClass } = Astro.props
 
 const photos = [
   photo1,
@@ -22,18 +22,18 @@ const photos = [
   photo5,
   photo6,
   photo7,
-  { alt: photo8Alt, orig: photo8 },
+  { alt: photo8Alt, orig: photo8 }
 ]
 ---
 
 <div class:list={['flex gap-2 overflow-x-scroll md:block md:columns-4', classes]}>
   {
     photos.map((photo) => (
-      <div class="md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150 group relative mb-2 max-h-80 shrink-0 basis-[300px] md:aspect-video">
+      <div class="group relative mb-2 max-h-80 shrink-0 basis-[300px] md:aspect-video md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150">
         <Image
           class:list={[
             'h-full w-full object-cover object-center saturate-0 transition-all duration-500 ease-in-out group-hover:saturate-100 dark:brightness-150 dark:group-hover:brightness-100',
-            imgClass,
+            imgClass
           ]}
           src={photo.orig ?? photo}
           width={600}
@@ -43,7 +43,7 @@ const photos = [
         {photo.alt && (
           <Image
             class:list={[
-              'absolute inset-0 h-full w-full object-cover object-center transition-all duration-500 ease-in-out group-hover:opacity-0 dark:brightness-150',
+              'absolute inset-0 h-full w-full object-cover object-center transition-all duration-500 ease-in-out group-hover:opacity-0 dark:brightness-150'
             ]}
             src={photo.alt}
             width={600}

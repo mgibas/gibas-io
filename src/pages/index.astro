@@ -10,7 +10,7 @@ import ContactForm from '../components/contact-form.astro'
 
 <Layout title="Maciej Gibas">
   <PageHeader class="h-screen" slot="header" location="Gainesville, Florida">
-    <p>Hello <span class="inline-block animate-wave origin-[70%_70%]">👋🏼</span></p>
+    <p>Hello <span class="inline-block origin-[70%_70%] animate-wave">👋🏼</span></p>
     <p>I'm Maciej Gibas</p>
     <Typewriter class="text-xl" prefix="Frontend" copy={['leader', 'architect', 'developer', 'designer']} />
   </PageHeader>
@@ -45,19 +45,19 @@ import ContactForm from '../components/contact-form.astro'
     <li><b>Collaboration</b> - full ownership of your work, influence others and accept their influence</li>
   </ul>
 
-  <section class="container container-bleed prose-inverted">
+  <section class="prose-inverted container container-bleed">
     <h3>Personal life</h3>
     <p>
       After work I spend most of my time with family and friends. I like brewing speciality ☕️ coffee, baking artisan
       🍞 bread, watching 🎬 movies, traveling (mostly for food 😉), hiking and couple other minor things 🏎 🏋🏼‍♀️ 🏓 🏃🏼
     </p>
-    <PhotoGrid class="not-prose container-bleed mt-6" />
+    <PhotoGrid class="not-prose mt-6 container-bleed" />
   </section>
 
   <h2>Contact</h2>
   <h3>Lets get in touch</h3>
-  <div class="flex flex-col gap-4 mt-3 md:flex-row md:gap-16">
-    <p class="flex-1 mt-0">
+  <div class="mt-3 flex flex-col gap-4 md:flex-row md:gap-16">
+    <p class="mt-0 flex-1">
       You have something interesting to share, or simply want to say hi - use the form or send me a message on
       <Link href="https://twitter.com/gibasmaciej">Twitter</Link>.
     </p>

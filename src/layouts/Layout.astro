@@ -14,9 +14,9 @@ const { title } = Astro.props
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   </head>
-  <body class="min-w-screen bg-theme text-primary text-xl">
+  <body class="bg-theme text-xl text-primary">
     <slot name="header" />
-    <main class="container prose prose-lg">
+    <main class="prose-lg prose container">
       <slot />
     </main>
     <slot name="footer" />

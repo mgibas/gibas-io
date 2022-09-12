@@ -5,17 +5,17 @@ const { class: classes } = Astro.props
 <button
   class:list={[classes]}
   x-data="{ checked: false }"
-  @click="checked = !checked"
+  x-on:click="checked = !checked"
   x-bind:aria-label="`Enable ${checked ? 'light' : 'dark'} theme`">
   <input class="peer sr-only" type="checkbox" name="dark-theme" x-bind:checked="checked" title="Dark theme" />
   <svg
-    class="block peer-checked:hidden w-full h-full"
+    class="block h-full w-full peer-checked:hidden"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     stroke-width="1.5"
     stroke="currentColor"
-    class="w-6 h-6">
+    class="h-6 w-6">
     <path
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -23,13 +23,13 @@ const { class: classes } = Astro.props
     ></path>
   </svg>
   <svg
-    class="hidden peer-checked:block w-full h-full"
+    class="hidden h-full w-full peer-checked:block"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     stroke-width="1.5"
     stroke="currentColor"
-    class="w-6 h-6">
+    class="h-6 w-6">
     <path
       stroke-linecap="round"
       stroke-linejoin="round"
