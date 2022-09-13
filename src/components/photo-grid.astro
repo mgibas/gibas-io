@@ -1,17 +1,17 @@
 ---
-import { Image } from '@astrojs/image/components'
+import photo1 from '../assets/photos/photo-grid-1.webp'
+import photo2 from '../assets/photos/photo-grid-2.webp'
+import photo2Alt from '../assets/photos/photo-grid-2-alt.webp'
+import photo3 from '../assets/photos/photo-grid-3.webp'
+import photo4 from '../assets/photos/photo-grid-4.webp'
+import photo4Alt from '../assets/photos/photo-grid-4-alt.webp'
+import photo5 from '../assets/photos/photo-grid-5.webp'
+import photo5Alt from '../assets/photos/photo-grid-5-alt.webp'
+import photo6 from '../assets/photos/photo-grid-6.webp'
+import photo6Alt from '../assets/photos/photo-grid-6-alt.webp'
+import photo7 from '../assets/photos/photo-grid-7.webp'
+import photo8 from '../assets/photos/photo-grid-8.webp'
 
-import photo1 from '../assets/photos/photo-grid-1.jpeg'
-import photo2 from '../assets/photos/photo-grid-2.jpeg'
-import photo2Alt from '../assets/photos/photo-grid-2-alt.jpeg'
-import photo3 from '../assets/photos/photo-grid-3.jpeg'
-import photo4 from '../assets/photos/photo-grid-4.jpeg'
-import photo4Alt from '../assets/photos/photo-grid-4-alt.jpeg'
-import photo5 from '../assets/photos/photo-grid-5.jpeg'
-import photo6 from '../assets/photos/photo-grid-6.jpeg'
-import photo7 from '../assets/photos/photo-grid-7.jpeg'
-import photo8 from '../assets/photos/photo-grid-8.jpeg'
-import photo8Alt from '../assets/photos/photo-grid-8-alt.jpeg'
 const { class: classes, imgClass } = Astro.props
 
 const photos = [
@@ -19,35 +19,30 @@ const photos = [
   { alt: photo2Alt, orig: photo2 },
   photo3,
   { alt: photo4Alt, orig: photo4 },
-  photo5,
-  photo6,
+  { alt: photo5Alt, orig: photo5 },
+  { alt: photo6Alt, orig: photo6 },
   photo7,
-  { alt: photo8Alt, orig: photo8 }
+  photo8,
 ]
 ---
 
 <div class:list={['flex gap-2 overflow-x-scroll md:block md:columns-4', classes]}>
   {
     photos.map((photo) => (
-      <div class="group relative mb-2 max-h-80 shrink-0 basis-[300px] md:aspect-video md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150">
-        <Image
+      <div class="group relative mb-2 max-h-80 shrink-0 basis-[300px] md:aspect-video md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150 lg:max-h-150 lg:odd-alternate:max-h-200">
+        <img
           class:list={[
             'h-full w-full object-cover object-center saturate-0 transition-all duration-500 ease-in-out group-hover:saturate-100 dark:brightness-150 dark:group-hover:brightness-100',
-            imgClass
+            imgClass,
           ]}
           src={photo.orig ?? photo}
-          width={600}
-          alt="descriptive text"
-          format="webp"
         />
         {photo.alt && (
-          <Image
+          <img
             class:list={[
-              'absolute inset-0 h-full w-full object-cover object-center transition-all duration-500 ease-in-out group-hover:opacity-0 dark:brightness-150'
+              'absolute inset-0 h-full w-full object-cover object-center transition-all duration-500 ease-in-out group-hover:opacity-0 dark:brightness-150',
             ]}
             src={photo.alt}
-            width={600}
-            format="webp"
           />
         )}
       </div>

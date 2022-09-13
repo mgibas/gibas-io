@@ -45,6 +45,7 @@ module.exports = {
       spacing: {
         100: '25rem',
         150: '37.5rem',
+        200: '50rem',
       },
       animation: {
         cursor: 'cursor 1s infinite',
