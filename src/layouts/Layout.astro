@@ -1,0 +1,24 @@
+---
+import '../assets/styles.css'
+const { title } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  </head>
+  <body class="bg-theme text-xl text-primary">
+    <slot name="header" />
+    <main class="prose-lg prose container">
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

@@ -1,0 +1,53 @@
+---
+import PageHero from './page-hero.astro'
+import ThemeToggle from './theme-toggle.astro'
+import IconMapPin from '../icons/map-pin.astro'
+import IconGithub from '../icons/github.astro'
+import IconTwitter from '../icons/twitter.astro'
+const { location, class: classes } = Astro.props
+
+const social = [
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/gibasmaciej',
+    Icon: IconTwitter
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/mgibas',
+    Icon: IconGithub
+  }
+]
+---
+
+<header class:list={['flex items-center relative overflow-x-hidden', classes]}>
+  <div class="container">
+    <div class="flex w-full flex-col items-start">
+      <div class="flex items-center gap-1 text-base text-secondary">
+        <IconMapPin class="h-5 w-5 text-tertiary" />
+        <span>{location}</span>
+      </div>
+      <div>
+        <h1 class="text-6xl"><slot /></h1>
+        <ul class="mt-4 flex gap-4 text-tertiary">
+          {
+            social.map(({ url, name, Icon }) => (
+              <li>
+                <a href={url} class="transition-colors hover:text-secondary" target="_blank" rel="noopener noreferrer">
+                  <span class="sr-only">{name}</span>
+                  <Icon class="h-6 w-6 transition-transform hover:rotate-12" />
+                </a>
+              </li>
+            ))
+          }
+          <li class="ml-auto">
+            <ThemeToggle class="h-6 w-6 transition-all hover:rotate-12 hover:text-secondary" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <PageHero
+      class="absolute top-[calc(50%_-_290px)] -right-3 h-[200px] sm:top-[calc(50%_-_250px)] sm:h-[400px] lg:top-[calc(50%_-_350px)] lg:right-[calc(50%_-_600px)] lg:h-[550px]"
+    />
+  </div>
+</header>
