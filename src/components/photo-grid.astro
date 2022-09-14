@@ -36,6 +36,7 @@ const photos = [
           ]}
           src={src}
           alt={alt}
+          loading="lazy"
         />
         {overlaySrc && (
           <img
@@ -44,6 +45,7 @@ const photos = [
             ]}
             src={overlaySrc}
             aria-hidden="true"
+            loading="lazy"
           />
         )}
       </div>
