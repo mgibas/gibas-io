@@ -1,47 +1,49 @@
 ---
 import photo1 from '../assets/photos/photo-grid-1.webp'
 import photo2 from '../assets/photos/photo-grid-2.webp'
-import photo2Alt from '../assets/photos/photo-grid-2-alt.webp'
+import photo2Overlay from '../assets/photos/photo-grid-2-overlay.webp'
 import photo3 from '../assets/photos/photo-grid-3.webp'
 import photo4 from '../assets/photos/photo-grid-4.webp'
-import photo4Alt from '../assets/photos/photo-grid-4-alt.webp'
+import photo4Overlay from '../assets/photos/photo-grid-4-overlay.webp'
 import photo5 from '../assets/photos/photo-grid-5.webp'
 import photo6 from '../assets/photos/photo-grid-6.webp'
 import photo7 from '../assets/photos/photo-grid-7.webp'
-import photo7Alt from '../assets/photos/photo-grid-7-alt.webp'
+import photo7Overlay from '../assets/photos/photo-grid-7-overlay.webp'
 import photo8 from '../assets/photos/photo-grid-8.webp'
 
 const { class: classes, imgClass } = Astro.props
 
 const photos = [
-  photo1,
-  { alt: photo2Alt, orig: photo2 },
-  photo3,
-  { alt: photo4Alt, orig: photo4 },
-  photo5,
-  photo6,
-  { alt: photo7Alt, orig: photo7 },
-  photo8,
+  { src: photo1, alt: 'Me, smiling in front of a camera.' },
+  { src: photo2, overlaySrc: photo2Overlay, alt: 'Carrying my 4y old daughter down the mountain trail.' },
+  { src: photo3, alt: 'Looking into the ocean with both of my kids' },
+  { src: photo4, overlaySrc: photo4Overlay, alt: 'Stirring coffee during pour-over brew.' },
+  { src: photo5, alt: 'Park, on the skateboard with my daughter.' },
+  { src: photo6, alt: 'Freshly baked sourdough bread on the cooling rack.' },
+  { src: photo7, overlaySrc: photo7Overlay, alt: 'Library, open laptop with a visible code on the screen.' },
+  { src: photo8, alt: 'Me and my wife smiling next to a graffiti heart.' },
 ]
 ---
 
 <div class:list={['flex gap-2 overflow-x-scroll md:block md:columns-4', classes]}>
   {
-    photos.map((photo) => (
+    photos.map(({ src, overlaySrc, alt }) => (
       <div class="group relative mb-2 max-h-80 shrink-0 basis-[300px] md:aspect-video md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150 lg:max-h-150 lg:odd-alternate:max-h-200">
         <img
           class:list={[
             'h-full w-full object-cover object-center saturate-0 transition-all duration-500 ease-in-out group-hover:saturate-100 dark:brightness-150 dark:group-hover:brightness-100',
             imgClass,
           ]}
-          src={photo.orig ?? photo}
+          src={src}
+          alt={alt}
         />
-        {photo.alt && (
+        {overlaySrc && (
           <img
             class:list={[
               'absolute inset-0 h-full w-full object-cover object-center transition-all duration-500 ease-in-out group-hover:opacity-0 dark:brightness-150',
             ]}
-            src={photo.alt}
+            src={overlaySrc}
+            aria-hidden="true"
           />
         )}
       </div>
