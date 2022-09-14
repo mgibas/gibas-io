@@ -1,8 +1,0 @@
-{% macro primary(tag = 'button', type, href) %}
-<{{tag}}
-  type="{{type}}"
-  href="{{href}}"
-  class="inline-flex w-full justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm bg-rose-600 text-rose-50 hover:bg-rose-700 transition {{offsetFocus}}">
-  {{ caller() }}
-</{{tag}}>
-{% endmacro %}
