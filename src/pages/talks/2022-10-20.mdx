@@ -2,78 +2,89 @@
 layout: '@layouts/SlidesDeck.astro'
 ---
 
-<section>
-# CSS Layouts
-Frontend Awesome! • 10/20/2022
-</section>
-
-<section>
-
-<section >
-<div class="flex items-center">
-  <div class="flex-1">
-    # Back in the days…
-  </div>
-  <div class="flex-1">
-    <iframe class="min-h-[80vh] w-full" src="https://codepen.io/gibasmaciej/embed/ExLvGzV?default-tab=result"></iframe>
-  </div>
-</div>
-
-
-</section>
-
-<section>
-# Back in the days…
-What was available some time ago
-
-- float
-- Tables
-- raw box model primitives (padding, margin)
-- grid system?
-</section>
-
-<section>
-# Hello
-</section>
-</section>
-
-<section>
-<section>
-# Current options
-</section>
-<section>
-# Current options
-
-    - Columns
-    - Flexbox
-    - Grid
-    - Grid and flex box are build with responsiveness in mind
-</section>
-</section>
+import About from '@components/slides/about.mdx'
+import End from '@components/slides/end.mdx'
 
 
 <section>
-<section>
-# What to choose when examples
-</section>
-<section>
-# What to choose when examples
-
-    - Simple columns
-    - Single axis flexbox
-    - Two axis grid
-    - Wrapping flexbox
-</section>
+  # CSS Layouts
+  Frontend Awesome! • 10/20/2022
 </section>
 
-<section>
-<section>
-# What’s coming
-</section>
-<section>
-# What’s coming
+<About />
 
-    - Masonry
-    - Sub grids
+<section>
+  <section >
+    ## Back in the days…
+  </section>
+
+  <section>
+    ### Tables
+
+    <iframe class="w-full h-[50vh]" scrolling="no" src="https://codepen.io/gibasmaciej/embed/ExLvGzV?default-tab=result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+  </section>
+  <section>
+    ### Floats
+
+    <iframe class="w-full h-[50vh]" scrolling="no" src="https://codepen.io/gibasmaciej/embed/ExLvGzV?default-tab=result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+  </section>
+  <section>
+    ### Grid systems
+
+    <iframe class="w-full h-[50vh]" scrolling="no" src="https://codepen.io/gibasmaciej/embed/ExLvGzV?default-tab=result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+  </section>
 </section>
+
+<section>
+  <section>
+  ## Current options
+  </section>
+  <section>
+    ### Columns
+
+    <iframe class="w-full h-[50vh]" scrolling="no" src="https://codepen.io/gibasmaciej/embed/ExLvGzV?default-tab=result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+  </section>
+  <section>
+    ### Flexbox
+
+    <iframe class="w-full h-[50vh]" scrolling="no" src="https://codepen.io/gibasmaciej/embed/ExLvGzV?default-tab=result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+  </section> 
+  <section>
+    ### Grid
+
+    <iframe class="w-full h-[50vh]" scrolling="no" src="https://codepen.io/gibasmaciej/embed/ExLvGzV?default-tab=result&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+  </section>   
 </section>
+
+
+<section>
+  <section>
+  ## What when
+  </section>
+  <section>
+    ### Simple columns
+  </section>
+  <section>
+    ### Single axis
+  </section>
+  <section>
+    ### Two axis
+  </section>
+  <section>
+    ### Wrapping
+  </section>
+</section>
+
+<section>
+  <section>
+   ## What’s coming
+  </section>
+  <section> 
+    ### Sub grids
+  </section>
+  <section> 
+    ### Masonry
+  </section>
+</section>
+
+<End />

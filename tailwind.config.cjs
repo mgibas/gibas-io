@@ -7,7 +7,6 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,md,mdx}'],
   safelist: ['html'],
   corePlugins: { container: false },
-  darkMode: ['class', 'html:has([name=dark-theme]:checked)'],
   theme: {
     container: {
       center: true,
