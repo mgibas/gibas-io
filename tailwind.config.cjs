@@ -27,6 +27,10 @@ module.exports = {
       backgroundColor: {
         theme: 'var(--theme-background)',
       },
+      backgroundImage: {
+        stripes: `linear-gradient(to top right, transparent, var(--tw-gradient-from), transparent, var(--tw-gradient-to), transparent),
+                  repeating-linear-gradient(to top right, var(--tw-gradient-from), var(--tw-gradient-from) 2px, transparent 0%, transparent 4px)`,
+      },
       textColor: () => ({
         primary: 'var(--theme-text-primary)',
         secondary: 'var(--theme-text-secondary)',
