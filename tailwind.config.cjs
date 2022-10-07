@@ -170,7 +170,6 @@ module.exports = {
         },
       })
       addUtilities({
-        '.clip-path-inset': { clipPath: 'inset(2px)' },
         '.cq': { 'container-type': 'inline-size' },
         '.container': {
           display: 'grid',
@@ -183,6 +182,11 @@ module.exports = {
           width: '100%',
           gridColumn: '1 / -1',
         },
+      })
+      matchUtilities({
+        'clip-path-inset': (value) => ({
+          clipPath: `inset(${value})`,
+        }),
       })
       matchUtilities(
         {
