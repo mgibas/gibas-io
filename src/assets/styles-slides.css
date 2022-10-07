@@ -7,6 +7,9 @@
     --r-main-color: var(--theme-text-secondary);
     --r-heading-font: theme('fontFamily.sans');
     --r-main-font: theme('fontFamily.sans');
+    --r-link-color: theme('colors.purple.500');
+    --r-link-color-dark: theme('colors.purple.700');
+    --r-link-color-hover: theme('colors.purple.600');
     /* --r-main-font: #{$mainFont};
     --r-main-font-size: #{$mainFontSize};
     --r-block-margin: #{$blockMargin};
@@ -22,9 +25,6 @@
     --r-heading3-size: #{$heading3Size};
     --r-heading4-size: #{$heading4Size};
     --r-code-font: #{$codeFont};
-    --r-link-color: #{$linkColor};
-    --r-link-color-dark: #{darken($linkColor , 15% )};
-    --r-link-color-hover: #{$linkColorHover};
     --r-selection-background-color: #{$selectionBackgroundColor};
     --r-selection-color: #{$selectionColor}; */
   }
