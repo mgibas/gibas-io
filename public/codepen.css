@@ -16,6 +16,13 @@
   --color: var(--color-100);
   --bg-dark: var(--color-900);
   --color-dark: var(--color-100);
+
+  --body-bg-light: white;
+  --body-bg-dark: #18181b;
+  --body-color-light: #3f3f46;
+  --body-color-dark: #e4e4e7;
+  --body-bg: var(--body-bg-light);
+  --body-color: var(--body-color-light);
 }
 
 html,
@@ -23,6 +30,11 @@ html,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+body {
+  color: white;
+  background-color: #18181b;
 }
 
 .item {
@@ -85,4 +97,11 @@ html,
 .item.item-900 {
   --bg: var(--color-900);
   --color: var(--color-100);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --body-bg: var(--body-bg-dark);
+    --body-color: var(--body-color-dark);
+  }
 }
