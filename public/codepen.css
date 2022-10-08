@@ -37,6 +37,16 @@ body {
   background-color: var(--body-bg);
 }
 
+h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+h2:not(:first-of-type) {
+  margin-top: 3rem;
+}
+
 .item {
   background-color: var(--bg);
   color: var(--color);
