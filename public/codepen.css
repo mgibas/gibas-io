@@ -11,11 +11,11 @@
   --color-900: #581c87;
 
   --bg-light: var(--color-50);
-  --color-light: var(--color-500);
+  --color-light: var(--color-700);
   --bg: var(--color-500);
   --color: var(--color-50);
   --bg-dark: var(--color-900);
-  --color-dark: var(--color-300);
+  --color-dark: var(--color-100);
 }
 
 html,
