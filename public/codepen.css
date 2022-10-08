@@ -32,8 +32,8 @@ html,
   border-radius: 0.25rem;
   text-align: center;
 }
-.item.item-center {
-  text-align: center;
+.item.item-left {
+  text-align: left;
 }
 .item.item-dashed {
   border: 4px dashed var(--color);
