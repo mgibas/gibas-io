@@ -35,6 +35,7 @@ html,
 body {
   color: var(--body-color);
   background-color: var(--body-bg);
+  font-size: 1.25rem;
 }
 
 h2 {
