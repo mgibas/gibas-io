@@ -1,25 +1,21 @@
 :root {
-  --base-h: 271;
-  --base-s: 91%;
-  --base-l: 65%;
-
-  --color-50: hsla(var(--base-h) var(--base-s) calc(var(--base-l) + 40%));
-  --color-100: hsla(var(--base-h) var(--base-s) calc(var(--base-l) + 32%));
-  --color-200: hsla(var(--base-h) var(--base-s) calc(var(--base-l) + 24%));
-  --color-300: hsla(var(--base-h) var(--base-s) calc(var(--base-l) + 16%));
-  --color-400: hsla(var(--base-h) var(--base-s) calc(var(--base-l) + 8%));
-  --color-500: hsla(var(--base-h) var(--base-s) var(--base-l));
-  --color-600: hsla(var(--base-h) var(--base-s) calc(var(--base-l) - 10%));
-  --color-700: hsla(var(--base-h) var(--base-s) calc(var(--base-l) - 20%));
-  --color-800: hsla(var(--base-h) var(--base-s) calc(var(--base-l) - 30%));
-  --color-900: hsla(var(--base-h) var(--base-s) calc(var(--base-l) - 40%));
+  --color-50: #faf5ff;
+  --color-100: #f3e8ff;
+  --color-200: #e9d5ff;
+  --color-300: #d8b4fe;
+  --color-400: #c084fc;
+  --color-500: #a855f7;
+  --color-600: #9333ea;
+  --color-700: #7e22ce;
+  --color-800: #6b21a8;
+  --color-900: #581c87;
 
   --bg-light: var(--color-50);
-  --color-light: var(--color-600);
+  --color-light: var(--color-500);
   --bg: var(--color-500);
   --color: var(--color-50);
   --bg-dark: var(--color-900);
-  --color-dark: var(--color-50);
+  --color-dark: var(--color-300);
 }
 
 html,
@@ -52,19 +48,19 @@ html,
 }
 .item.item-50 {
   --bg: var(--color-50);
-  --color: var(--color-600);
+  --color: var(--color-500);
 }
 .item.item-100 {
   --bg: var(--color-100);
-  --color: var(--color-700);
+  --color: var(--color-600);
 }
 .item.item-200 {
   --bg: var(--color-200);
-  --color: var(--color-800);
+  --color: var(--color-700);
 }
 .item.item-300 {
   --bg: var(--color-300);
-  --color: var(--color-900);
+  --color: var(--color-800);
 }
 .item.item-400 {
   --bg: var(--color-400);
@@ -80,13 +76,13 @@ html,
 }
 .item.item-700 {
   --bg: var(--color-700);
-  --color: var(--color-50);
+  --color: var(--color-100);
 }
 .item.item-800 {
   --bg: var(--color-800);
-  --color: var(--color-50);
+  --color: var(--color-200);
 }
 .item.item-900 {
   --bg: var(--color-900);
-  --color: var(--color-50);
+  --color: var(--color-300);
 }
