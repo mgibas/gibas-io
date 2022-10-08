@@ -48,11 +48,11 @@ html,
 }
 .item.item-50 {
   --bg: var(--color-50);
-  --color: var(--color-500);
+  --color: var(--color-700);
 }
 .item.item-100 {
   --bg: var(--color-100);
-  --color: var(--color-600);
+  --color: var(--color-700);
 }
 .item.item-200 {
   --bg: var(--color-200);
@@ -80,9 +80,9 @@ html,
 }
 .item.item-800 {
   --bg: var(--color-800);
-  --color: var(--color-200);
+  --color: var(--color-100);
 }
 .item.item-900 {
   --bg: var(--color-900);
-  --color: var(--color-300);
+  --color: var(--color-100);
 }
