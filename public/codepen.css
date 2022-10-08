@@ -15,11 +15,11 @@
   --color-900: hsla(var(--base-h) var(--base-s) calc(var(--base-l) - 40%));
 
   --bg-light: var(--color-50);
-  --color-light: var(--color-500);
+  --color-light: var(--color-600);
   --bg: var(--color-500);
   --color: var(--color-50);
   --bg-dark: var(--color-900);
-  --color-dark: var(--color-400);
+  --color-dark: var(--color-50);
 }
 
 html,
@@ -47,10 +47,6 @@ html,
   --color: var(--color-light);
 }
 .item.item-dark {
-  --bg: var(--bg-dark);
-  --color: var(--color-dark);
-}
-.item.item-50 {
   --bg: var(--bg-dark);
   --color: var(--color-dark);
 }
