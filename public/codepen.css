@@ -22,6 +22,13 @@
   --color-dark: var(--color-400);
 }
 
+html,
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 .item {
   background-color: var(--bg);
   color: var(--color);
@@ -29,21 +36,61 @@
   border-radius: 0.25rem;
   text-align: center;
 }
-
 .item.item--center {
   text-align: center;
 }
-
 .item.item--dashed {
   border: 4px dashed var(--color);
 }
-
 .item.item--light {
   --bg: var(--bg-light);
   --color: var(--color-light);
 }
-
 .item.item--dark {
   --bg: var(--bg-dark);
   --color: var(--color-dark);
+}
+.item.item--50 {
+  --bg: var(--bg-dark);
+  --color: var(--color-dark);
+}
+.item.item--50 {
+  --bg: var(--color-50);
+  --color: var(--color-500);
+}
+.item.item--100 {
+  --bg: var(--color-100);
+  --color: var(--color-600);
+}
+.item.item--200 {
+  --bg: var(--color-200);
+  --color: var(--color-700);
+}
+.item.item--300 {
+  --bg: var(--color-300);
+  --color: var(--color-800);
+}
+.item.item--400 {
+  --bg: var(--color-400);
+  --color: var(--color-900);
+}
+.item.item--500 {
+  --bg: var(--color-500);
+  --color: var(--color-50);
+}
+.item.item--600 {
+  --bg: var(--color-600);
+  --color: var(--color-100);
+}
+.item.item--700 {
+  --bg: var(--color-700);
+  --color: var(--color-200);
+}
+.item.item--800 {
+  --bg: var(--color-800);
+  --color: var(--color-300);
+}
+.item.item--900 {
+  --bg: var(--color-900);
+  --color: var(--color-400);
 }
