@@ -68,13 +68,13 @@ h2:not(:first-of-type) {
 
 /* Inputs */
 
-input {
+input, textarea {
   outline: none;
   color: inherit;
   background-color: var(--input-bg);
 }
 
-input:focus-visible {
+input:focus-visible, textarea:focus-visible {
   box-shadow: 0 0 0 calc(3px + 2px) var(--input-ring);
 }
 
