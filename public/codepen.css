@@ -71,6 +71,7 @@ h2:not(:first-of-type) {
 input {
   outline: none;
   color: inherit;
+  background-color: var(--input-bg);
 }
 
 input:focus-visible {
