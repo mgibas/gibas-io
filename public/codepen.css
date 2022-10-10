@@ -70,6 +70,7 @@ h2:not(:first-of-type) {
 
 input {
   outline: none;
+  color: inherit;
 }
 
 input:focus-visible {
