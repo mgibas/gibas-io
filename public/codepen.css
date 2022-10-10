@@ -1,4 +1,15 @@
 :root {
+  --gray-50: #fafafa;
+  --gray-100: #f4f4f5;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-400: #a1a1aa;
+  --gray-500: #71717a;
+  --gray-600: #52525b;
+  --gray-700: #3f3f46;
+  --gray-800: #27272a;
+  --gray-900: #18181b;
+
   --color-50: #faf5ff;
   --color-100: #f3e8ff;
   --color-200: #e9d5ff;
@@ -18,11 +29,18 @@
   --color-dark: var(--color-100);
 
   --body-bg-light: white;
-  --body-bg-dark: #18181b;
-  --body-color-light: #3f3f46;
-  --body-color-dark: #e4e4e7;
+  --body-bg-dark: var(--gray-900);
+  --body-color-light: var(--gray-700);
+  --body-color-dark: var(--gray-200);
   --body-bg: var(--body-bg-light);
   --body-color: var(--body-color-light);
+
+  --input-bg-light: white;
+  --input-bg-dark: var(--gray-800);
+  --input-ring-light: var(--color-200);
+  --input-ring-dark: var(--color-900);
+  --input-bg: var(--input-bg-light);
+  --input-ring: var(--input-ring-light);
 }
 
 html,
@@ -46,6 +64,16 @@ h2 {
 }
 h2:not(:first-of-type) {
   margin-top: 3rem;
+}
+
+/* Inputs */
+
+input {
+  outline: none;
+}
+
+input:focus-visible {
+  box-shadow: 0 0 0 calc(3px + 2px) var(--input-ring);
 }
 
 .item {
@@ -111,8 +139,10 @@ h2:not(:first-of-type) {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
+  :root {
     --body-bg: var(--body-bg-dark);
     --body-color: var(--body-color-dark);
+    --input-bg: var(--input-bg-dark);
+    --input-ring: var(--input-ring-dark);
   }
 }
