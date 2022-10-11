@@ -5,6 +5,9 @@ layout: '@layouts/SlidesDeck.astro'
 import About from '@components/slides/about.mdx'
 import End from '@components/slides/end.mdx'
 import Codepen from '@components/codepen.astro'
+import oneUnderAnother from './one-under-another.png'
+import sideBySide from './side-by-side.png'
+import columns from './columns.png'
 
 <section>
   <h1>
@@ -36,7 +39,9 @@ import Codepen from '@components/codepen.astro'
 </section>
 
 <section>
-  <section>## Current options</section>
+  <section>
+    ## Current options
+  </section>
   <section>
     ### Block / inline
     <Codepen class="w-full h-[50vh]" id="KKRGozz" />
@@ -61,14 +66,24 @@ import Codepen from '@components/codepen.astro'
   </section>
   <section>
     ### One under another
-    No size requirments
+    <img class="!max-h-[50vh] w-full object-contain" src={oneUnderAnother} alt="One element under another example." />
+    
+    <p class="fragment">Content based size</p>
+    <p class="fragment">✅ Block</p>
   </section>
   <section>
     ### Side by side
-    No size requirments
+    <img class="!max-h-[50vh] w-full object-contain" src={sideBySide} alt="One element next to another example." />
+    
+    <p class="fragment">Content based size</p>
+    <p class="fragment">✅ Inline</p>
   </section>
   <section>
     ### Simple columns
+    <img class="!max-h-[50vh] w-full object-contain" src={columns} alt="Columns example." />
+    
+    <p class="fragment">AKA newspaper columns</p>
+    <p class="fragment">✅ Columns</p>
   </section>
   <section>
     ### Single axis
