@@ -104,68 +104,81 @@ import masonry from './masonry.png'
       </FlatList>
     </Slide>
   </section>
+
+  <section>
+    <Slide level="2" title="What When" />
+
+    <Slide level="3" title="One under another">
+      <img src={oneUnderAnother} alt="One element under another example." />
+
+      <FlatList slot="contentSecondary">
+        <FlatListItem>Content base size</FlatListItem>
+        <FlatListItem>✅ Block</FlatListItem>
+      </FlatList>
+    </Slide>
+
+    <Slide level="3" title="Side by side">
+      <img src={sideBySide} alt="One element next to another example." />
+
+      <FlatList slot="contentSecondary">
+        <FlatListItem>Content base size</FlatListItem>
+        <FlatListItem>✅ Inline</FlatListItem>
+      </FlatList>
+    </Slide>
+
+    <Slide level="3" title="Simple columns">
+      <img src={columns} alt="Columns example." />
+
+      <FlatList slot="contentSecondary">
+        <FlatListItem>AKA newspaper columns</FlatListItem>
+        <FlatListItem>✅ Columns</FlatListItem>
+      </FlatList>
+    </Slide>
+
+    <Slide level="3" title="Single axis">
+      <img src={singleAxis} alt="Single axis example." />
+
+      <FlatList slot="contentSecondary">
+        <FlatListItem>"Ratio" based size</FlatListItem>
+        <FlatListItem>✅ Flexbox</FlatListItem>
+      </FlatList>
+    </Slide>
+
+    <Slide level="3" title="Two axes">
+      <img src={twoAxis} alt="Two axes example." />
+
+      <FlatList slot="contentSecondary">
+        <FlatListItem>Grid focused</FlatListItem>
+        <FlatListItem>✅ Grid</FlatListItem>
+      </FlatList>
+    </Slide>
+
+    <Slide level="3" title="Wrapping">
+      <img src={wrap1} alt="Wrapping before example." />
+      <img class="fragment" src={wrap2} alt="Wrapping after example." />
+  
+      <FlatList slot="contentSecondary">
+        <FlatListItem>✅ Flexbox</FlatListItem>
+      </FlatList>
+    </Slide>
+
+    <Slide level="3" title="'Grid' wrapping">
+      <div class="r-stack">
+        <img class="fragment" src={gridWrap1} alt="Grid wrapping before example." />
+        <img class="fragment" src={gridWrap2} alt="Grid wrapping after example." />
+        <img
+          class="fragment"
+          src={gridWrap3}
+          alt="Grid wrapping flex after example."
+        />
+      </div>
+      <FlatList slot="contentSecondary">
+        <FlatListItem>✅ Flexbox</FlatListItem>
+      </FlatList>
+    </Slide>
+  </section>
 </Layout>
-<!-- <section>
-
-<section>
-  <section>## What when</section>
-  <section>
-    ### One under another
-    <img class="!max-h-[50vh] w-full object-contain" src={oneUnderAnother} alt="One element under another example." />
-
-    <p class="fragment">Content based size</p>
-    <p class="fragment">✅ Block</p>
-  </section>
-  <section>
-    ### Side by side
-    <img class="!max-h-[50vh] w-full object-contain" src={sideBySide} alt="One element next to another example." />
-
-    <p class="fragment">Content based size</p>
-    <p class="fragment">✅ Inline</p>
-  </section>
-  <section>
-    ### Simple columns
-    <img class="!max-h-[50vh] w-full object-contain" src={columns} alt="Columns example." />
-
-    <p class="fragment">AKA newspaper columns</p>
-    <p class="fragment">✅ Columns</p>
-  </section>
-  <section>
-    ### Single axis
-    <img class="!max-h-[50vh] w-full object-contain" src={singleAxis} alt="Single axis example." />
-
-    <p class="fragment">"Ratio" based size</p>
-    <p class="fragment">✅ Flexbox</p>
-  </section>
-  <section>
-    ### Two axis
-    <img class="!max-h-[50vh] w-full object-contain" src={twoAxis} alt="Two axis example." />
-
-    <p class="fragment">Grid focused</p>
-    <p class="fragment">✅ Grid</p>
-  </section>
-  <section>
-    ### Wrapping
-    <img class="!max-h-[25vh] w-full object-contain" src={wrap1} alt="Wrapping before example." />
-    <img class="fragment !max-h-[25vh] w-full object-contain" src={wrap2} alt="Wrapping after example." />
-
-    <p class="fragment">✅ Flexbox</p>
-  </section>
-  <section>
-    ### "Grid" wrapping
-    <img class="!max-h-[25vh] w-full object-contain" src={gridWrap1} alt="Grid wrapping before example." />
-    <div class="r-stack">
-      <img class="fragment !max-h-[25vh] w-full object-contain" src={gridWrap2} alt="Grid wrapping after example." />
-      <img
-        class="fragment !max-h-[25vh] w-full object-contain"
-        src={gridWrap3}
-        alt="Grid wrapping flex after example."
-      />
-    </div>
-    <p class="fragment">✅ Flexbox</p>
-  </section>
-</section>
-
+<!-- 
 <section>
   <section>## What’s coming</section>
   <section data-auto-animate>
