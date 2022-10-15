@@ -2,6 +2,10 @@
 layout: '@layouts/SlidesDeck.astro'
 ---
 
+import Slide from '@components/slide-deck/slide.astro'
+import Link from '@components/slide-deck/link.astro'
+import FlatList from '@components/slide-deck/flat-list.astro'
+import FlatListItem from '@components/slide-deck/flat-list-item.astro'
 import About from '@components/slides/about.mdx'
 import End from '@components/slides/end.mdx'
 import Codepen from '@components/codepen.astro'
@@ -18,15 +22,48 @@ import gridWrap3 from './grid-wrap-3.png'
 import subGrids from './subgrids.png'
 import masonry from './masonry.png'
 
-<section>
-  <h1>
-    <span class="bg-stripes from-purple-700 to-pink-500 bg-clip-text text-transparent clip-path-inset-[2px]">C</span>SS
-    Layouts
-  </h1>
-  Frontend Awesome! • 10/20/2022
-</section>
+<Slide level="1" title="CSS Layouts" titleSecondary="Frontend Awesome!" titleTertiary="10/20/2022" />
 
-<About />
+<Slide level="2" title="About Me">
+  <p>Maciej Gibas</p>
+  <p>
+    Frontend Lead Engineer @ <Link href="https://infotechinc.com">Infotech</Link>
+  </p>
+  <p>☕ 🍞 ⌨️ 🏎 🏋🏼 🏃🏼 🎧 🎬</p>
+  <Link href="https://gibas.io">gibas.io</Link> • <Link href="https://twitter.com/gibasmaciej">@gibasmaciej</Link>
+</Slide>
+
+<section>
+  <Slide level="2" title="Back in the_days"></Slide>
+
+{' '}
+
+<Slide level="3" title="Tables">
+  <Codepen class="w-full" id="jOxvBrK" />
+  <FlatList slot="contentSecondary">
+    <FlatListItem>First standard layout technique</FlatListItem>
+    <FlatListItem>Netscape 1993</FlatListItem>
+    <FlatListItem>HTML 3.2 1997</FlatListItem>
+  </FlatList>
+</Slide>
+
+  <Slide level="3" title="Floats">
+    <Codepen class="w-full" id="ExLeoMP" />
+    <FlatList slot="contentSecondary">
+      <FlatListItem>First css layout technique</FlatListItem>
+      <FlatListItem>Netscape ~1998</FlatListItem>
+    </FlatList>
+  </Slide>
+  
+  <Slide level="3" title="Grid_System">
+    <Codepen class="w-full" id="abGaYVR" />
+    <FlatList slot="contentSecondary">
+      <FlatListItem>RESPONSIVE</FlatListItem>
+      <FlatListItem>iPhone 2007</FlatListItem>
+      <FlatListItem>Bootstrap 1.0 2011</FlatListItem>
+    </FlatList>
+  </Slide>
+</section>
 
 <section>
   <section >
@@ -48,9 +85,7 @@ import masonry from './masonry.png'
 </section>
 
 <section>
-  <section>
-    ## Current options
-  </section>
+  <section>## Current options</section>
   <section>
     ### Block / inline
     <Codepen class="w-full h-[50vh]" id="KKRGozz" />
@@ -100,6 +135,7 @@ import masonry from './masonry.png'
 
     <p class="fragment">"Ratio" based size</p>
     <p class="fragment">✅ Flexbox</p>
+
   </section>
   <section>
     ### Two axis
@@ -107,6 +143,7 @@ import masonry from './masonry.png'
 
     <p class="fragment">Grid focused</p>
     <p class="fragment">✅ Grid</p>
+
   </section>
   <section>
     ### Wrapping
@@ -114,6 +151,7 @@ import masonry from './masonry.png'
     <img class="fragment !max-h-[25vh] w-full object-contain" src={wrap2} alt="Wrapping after example." />
 
     <p class="fragment">✅ Flexbox</p>
+
   </section>
   <section>
     ### "Grid" wrapping
@@ -127,9 +165,7 @@ import masonry from './masonry.png'
 </section>
 
 <section>
-  <section>
-    ## What’s coming
-  </section>
+  <section>## What’s coming</section>
   <section data-auto-animate>
     ### Sub grids
     <Codepen class="w-full h-[50vh]" id="LYmMLKB" />
@@ -157,7 +193,7 @@ import masonry from './masonry.png'
   <ul class="text-3xl">
     <li class="fragment fade-left">
       <div>[Web layout history](http://grid-layout.com/history.html)</div>
-      <div class="text-lg text-secondary">Tim Berners - Lee • grid-layout.com</div>
+      <div class="text-lg text-secondary">Steven D. Anderson • grid-layout.com</div>
     </li>
     <li class="fragment fade-left">
       <div>
@@ -179,13 +215,15 @@ import masonry from './masonry.png'
       <div class="text-lg text-tertiary">Michael Benjamin • stackoverflow.com</div>
     </li>
     <li class="fragment fade-left">
-      <div>[Native CSS Masonry Layout In CSS Grid](https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/)</div>
+      <div>
+        [Native CSS Masonry Layout In CSS Grid](https://www.smashingmagazine.com/native-css-masonry-layout-css-grid/)
+      </div>
       <div class="text-lg text-tertiary">Rachel Andrew • smashingmagazine.com</div>
-    </li>  
+    </li>
     <li class="fragment fade-left">
       <div>[1-Line Layouts](https://1linelayouts.glitch.me)</div>
       <div class="text-lg text-tertiary">Una • glitch.me</div>
-    </li>  
+    </li>
   </ul>
 </section>
 

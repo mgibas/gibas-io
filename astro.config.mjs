@@ -15,7 +15,10 @@ export default defineConfig({
       name: 'reveal.js',
       hooks: {
         'astro:config:setup': ({ injectScript }) => {
-          injectScript('page', `import Reveal from 'reveal.js';new Reveal({}).initialize();`)
+          injectScript(
+            'page',
+            `import Reveal from 'reveal.js';new Reveal({ disableLayout: false, center: false, width: 1440, height: 900 }).initialize();`
+          )
         },
       },
     },

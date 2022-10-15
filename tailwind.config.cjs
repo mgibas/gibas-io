@@ -15,6 +15,10 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      fontSize: {
+        '10xl': '12.5rem',
+        '11xl': '16rem',
+      },
       colors: {
         sunset: {
           orange: '#FCB827',
@@ -49,6 +53,8 @@ module.exports = {
         100: '25rem',
         150: '37.5rem',
         200: '50rem',
+        'full-vw': '100vw',
+        'full-vh': '100vh',
       },
       animation: {
         cursor: 'cursor 1s infinite',
@@ -227,6 +233,14 @@ module.exports = {
         'cq-h': (value) => `@container (min-height: ${value})`,
         'cq-w': (value) => `@container (min-width: ${value})`,
       })
+      matchUtilities(
+        {
+          'word-spacing': (value) => ({
+            'word-spacing': value,
+          }),
+        },
+        { values: theme('spacing') }
+      )
       addVariant('odd-alternate', ['&:nth-child(4n)', '&:nth-child(4n + 1)'])
     }),
   ],

@@ -1,0 +1,141 @@
+---
+const { title, titleSecondary, titleTertiary, level = 2, alt } = Astro.props
+const Heading = `h${level}`
+const classes = {
+  section: {
+    1: 'level-1',
+    2: 'level-2',
+    3: 'level-3',
+  },
+  heading: {
+    1: 'text-11xl font-bold leading-[.85] word-spacing-full-vw',
+    2: `text-10xl font-bold leading-none word-spacing-full-vw ${alt ? 'text-left' : 'text-right'}`,
+    3: `relative text-9xl font-bold leading-none after:absolute after:h-full after:inset-y after:w-1 after:bg-zinc-200 ${
+      alt
+        ? 'text-right pl-4 after:-left-4 after:skew-y-12 after:-rotate-12'
+        : 'text-left pr-4 after:-right-4 after:-skew-y-12 after:rotate-12'
+    }`,
+  },
+  headingCharacters: {
+    1: 'first:bg-stripes first:from-purple-700 first:to-pink-500 first:bg-clip-text first:text-transparent first:clip-path-inset-[2px]',
+  },
+  subtitles: {
+    1: 'text-4xl text-right',
+    3: `justify-end ${alt ? 'text-right border-r' : 'text-left'}`,
+  },
+  titleSecondary: {
+    1: 'text-primary',
+    3: 'text-tertiary',
+  },
+  titleTertiary: {
+    1: 'text-3xl text-tertiary',
+  },
+  contentSecondary: {
+    3: `flex ${alt ? 'items-end' : ''}`,
+  },
+}
+---
+
+<section class:list={['h-full pb-24 text-3xl font-light leading-normal', alt ? 'alt' : '', classes.section[level]]}>
+  <div class="grid">
+    <Heading class:list={['title', classes.heading[level]]}>
+      {[...title].map((c) => <span class:list={[classes.headingCharacters[level]]}>{c}</span>)}
+    </Heading>
+    <div class:list={['subtitles flex flex-col leading-normal', classes.subtitles[level]]}>
+      <span class:list={['flex flex-col', classes.titleSecondary[level]]}>
+        <slot name="titleSecondary">{titleSecondary}</slot>
+      </span>
+      <span class:list={['flex flex-col', classes.titleTertiary[level]]}>{titleTertiary}</span>
+    </div>
+    <div class="content"><slot /></div>
+    <div class:list={['content-secondary', classes.contentSecondary[level]]}><slot name="contentSecondary" /></div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    gap: 0;
+    height: 100%;
+  }
+
+  .title {
+    grid-area: title;
+    align-self: baseline;
+  }
+
+  .subtitles {
+    grid-area: subtitles;
+    align-self: baseline;
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  .content-secondary {
+    grid-area: content-secondary;
+  }
+
+  .level-1 .grid {
+    grid-template-columns: 2rem 1fr auto 2rem;
+    grid-template-rows: 2rem 1fr auto 2rem;
+    grid-template-areas:
+      'title title title .'
+      'title title title .'
+      '. . subtitles .'
+      '. . . .';
+  }
+
+  .level-1 .content,
+  .level-1 .content-secondary {
+    display: none;
+  }
+
+  .level-2 .grid {
+    grid-template-columns: 2rem 1fr auto 2rem;
+    grid-template-rows: 2rem 1fr auto 2rem;
+    grid-template-areas:
+      '. title title title'
+      '. title title title'
+      '. content content .'
+      '. . . .';
+  }
+
+  .level-2.alt .grid {
+    grid-template-columns: 2rem auto 1fr 2rem;
+    grid-template-rows: 2rem auto 1fr 2rem;
+    grid-template-areas:
+      'title title title .'
+      'title title title .'
+      '. content content .'
+      '. . . .';
+  }
+
+  .level-2 .subtitles,
+  .level-2 .content-secondary {
+    display: none;
+  }
+
+  .level-3 .grid {
+    grid-template-columns: 2rem 20% 4rem auto 2rem 1fr 2rem;
+    grid-template-rows: 2rem auto 4rem 1fr 2rem;
+    grid-template-areas:
+      '. .                 .       .       .       .         .'
+      '. title             title   title   .       subtitles .'
+      '. .                 .       .       .       .         .'
+      '. content-secondary .       content content content   .'
+      '. .                 .       content content content   .';
+  }
+
+  .level-3.alt .grid {
+    grid-template-columns: 2rem 1fr 4rem auto 4rem 20% 2rem;
+    grid-template-rows: 2rem 1fr 4rem auto 2rem;
+    grid-template-areas:
+      '. content   content content .     .                 .'
+      '. content   content content .     content-secondary .'
+      '. .         .       .       .     .                 .'
+      '. subtitles .       title   title title             .'
+      '. .         .       .       .     .                 .';
+  }
+</style>
