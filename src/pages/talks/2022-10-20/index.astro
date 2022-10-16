@@ -8,23 +8,23 @@ import Image from '@components/slide-deck/image.astro'
 import FlatList from '@components/slide-deck/flat-list.astro'
 import FlatListItem from '@components/slide-deck/flat-list-item.astro'
 import Codepen from '@components/codepen.astro'
+import ContentFrame from '@components/slide-deck/content-frame.astro'
 
 import SlideAbout from '@components/slides/slide-about.astro'
 import SlideBye from '@components/slides/slide-bye.astro'
 
-import oneUnderAnother from './one-under-another.png'
-import sideBySide from './side-by-side.png'
-import columns from './columns.png'
-import singleAxis from './single-axis.png'
-import twoAxis from './two-axis.png'
-import wrap1 from './wrap-1.png'
-import wrap2 from './wrap-2.png'
-import gridWrap1 from './grid-wrap-1.png'
-import gridWrap2 from './grid-wrap-2.png'
-import gridWrap3 from './grid-wrap-3.png'
-import subGrids from './subgrids.png'
-import masonry from './masonry.png'
-import ContentFrame from '@components/slide-deck/content-frame.astro'
+import under from './under.webp'
+import sideBySide from './side-by-side.webp'
+import columns from './columns.webp'
+import singleAxis from './single-axis.webp'
+import twoAxis from './two-axis.webp'
+import wrap1 from './wrap-1.webp'
+import wrap2 from './wrap-2.webp'
+import gridWrap1 from './grid-wrap-1.webp'
+import gridWrap2 from './grid-wrap-2.webp'
+import gridWrap3 from './grid-wrap-3.webp'
+import subGrids from './subgrids.webp'
+import masonry from './masonry.webp'
 ---
 
 <Layout>
@@ -110,7 +110,7 @@ import ContentFrame from '@components/slide-deck/content-frame.astro'
     <Slide level="2" title="What When" alt />
 
     <Slide level="3" title="Under" title-secondary="Stacked blocks">
-      <ContentFrame center><Image src={oneUnderAnother} alt="One element under another example." /></ContentFrame>
+      <ContentFrame center><Image src={under} alt="One element under another example." /></ContentFrame>
 
       <FlatList slot="contentSecondary">
         <FlatListItem>Content base height</FlatListItem>
