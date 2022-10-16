@@ -4,7 +4,7 @@ const { class: classes } = Astro.props
 
 <div class:list={['frame w-full h-full group', classes]}>
   <div
-    class="flex items-center justify-center w-full h-full transition-all duration-300 scale-[.85] blur-3xl opacity-25 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:blur-none group-hover:scale-100">
+    class="flex items-center justify-center w-full h-full transition-all duration-300 scale-[.85] blur-3xl opacity-25 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:blur-none group-hover:scale-100 [.all-visible_&]:opacity-100 [.all-visible_&]:grayscale-0 [.all-visible_&]:blur-none [.all-visible_&]:scale-100">
     <slot />
   </div>
 </div>
@@ -25,7 +25,8 @@ const { class: classes } = Astro.props
     cursor: pointer;
     transition: background-position 0.3s var(--_i, 0.3s), background-size 0.3s calc(0.3s - var(--_i, 0.3s));
   }
-  .frame:hover {
+  .frame:hover,
+  :global(.all-visible) .frame {
     background-size: calc(100% - var(--g)) calc(100% - var(--g));
     --_p: calc(var(--g) / 2);
     --_i: 0s;

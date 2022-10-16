@@ -1,5 +1,12 @@
 ---
-const { title, 'title-secondary': titleSecondary, 'title-tertiary': titleTertiary, level = 2, alt } = Astro.props
+const {
+  title,
+  'title-secondary': titleSecondary,
+  'title-tertiary': titleTertiary,
+  level = 2,
+  alt,
+  'auto-animate': autoAnimate,
+} = Astro.props
 const Heading = `h${level}`
 const classes = {
   section: {
@@ -39,7 +46,9 @@ const classes = {
 }
 ---
 
-<section class:list={['h-full pb-24 text-3xl font-light leading-normal', alt ? 'alt' : '', classes.section[level]]}>
+<section
+  class:list={['h-full pb-24 text-3xl font-light leading-normal', alt ? 'alt' : '', classes.section[level]]}
+  data-auto-animate={autoAnimate}>
   <div class="grid">
     <Heading class:list={['title', classes.heading[level]]}>
       {

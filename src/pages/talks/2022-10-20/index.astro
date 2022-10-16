@@ -75,7 +75,7 @@ import ContentFrame from '@components/slide-deck/content-frame.astro'
       </FlatList>
     </Slide>
 
-    <Slide level="3" title="Columns" title-secondary="Newspaper columns">
+    <Slide level="3" title="Columns" title-secondary="Newspaper columns" alt>
       <ContentFrame><Codepen id="gOzdJLj" /></ContentFrame>
       <FlatList slot="contentSecondary">
         <FlatListItem>Dominantly "articles"</FlatListItem>
@@ -107,23 +107,28 @@ import ContentFrame from '@components/slide-deck/content-frame.astro'
   </section>
 
   <section>
-    <Slide level="2" title="What When" />
+    <Slide level="2" title="What When" alt />
 
-    <Slide level="3" title="One under another">
+    <Slide level="3" title="Under" title-secondary="Stacked blocks">
       <ContentFrame center><Image src={oneUnderAnother} alt="One element under another example." /></ContentFrame>
 
       <FlatList slot="contentSecondary">
-        <FlatListItem>Content base size</FlatListItem>
-        <FlatListItem>✅ Block</FlatListItem>
+        <FlatListItem>Content base height</FlatListItem>
+        <FlatListItem>no wrapper needed</FlatListItem>
+        <FlatListItem>no css</FlatListItem>
+        <FlatListItem>✅ block</FlatListItem>
       </FlatList>
     </Slide>
 
-    <Slide level="3" title="Side by side">
+    <Slide level="3" title="Side by side" title-secondary="Sticky blocks">
       <ContentFrame><Image src={sideBySide} alt="One element next to another example." /></ContentFrame>
 
       <FlatList slot="contentSecondary">
         <FlatListItem>Content base size</FlatListItem>
-        <FlatListItem>✅ Inline</FlatListItem>
+        <FlatListItem>no wrapper needed</FlatListItem>
+        <FlatListItem>no css</FlatListItem>
+        <FlatListItem>✅ inline</FlatListItem>
+        <FlatListItem>✅ inline block</FlatListItem>
       </FlatList>
     </Slide>
 
@@ -131,90 +136,99 @@ import ContentFrame from '@components/slide-deck/content-frame.astro'
       <ContentFrame><Image src={columns} alt="Columns example." /></ContentFrame>
 
       <FlatList slot="contentSecondary">
-        <FlatListItem>AKA newspaper columns</FlatListItem>
-        <FlatListItem>✅ Columns</FlatListItem>
+        <FlatListItem>Newspaper columns</FlatListItem>
+        <FlatListItem>no column wrappers</FlatListItem>
+        <FlatListItem>best for breakable content</FlatListItem>
+        <FlatListItem>✅ columns</FlatListItem>
       </FlatList>
     </Slide>
 
-    <Slide level="3" title="Single axis">
+    <Slide level="3" title="Single axis" alt>
       <ContentFrame><Image src={singleAxis} alt="Single axis example." /></ContentFrame>
 
       <FlatList slot="contentSecondary">
         <FlatListItem>"Ratio" based size</FlatListItem>
-        <FlatListItem>✅ Flexbox</FlatListItem>
+        <FlatListItem>✅ flexbox</FlatListItem>
       </FlatList>
     </Slide>
 
-    <Slide level="3" title="Two axes">
+    <Slide level="3" title="Two axes" alt>
       <ContentFrame><Image src={twoAxis} alt="Two axes example." /></ContentFrame>
 
       <FlatList slot="contentSecondary">
         <FlatListItem>Grid focused</FlatListItem>
-        <FlatListItem>✅ Grid</FlatListItem>
+        <FlatListItem>✅ grid</FlatListItem>
       </FlatList>
     </Slide>
 
-    <Slide level="3" title="Wrapping">
-      <ContentFrame class="fragment">
-        <Image src={wrap1} alt="Wrapping before example." />
-      </ContentFrame>
-      <ContentFrame class="fragment">
-        <Image class="fragment" src={wrap2} alt="Wrapping after example." />
+    <Slide level="3" title="Wrapping" auto-animate>
+      <ContentFrame>
+        <div>
+          <Image src={wrap1} alt="Wrapping before example." />
+          <Image class="fragment" src={wrap2} alt="Wrapping after example." />
+        </div>
       </ContentFrame>
       <FlatList slot="contentSecondary">
+        <FlatListItem>Responsive</FlatListItem>
+        <FlatListItem>Two dimensional gap</FlatListItem>
         <FlatListItem>✅ Flexbox</FlatListItem>
       </FlatList>
     </Slide>
 
-    <Slide level="3" title="'Grid' wrapping">
-      <div class="r-stack">
-        <Image class="fragment" src={gridWrap1} alt="Grid wrapping before example." />
-        <Image class="fragment" src={gridWrap2} alt="Grid wrapping after example." />
-        <Image class="fragment" src={gridWrap3} alt="Grid wrapping flex after example." />
-      </div>
+    <Slide level="3" title="Wrapping" alt auto-animate>
+      <ContentFrame>
+        <div class="r-stack">
+          <Image src={gridWrap1} alt="Grid wrapping before example." />
+          <Image class="fragment" src={gridWrap2} alt="Grid wrapping after example." />
+          <Image class="fragment" src={gridWrap3} alt="Grid wrapping flex after example." />
+        </div>
+      </ContentFrame>
       <FlatList slot="contentSecondary">
+        <FlatListItem>Number of items</FlatListItem>
         <FlatListItem>✅ Flexbox</FlatListItem>
       </FlatList>
     </Slide>
   </section>
 
   <section>
-    <Slide level="2" title="What’s coming" />
+    <Slide level="2" title="What_is coming" title-secondary="Or is here already!" />
 
-    <Slide level="3" title="Sub grids">
+    <Slide level="3" title="Sub grids" title-secondary="No layout is imposible" auto-animate>
       <ContentFrame><Codepen id="LYmMLKB" /></ContentFrame>
       <FlatList slot="contentSecondary">
-        <FlatListItem />
+        <FlatListItem>Safari and Firefox</FlatListItem>
       </FlatList>
     </Slide>
 
-    <Slide level="3" title="Sub grids">
+    <Slide level="3" title="Sub grids" title-secondary="Even this is possible" alt auto-animate>
       <ContentFrame><Image class="!max-h-[25vh]" src={subGrids} alt="Subgrid example." /></ContentFrame>
       <FlatList slot="contentSecondary">
-        <FlatListItem />
+        <FlatListItem>Aligned columns</FlatListItem>
+        <FlatListItem>content based and fixed columns</FlatListItem>
+        <FlatListItem>row (item) wrapper</FlatListItem>
+        <FlatListItem>spaced rows</FlatListItem>
       </FlatList>
     </Slide>
 
-    <Slide level="3" title="Masonry">
+    <Slide level="3" title="Masonry" title-secondary="Bye bye JavaScript" auto-animate>
       <ContentFrame><Codepen id="gOzZxgb" /></ContentFrame>
       <FlatList slot="contentSecondary">
         <FlatListItem>Photo galery</FlatListItem>
-        <FlatListItem>Pintrest layout</FlatListItem>
-        <FlatListItem>Still draft :(</FlatListItem>
+        <FlatListItem>pintrest layout</FlatListItem>
+        <FlatListItem>still draft :(</FlatListItem>
       </FlatList>
     </Slide>
 
-    <Slide level="3" title="Masonry">
+    <Slide level="3" title="Masonry" auto-animate alt>
       <ContentFrame><Image src={masonry} alt="Masonry example." /></ContentFrame>
-      <FlatList slot="contentSecondary">
-        <FlatListItem />
-      </FlatList>
     </Slide>
 
-    <Slide level="3" title="Container queries">
+    <Slide level="3" title="Container queries" title-secondary="Holy grail">
       <ContentFrame><Codepen id="zYjyJOP" /></ContentFrame>
       <FlatList slot="contentSecondary">
-        <FlatListItem />
+        <FlatListItem>Closer to the design</FlatListItem>
+        <FlatListItem>better reusability</FlatListItem>
+        <FlatListItem>web apps</FlatListItem>
       </FlatList>
     </Slide>
   </section>
