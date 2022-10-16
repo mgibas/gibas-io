@@ -39,6 +39,7 @@ module.exports = {
         primary: 'var(--theme-text-primary)',
         secondary: 'var(--theme-text-secondary)',
         tertiary: 'var(--theme-text-tertiary)',
+        disabled: 'var(--theme-text-disabled)',
       }),
       flexBasis: {
         content: 'content',

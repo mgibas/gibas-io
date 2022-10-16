@@ -1,0 +1,33 @@
+---
+const { class: classes } = Astro.props
+---
+
+<div class:list={['frame w-full h-full group', classes]}>
+  <div
+    class="flex items-center justify-center w-full h-full transition-all duration-300 scale-[.85] blur-3xl opacity-25 grayscale group-hover:opacity-100 group-hover:grayscale-0 group-hover:blur-none group-hover:scale-100">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .frame {
+    --b: 4px; /* border thickness*/
+    --s: 60px; /* size of the corner*/
+    --g: 14px; /* the gap*/
+    --c: var(--theme-text-primary);
+
+    padding: calc(var(--b) + var(--g));
+    background-image: conic-gradient(from 90deg at top var(--b) left var(--b), #0000 25%, var(--c) 0),
+      conic-gradient(from -90deg at bottom var(--b) right var(--b), #0000 25%, var(--c) 0);
+    background-position: var(--_p, 0%) var(--_p, 0%), calc(100% - var(--_p, 0%)) calc(100% - var(--_p, 0%));
+    background-size: var(--s) var(--s);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: background-position 0.3s var(--_i, 0.3s), background-size 0.3s calc(0.3s - var(--_i, 0.3s));
+  }
+  .frame:hover {
+    background-size: calc(100% - var(--g)) calc(100% - var(--g));
+    --_p: calc(var(--g) / 2);
+    --_i: 0s;
+  }
+</style>

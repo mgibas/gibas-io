@@ -1,5 +1,5 @@
 ---
-const { title, titleSecondary, titleTertiary, level = 2, alt } = Astro.props
+const { title, 'title-secondary': titleSecondary, 'title-tertiary': titleTertiary, level = 2, alt } = Astro.props
 const Heading = `h${level}`
 const classes = {
   section: {
@@ -10,7 +10,9 @@ const classes = {
   heading: {
     1: 'text-11xl font-bold leading-[.85]',
     2: `text-10xl font-bold leading-none w-2/3 ${alt ? 'text-left' : 'text-right justify-self-end'}`,
-    3: `relative text-9xl font-bold leading-none after:absolute after:h-full after:inset-y after:w-1 after:bg-zinc-200 ${
+    3: `relative text-9xl font-bold leading-none ${
+      titleSecondary && 'after:absolute after:h-full after:inset-y after:w-1 after:bg-current after:text-disabled'
+    } ${
       alt
         ? 'text-right pl-4 after:-left-4 after:skew-y-12 after:-rotate-12'
         : 'text-left pr-4 after:-right-4 after:-skew-y-12 after:rotate-12'
@@ -18,11 +20,11 @@ const classes = {
   },
   headingCharacters: {
     1: 'first:bg-stripes first:from-purple-700 first:to-pink-500 first:bg-clip-text first:text-transparent first:clip-path-inset-[2px]',
-    _: 'bg-gradient-to-r from-purple-700 to-pink-500 bg-clip-text text-transparent clip-path-inset-[2px]',
+    _: 'bg-stripes from-purple-700 to-pink-500 bg-clip-text text-transparent clip-path-inset-[2px]',
   },
   subtitles: {
     1: 'text-4xl text-right',
-    3: `justify-end ${alt ? 'text-right border-r' : 'text-left'}`,
+    3: `justify-end ${alt ? 'text-right' : 'text-left'}`,
   },
   titleSecondary: {
     1: 'text-primary',
