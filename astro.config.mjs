@@ -21,8 +21,11 @@ export default defineConfig({
               import Reveal from 'reveal.js';
               const urlSearchParams = new URLSearchParams(location.search)
               const { slideh = 0, slidev = 0 } = Object.fromEntries(urlSearchParams.entries())
-              
-              console.log('Initializing')
+              const syncFragmentStatus = (slide) => {
+                const fragments = slide.querySelectorAll('.fragment').length
+                const visibleFragments = slide.querySelectorAll('.fragment.visible').length
+                slide.classList.toggle('all-visible', fragments === visibleFragments)
+              }
               const deck = new Reveal({
                 disableLayout: false,
                 center: false, 
@@ -33,6 +36,7 @@ export default defineConfig({
                 deck.slide(slideh, slidev)
               })
               deck.on('slidechanged', (e) => {
+                syncFragmentStatus(e.currentSlide)
                 urlSearchParams.set('slideh', e.indexh)
                 urlSearchParams.set('slidev', e.indexv)
                 
@@ -42,17 +46,11 @@ export default defineConfig({
               })
 
               deck.on('fragmentshown', (e) => {
-                const slide = e.fragment.closest('section')
-                const fragments = slide.querySelectorAll('.fragment').length
-                const visibleFragments = slide.querySelectorAll('.fragment.visible').length
-                slide.classList.toggle('all-visible', fragments === visibleFragments)
+                syncFragmentStatus(e.fragment.closest('section'))
               })
               deck.on('fragmenthidden', (e) => {
-                const slide = e.fragment.closest('section')
-                const fragments = slide.querySelectorAll('.fragment').length
-                const visibleFragments = slide.querySelectorAll('.fragment.visible').length
-                slide.classList.toggle('all-visible', fragments === visibleFragments)
-              } );
+                syncFragmentStatus(e.fragment.closest('section'))
+              })
             `
           )
         },
