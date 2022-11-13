@@ -14,9 +14,10 @@ const { title, class: classes } = Astro.props
       content="Maciej Gibas, Personal website, portfolio, frontend engineer, developer, designer, leader, manager."
     />
     <title>{title}</title>
-
+    <link rel="preconnect" href="https://rsms.me" crossorigin>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" media="print" onload="this.media='all'" />
   </head>
   <body class:list={[classes]}>
     <slot />
