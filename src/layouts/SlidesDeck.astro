@@ -2,9 +2,10 @@
 import '/node_modules/reveal.js/dist/reveal.css'
 import '../assets/styles-slides.css'
 import Base from '@layouts/Base.astro'
+const { title } = Astro.props
 ---
 
-<Base class="reveal">
+<Base title={title} class="reveal">
   <div class="slides">
     <slot />
   </div>
@@ -12,7 +13,7 @@ import Base from '@layouts/Base.astro'
 
 <script>
   import Reveal from 'reveal.js'
-  
+
   const urlSearchParams = new URLSearchParams(location.search)
   const { slideh = 0, slidev = 0 } = Object.fromEntries(urlSearchParams.entries())
   const syncFragmentStatus = (slide) => {
