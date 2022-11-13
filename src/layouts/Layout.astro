@@ -1,28 +1,11 @@
 ---
-import '../assets/styles.css'
-const { title } = Astro.props
+import Base from '@layouts/Base.astro'
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Maciej Gibas, Personal website, portfolio, frontend engineer, developer, designer, leader, manager."
-    />
-    <title>{title}</title>
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-  </head>
-  <body class="bg-theme text-xl text-primary">
-    <slot name="header" />
-    <main class="prose-lg prose container">
-      <slot />
-    </main>
-    <slot name="footer" />
-  </body>
-</html>
+<Base class="bg-theme text-xl text-primary">
+  <slot name="header" />
+  <main class="prose-lg prose container">
+    <slot />
+  </main>
+  <slot name="footer" />
+</Base>

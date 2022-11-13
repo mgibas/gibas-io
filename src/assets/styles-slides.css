@@ -1,5 +1,3 @@
-@import './styles.css';
-
 .reveal-viewport {
   background-color: var(--theme-background);
   color: var(--theme-text-primary);

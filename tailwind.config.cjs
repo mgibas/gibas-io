@@ -177,7 +177,6 @@ module.exports = {
         },
       })
       addUtilities({
-        '.cq': { 'container-type': 'inline-size' },
         '.container': {
           display: 'grid',
           gridTemplateColumns: `1fr min(${theme('screens.lg')}, calc(100% - calc(2 * var(--container-gap, ${theme(
@@ -230,10 +229,6 @@ module.exports = {
         },
         { values: theme('screens') }
       )
-      matchVariant({
-        'cq-h': (value) => `@container (min-height: ${value})`,
-        'cq-w': (value) => `@container (min-width: ${value})`,
-      })
       matchUtilities(
         {
           'word-spacing': (value) => ({

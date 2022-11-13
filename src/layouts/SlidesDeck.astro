@@ -1,28 +1,48 @@
 ---
 import '/node_modules/reveal.js/dist/reveal.css'
-// import '/node_modules/reveal.js/dist/theme/black.css'
 import '../assets/styles-slides.css'
-const { title } = Astro.props
+import Base from '@layouts/Base.astro'
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Maciej Gibas, Personal website, portfolio, frontend engineer, developer, designer, leader, manager."
-    />
-    <title>{title}</title>
+<Base class="reveal">
+  <div class="slides">
+    <slot />
+  </div>
+</Base>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-  </head>
-  <body class="reveal">
-    <div class="slides">
-      <slot />
-    </div>
-  </body>
-</html>
+<script>
+  import Reveal from 'reveal.js'
+  
+  const urlSearchParams = new URLSearchParams(location.search)
+  const { slideh = 0, slidev = 0 } = Object.fromEntries(urlSearchParams.entries())
+  const syncFragmentStatus = (slide) => {
+    const fragments = slide.querySelectorAll('.fragment').length
+    const visibleFragments = slide.querySelectorAll('.fragment.visible').length
+    slide.classList.toggle('all-visible', fragments === visibleFragments)
+  }
+  const deck = new Reveal({
+    disableLayout: false,
+    center: false,
+    width: 1440,
+    height: 900,
+  })
+  deck.initialize().then(() => {
+    deck.slide(slideh, slidev)
+  })
+  deck.on('slidechanged', (e) => {
+    syncFragmentStatus(e.currentSlide)
+    urlSearchParams.set('slideh', e.indexh)
+    urlSearchParams.set('slidev', e.indexv)
+
+    const url = new URL(location.pathname, location.origin)
+    url.search = urlSearchParams
+    history.pushState({ path: url.toString() }, '', url.toString())
+  })
+
+  deck.on('fragmentshown', (e) => {
+    syncFragmentStatus(e.fragment.closest('section'))
+  })
+  deck.on('fragmenthidden', (e) => {
+    syncFragmentStatus(e.fragment.closest('section'))
+  })
+</script>
