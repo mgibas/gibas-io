@@ -35,7 +35,6 @@ module.exports = {
       textColor: () => ({
         primary: 'var(--theme-text-primary)',
         secondary: 'var(--theme-text-secondary)',
-        tertiary: 'var(--theme-text-tertiary)',
         disabled: 'var(--theme-text-disabled)',
       }),
       flexBasis: {
@@ -88,7 +87,7 @@ module.exports = {
               textDecoration: 'underline',
               textUnderlineOffset: theme('spacing.1'),
               textTransform: 'uppercase',
-              color: 'var(--theme-text-tertiary)',
+              color: 'var(--theme-text-secondary)',
             },
             h3: {
               color: 'var(--theme-text-primary)',
@@ -100,7 +99,7 @@ module.exports = {
             color: 'var(--theme-inverted-text-primary)',
             backgroundColor: 'var(--theme-inverted-background)',
             h2: {
-              color: 'var(--theme-inverted-text-tertiary)',
+              color: 'var(--theme-inverted-text-secondary)',
             },
             h3: {
               color: 'var(--theme-inverted-text-primary)',

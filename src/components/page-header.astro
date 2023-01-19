@@ -10,13 +10,13 @@ const social = [
   {
     name: 'Twitter',
     url: 'https://twitter.com/gibasmaciej',
-    Icon: IconTwitter
+    Icon: IconTwitter,
   },
   {
     name: 'GitHub',
     url: 'https://github.com/mgibas',
-    Icon: IconGithub
-  }
+    Icon: IconGithub,
+  },
 ]
 ---
 
@@ -24,12 +24,12 @@ const social = [
   <div class="container">
     <div class="flex w-full flex-col items-start">
       <div class="flex items-center gap-1 text-base text-secondary">
-        <IconMapPin class="h-5 w-5 text-tertiary" />
+        <IconMapPin class="h-5 w-5 text-secondary" />
         <span>{location}</span>
       </div>
       <div>
         <h1 class="text-6xl"><slot /></h1>
-        <ul class="mt-4 flex gap-4 text-tertiary">
+        <ul class="mt-4 flex gap-4 text-secondary">
           {
             social.map(({ url, name, Icon }) => (
               <li>
