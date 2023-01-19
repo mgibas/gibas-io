@@ -12,9 +12,6 @@ module.exports = {
       center: true,
     },
     extend: {
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      },
       fontSize: {
         '10xl': '12.5rem',
         '11xl': '16rem',
@@ -165,7 +162,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    plugin(({ matchVariant, addUtilities, addVariant, matchUtilities, addBase, theme }) => {
+    plugin(({ addUtilities, addVariant, matchUtilities, addBase, theme }) => {
       addBase({
         '.container > *': {
           gridColumn: '2',
