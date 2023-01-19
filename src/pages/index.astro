@@ -10,9 +10,12 @@ import ContactForm from '../components/contact-form.astro'
 
 <Layout title="Maciej Gibas">
   <PageHeader class="h-screen" slot="header" location="Gainesville, Florida">
-    <p>Hello <span class="inline-block origin-[70%_70%] animate-wave">👋🏼</span></p>
-    <p>I'm Maciej Gibas</p>
-    <Typewriter class="text-xl" prefix="Frontend" copy={['leader', 'architect', 'developer', 'designer']} />
+    <h1 class="text-6xl">
+      <div>Hello <span class="inline-block origin-[70%_70%] animate-wave">👋🏼</span></div>
+      <div>I'm Maciej Gibas</div>
+      <Typewriter class="text-xl" prefix="Frontend" copy={['leader', 'architect', 'developer', 'designer']} />
+    </h1>
+    <h2 class="sr-only">Frontend leader, architect, developer and designer.</h2>
   </PageHeader>
 
   <h2>About</h2>
