@@ -6,6 +6,7 @@ import Typewriter from '../components/typewriter.astro'
 import PhotoGrid from '../components/photo-grid.astro'
 import Link from '../components/link.astro'
 import ContactForm from '../components/contact-form.astro'
+import ArrowRight from 'src/icons/arrow-right.astro'
 ---
 
 <Layout title="Maciej Gibas">
@@ -55,6 +56,45 @@ import ContactForm from '../components/contact-form.astro'
       🍞 bread, watching 🎬 movies, traveling (mostly for food 😉), hiking and couple other minor things 🏎 🧗🏼 🏋🏼‍♀️ 🏓 🏃🏼
     </p>
     <PhotoGrid class="not-prose mt-6 container-bleed" />
+  </section>
+
+  <section>
+    <h3>Featured work</h3>
+    <p>My personal projects or initiatives worth mentioning:</p>
+
+    <ul class="m-0 mt-8 p-0 list-none grid gap-8 sm:gap-16 sm:grid-cols-3">
+      <li class="grid grid-rows-[auto,1fr,auto] m-0 p-0">
+        <Link class="no-underline" bare href="https://frontendies.io">frontendies.io</Link>
+        <span class="text-secondary">
+          A monthly frontend newsletter delivering only essential things you don't want to miss.
+        </span>
+        <Link class="mt-2 flex items-center gap-2" bare href="https://frontendies.io">
+          Check it out <ArrowRight class="h-5 w-5" />
+        </Link>
+      </li>
+      <li class="grid grid-rows-[auto,1fr,auto] m-0 p-0">
+        <Link class="no-underline" bare href="https://www.npmjs.com/package/vue-router-fetch">vue-router-fetch</Link>
+        <span class="text-secondary">
+          Small vuejs plugin to move data fetching from your components to the router.
+        </span>
+        <Link class="mt-2 flex items-center gap-2" bare href="https://www.npmjs.com/package/vue-router-fetch">
+          Check it out <ArrowRight class="h-5 w-5" />
+        </Link>
+      </li>
+      <li class="grid grid-rows-[auto,1fr,auto] m-0 p-0">
+        <Link class="no-underline" bare href="/talks/2022-10-20/">CSS Layouts</Link>
+        <span class="text-secondary">
+          Presentation from a talk I gave at Gainseville <Link
+            class="font-normal"
+            href="https://www.meetup.com/Gainesville-Front-End-Dev-Meetup/">
+            Frontend Awesome
+          </Link> meetup about CSS layouts.
+        </span>
+        <Link class="mt-2 flex items-center gap-2" bare href="/talks/2022-10-20/">
+          Check it out <ArrowRight class="h-5 w-5" />
+        </Link>
+      </li>
+    </ul>
   </section>
 
   <h2>Contact</h2>
