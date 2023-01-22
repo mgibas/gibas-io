@@ -1,4 +1,6 @@
 ---
+import ArrowRight from 'src/icons/arrow-right.astro'
+
 const { class: classes } = Astro.props
 ---
 
@@ -24,5 +26,7 @@ const { class: classes } = Astro.props
       type="textarea"
       required></textarea>
   </div>
-  <button class="ml-auto rounded text-base leading-5">Send ➞</button>
+  <button class="flex items-center gap-2 ml-auto rounded text-base leading-5">
+    Send <ArrowRight class="h-5 w-5" />
+  </button>
 </form>
