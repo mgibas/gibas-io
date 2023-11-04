@@ -1,0 +1,6 @@
+---
+import { Image } from 'astro:assets'
+const { src, alt, class: classes } = Astro.props
+---
+
+<Image class:list={['object-cover w-full max-h-full', classes]} src={src} alt={alt} loading="lazy" quality="high" width="1000" />

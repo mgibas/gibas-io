@@ -1,4 +1,5 @@
 ---
+import { Picture } from 'astro:assets'
 import photo1 from '@assets/photos/photo-grid-1.webp'
 import photo2 from '@assets/photos/photo-grid-2.webp'
 import photo2Overlay from '@assets/photos/photo-grid-2-overlay.webp'
@@ -29,23 +30,28 @@ const photos = [
   {
     photos.map(({ src, overlaySrc, alt }) => (
       <div class="group relative mb-2 max-h-80 shrink-0 basis-[300px] md:aspect-video md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150 lg:max-h-150 lg:odd-alternate:max-h-200">
-        <img
+        <Picture
           class:list={[
             'h-full w-full object-cover object-center saturate-0 transition-all duration-500 ease-in-out group-hover:saturate-100 dark:brightness-150 dark:group-hover:brightness-100',
             imgClass,
           ]}
           src={src}
           alt={alt}
+          quality="high"
           loading="lazy"
+          formats={['avif', 'webp']}
         />
         {overlaySrc && (
-          <img
+          <Picture
             class:list={[
               'absolute inset-0 h-full w-full object-cover object-center transition-all duration-500 ease-in-out group-hover:opacity-0 dark:brightness-150',
             ]}
             src={overlaySrc}
+            alt={alt}
+            quality="high"
             aria-hidden="true"
             loading="lazy"
+            formats={['avif', 'webp']}
           />
         )}
       </div>

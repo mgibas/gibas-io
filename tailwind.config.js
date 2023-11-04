@@ -1,8 +1,9 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-const plugin = require('tailwindcss/plugin')
-const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default
+import defaultTheme from 'tailwindcss/defaultTheme'
+import plugin from 'tailwindcss/plugin'
+import flattenColorPalette  from 'tailwindcss/lib/util/flattenColorPalette'
+import TypographyPlugin from '@tailwindcss/typography'
 
-module.exports = {
+export default {
   experimental: { matchVariant: true },
   content: ['./src/**/*.{astro,html,js,md,mdx}'],
   safelist: ['html'],
@@ -160,7 +161,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
+    TypographyPlugin,
     plugin(({ addUtilities, addVariant, matchUtilities, addBase, theme }) => {
       addBase({
         '.container > *': {

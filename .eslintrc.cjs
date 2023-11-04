@@ -1,17 +1,11 @@
 module.exports = {
-  plugins: ['tailwindcss'],
-  extends: ['plugin:astro/recommended', 'plugin:tailwindcss/recommended'],
+  extends: ['plugin:astro/recommended'],
   overrides: [
     {
       files: ['*.astro'],
       parser: 'astro-eslint-parser',
     },
   ],
-  settings: {
-    tailwindcss: {
-      config: 'tailwind.config.cjs',
-    },
-  },
   parserOptions: {
     ecmaVersion: 'latest',
   },
