@@ -11,6 +11,10 @@ import photo6 from '@assets/photos/photo-grid-6.webp'
 import photo7 from '@assets/photos/photo-grid-7.webp'
 import photo7Overlay from '@assets/photos/photo-grid-7-overlay.webp'
 import photo8 from '@assets/photos/photo-grid-8.webp'
+export interface PhotoGridProps {
+  class?: string
+  imgClass?: string
+}
 
 const { class: classes, imgClass } = Astro.props
 

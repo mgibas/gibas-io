@@ -2,6 +2,9 @@
 import { getImage } from 'astro:assets'
 import photo1 from '@assets/photos/photo-grid-1.webp'
 import photo2 from '@assets/photos/photo-grid-2.webp'
+export interface PageHeroProps {
+  class?: string
+}
 const { class: classes } = Astro.props
 const optimizedPhoto1 = await getImage({ src: photo1, format: 'webp', width: 510 })
 const optimizedPhoto2 = await getImage({ src: photo2, format: 'webp', height: 490 })

@@ -2,6 +2,9 @@
 import '/node_modules/reveal.js/dist/reveal.css'
 import '@assets/styles-slides.css'
 import Base from '@layouts/Base.astro'
+export interface SlidesDeckProps {
+  title: string
+}
 const { title } = Astro.props
 ---
 
@@ -15,8 +18,10 @@ const { title } = Astro.props
   import Reveal from 'reveal.js'
 
   const urlSearchParams = new URLSearchParams(location.search)
-  const { slideh = 0, slidev = 0 } = Object.fromEntries(urlSearchParams.entries())
-  const syncFragmentStatus = (slide) => {
+  const { slideh = 0, slidev = 0 } = Object.fromEntries(
+    Array.from(urlSearchParams.entries()).map(([key, value]) => [key, Number(value)])
+  )
+  const syncFragmentStatus = (slide: HTMLElement) => {
     const fragments = slide.querySelectorAll('.fragment').length
     const visibleFragments = slide.querySelectorAll('.fragment.visible').length
     slide.classList.toggle('all-visible', fragments === visibleFragments)
@@ -30,20 +35,20 @@ const { title } = Astro.props
   deck.initialize().then(() => {
     deck.slide(slideh, slidev)
   })
-  deck.on('slidechanged', (e) => {
+  deck.on('slidechanged', (e: any) => {
     syncFragmentStatus(e.currentSlide)
     urlSearchParams.set('slideh', e.indexh)
     urlSearchParams.set('slidev', e.indexv)
 
     const url = new URL(location.pathname, location.origin)
-    url.search = urlSearchParams
+    url.search = urlSearchParams.toString()
     history.pushState({ path: url.toString() }, '', url.toString())
   })
 
-  deck.on('fragmentshown', (e) => {
+  deck.on('fragmentshown', (e: any) => {
     syncFragmentStatus(e.fragment.closest('section'))
   })
-  deck.on('fragmenthidden', (e) => {
+  deck.on('fragmenthidden', (e: any) => {
     syncFragmentStatus(e.fragment.closest('section'))
   })
 </script>

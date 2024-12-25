@@ -1,10 +1,13 @@
 ---
 import ArrowRight from '@icons/arrow-right.astro'
+export interface ContactFormProps {
+  class?: string
+}
 
 const { class: classes } = Astro.props
 ---
 
-<form class:list={['flex flex-col gap-4', classes]} name="contact" netlify="true" action="/sent">
+<form class:list={['flex flex-col gap-4', classes]} name="contact" data-netlify="true" action="/sent">
   <div class="flex flex-col gap-1">
     <label class="text-base font-medium" for="email">E-mail</label>
     <input
@@ -12,7 +15,7 @@ const { class: classes } = Astro.props
       type="email"
       id="email"
       name="email"
-      autocomplet="email"
+      autocomplete="email"
       required
     />
   </div>
@@ -23,7 +26,6 @@ const { class: classes } = Astro.props
       id="message"
       rows="3"
       name="message"
-      type="textarea"
       required></textarea>
   </div>
   <button class="flex items-center gap-2 ml-auto rounded text-base leading-5">

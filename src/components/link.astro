@@ -1,5 +1,10 @@
 ---
-const { class: classes, href = '', bare } = Astro.props
+export interface LinkProps {
+  class?: string
+  href?: string
+  bare?: boolean
+}
+const { class: classes, href = '', bare = false } = Astro.props
 const external = href.startsWith('http')
 const externalClasses = external && !bare ? "after:content-['↗']" : ''
 ---

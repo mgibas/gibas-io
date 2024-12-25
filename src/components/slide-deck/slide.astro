@@ -1,4 +1,21 @@
 ---
+export interface SlideProps {
+  title: string
+  'title-secondary'?: string
+  'title-tertiary'?: string
+  level?: HeadingLevels
+  alt?: boolean
+  'auto-animate'?: boolean
+}
+type HeadingLevels = 1 | 2 | 3
+type Containers =
+  | 'section'
+  | 'heading'
+  | 'subtitles'
+  | 'contentSecondary'
+  | 'headingCharacters'
+  | 'titleSecondary'
+  | 'titleTertiary'
 const {
   title,
   'title-secondary': titleSecondary,
@@ -8,7 +25,7 @@ const {
   'auto-animate': autoAnimate,
 } = Astro.props
 const Heading = `h${level}`
-const classes = {
+const classes: Record<Containers, Record<string | number, string>> = {
   section: {
     1: 'level-1',
     2: 'level-2',

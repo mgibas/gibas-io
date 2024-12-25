@@ -1,4 +1,9 @@
 ---
+export interface TypewriterProps {
+  prefix: string
+  copy: string[]
+  class?: string
+}
 const { prefix, copy, class: classes } = Astro.props
 ---
 
@@ -15,7 +20,7 @@ const { prefix, copy, class: classes } = Astro.props
   </span>
 </div>
 
-<script define:vars={{ copy }}>
+<script define:vars={{ copy }} is:inline>
   window.typewriter = () => {
     const randomTimeout = (from, to) => Math.floor(Math.random() * to) + from
 

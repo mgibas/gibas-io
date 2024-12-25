@@ -3,6 +3,10 @@ import PageHero from '@components/page-hero.astro'
 import IconMapPin from '@icons/map-pin.astro'
 import IconGithub from '@icons/github.astro'
 import IconTwitter from '@icons/twitter.astro'
+export interface PageHeaderProps {
+  location: string
+  class?: string
+}
 const { location, class: classes } = Astro.props
 
 const social = [

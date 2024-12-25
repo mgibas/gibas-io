@@ -1,16 +1,21 @@
 ---
+export interface CodepenProps {
+  class?: string
+  user?: string
+  id: string
+}
 const { class: classes, user = 'gibasmaciej', id } = Astro.props
+const Tag = 'iframe'
 ---
 
-<iframe
+<Tag
   class:list={[classes, 'h-full w-full']}
-  scrolling="no"
   title="Floated layout"
   src={`https://codepen.io/${user}/embed/${id}?default-tab=result&editable=true&theme-id=light`}
-  frameborder="no"
   loading="lazy"
   allowtransparency="true"
   allowfullscreen="true">
   See the Pen <a href={`https://codepen.io/${user}/pen/${id}`}> Flexbox</a> by Maciej (<a
-  href="https://codepen.io/${user}">@gibasmaciej</a>) on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+    href="https://codepen.io/${user}">@gibasmaciej</a
+  >) on <a href="https://codepen.io">CodePen</a>.
+</Tag>
