@@ -1,0 +1,14 @@
+---
+import Layout from '@layouts/Layout.astro'
+import AppFooter from '@components/app-footer.astro'
+import RecipesHeader from '@components/recipes-header.astro'
+import Recipes from '@components/recipes.astro'
+import RecipeIdeasForm from '@components/recipe-ideas-form.astro'
+---
+
+<Layout class="mx-auto container flex gap-4">
+  <RecipesHeader />
+  <Recipes />
+  <RecipeIdeasForm class="py-32" />
+  <AppFooter />
+</Layout>

@@ -1,0 +1,13 @@
+---
+export interface Props {
+  class?: string
+  href: string
+  target?: string
+}
+const { class: classes, href, target } = Astro.props
+const external = href.startsWith('http')
+---
+
+<a href={href} target={(target ?? external) ? '_blank' : ''} class:list={['font-bold underline', classes]}
+  ><slot /> {external && <span class="ml-1">↗</span>}
+</a>

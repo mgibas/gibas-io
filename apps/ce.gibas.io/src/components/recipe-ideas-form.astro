@@ -1,0 +1,46 @@
+---
+import Button from './button.astro'
+
+export interface Props {
+  class: string
+}
+const { class: classes } = Astro.props
+---
+
+<div class:list={['flex flex-col gap-10', classes]}>
+  <div>
+    <h2 class="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+      Have an idea for a recipe?
+    </h2>
+    <p class="mt-2 text-lg/8 text-gray-600">Send your idea so we I can expand our cook book!</p>
+  </div>
+
+  <form name="recipe-idea" method="post" class="max-w-xl" data-netlify="true">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-6">
+      <div class="flex flex-col gap-2.5">
+        <label for="email" class="block text-sm/6 font-semibold text-gray-900">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          autocomplete="email"
+          required
+          class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-2 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-600"
+        />
+      </div>
+      <div class="flex flex-col gap-2.5">
+        <label for="idea" class="block text-sm/6 font-semibold text-gray-900">Idea</label>
+        <textarea
+          name="idea"
+          id="idea"
+          rows="4"
+          required
+          class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-2 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-600"
+        ></textarea>
+      </div>
+    </div>
+    <div class="mt-6">
+      <Button class="w-full" theme="gradient" type="submit">Send</Button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+---
+import Markdown from './markdown.astro'
+export interface Props {
+  description: string
+  class?: string
+}
+
+const { description, class: classes } = Astro.props
+---
+
+<Markdown class:list={[classes]} content={description} />

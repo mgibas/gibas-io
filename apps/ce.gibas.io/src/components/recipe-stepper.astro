@@ -1,0 +1,29 @@
+---
+import type { Step, Recipe } from '@/types.js'
+import RecipeStepperItem from '@components/recipe-stepper-item.astro'
+
+export interface Props {
+  recipe: Recipe
+  steps: Step[]
+  currentStep: Step
+  class?: string
+}
+const { recipe, steps, currentStep, class: className } = Astro.props
+---
+
+<nav class={className} aria-label="Progress">
+  <ol role="list" class={`max-md:flex max-md:items-center max-md:space-x-5`}>
+    {
+      steps.map((step, index) => (
+        <RecipeStepperItem
+          recipe={recipe}
+          stepId={index}
+          step={step}
+          isCurrent={step === currentStep}
+          isCompleted={index < steps.indexOf(currentStep)}
+          isLast={index === steps.length - 1}
+        />
+      ))
+    }
+  </ol>
+</nav>

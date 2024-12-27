@@ -1,0 +1,87 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@layouts/Layout.astro'
+import PageHeader from '@components/page-header.astro'
+import Button from '@components/button.astro'
+import RecipeStepper from '@components/recipe-stepper.astro'
+import RecipeStepCode from '@components/recipe-step-code.astro'
+import RecipeStepFooter from '@components/recipe-step-footer.astro'
+import ChevronRight from '@components/icons/chevron-right.astro'
+import ChevronLeft from '@components/icons/chevron-left.astro'
+
+export async function getStaticPaths() {
+  const recipes = await getCollection('recipes')
+
+  return recipes.flatMap((recipe) => {
+    return (
+      recipe.data.steps?.map((step, index) => {
+        const nextHref =
+          index + 1 < recipe.data.steps.length
+            ? `/recipes/${recipe.id}/steps/${step.next.slug}`
+            : `/recipes/${recipe.data.next.slug}/steps/0`
+        const prevHref =
+          index === 0
+            ? `/recipes/${recipe.data.prev.slug}/steps/${recipe.data.prev.stepsLength - 1}`
+            : `/recipes/${recipe.id}/steps/${step.prev.slug}`
+
+        return {
+          params: { id: recipe.id, step: index },
+          props: { recipe, step, nextHref, prevHref },
+        }
+      }) ?? []
+    )
+  })
+}
+const { recipe, step, nextHref, prevHref } = Astro.props
+---
+
+<Layout>
+  <link slot="head" rel="prefetch" href={prevHref} />
+  <link slot="head" rel="prefetch" href={nextHref} />
+
+  <div
+    class="mx-auto container space-y-4 sm:space-y-10 flex flex-1 flex-col"
+    x-data
+    @keyup.escape.window="location = '/'"
+    @keyup.right.window={`location = '${nextHref}'`}
+    @keyup.left.window={`location = '${prevHref}'`}>
+    <PageHeader title={recipe.data.title} actionsBreakpoint="md">
+      <Button theme="secondary" slot="actions" href={prevHref} size="lg">
+        <ChevronLeft slot="icon-left" />
+        Previous
+      </Button>
+      <Button slot="actions" href={nextHref} size="lg">
+        <ChevronRight slot="icon-right" />
+        Next
+      </Button>
+    </PageHeader>
+
+    <div class="flex flex-1 flex-col gap-4 md:flex-row-reverse">
+      <RecipeStepper
+        class="md:flex-1"
+        steps={recipe.data.steps.filter((step) => step !== undefined)}
+        recipe={recipe.data}
+        currentStep={step!}
+      />
+
+      <RecipeStepCode class="rounded-lg shadow flex-1 md:grow-[2]" code={step!.codeFormatted ?? ''} copy />
+    </div>
+  </div>
+  <RecipeStepFooter class="sticky bottom-0 shadow-[0_-1px_2px_0_rgb(0_0_0_/_0.05)] md:hidden -m-4" step={step}>
+    <Button theme="secondary" slot="actions" href={prevHref} class="flex-1">
+      <ChevronLeft slot="icon-left" />
+      Previous
+    </Button>
+    <Button slot="actions" href={nextHref} class="flex-1">
+      <ChevronRight slot="icon-right" />
+      Next
+    </Button>
+  </RecipeStepFooter>
+</Layout>
+
+<script>
+  setTimeout(
+    () => document.querySelector('.line.focused')?.scrollIntoView({ behavior: 'smooth', block: 'center' }),
+    200
+  )
+</script>

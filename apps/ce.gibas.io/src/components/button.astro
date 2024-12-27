@@ -1,0 +1,67 @@
+---
+type Theme = 'primary' | 'secondary' | 'gradient'
+type Size = 'sm' | 'md' | 'lg'
+export interface Props {
+  href?: string
+  class?: string
+  theme?: Theme
+  size?: Size
+  type?: 'button' | 'submit' | 'reset'
+  'x-data'?: string
+  '@click'?: string
+}
+const { href, class: classes, theme = 'primary', size = 'md', type = 'button' } = Astro.props
+const Tag = href ? 'a' : 'button'
+const variants = {
+  theme: {
+    primary: 'bg-gray-700 text-gray-50 hover:bg-gray-800',
+    secondary: 'ring-1 ring-inset ring-gray-300 text-gray-700 hover:bg-gray-50',
+    gradient:
+      'bg-gradient-to-r from-sunset-orange to-sunset-violet text-gray-50 hover:from-sunset-orange-600 hover:to-sunset-violet-600',
+  },
+  size: {
+    sm: 'px-2 py-1 text-sm gap-x-1.5',
+    md: 'px-2.5 py-1.5 text-sm gap-x-1.5',
+    lg: 'px-3 py-2 text-sm gap-x-2',
+  },
+} satisfies { theme: Record<Theme, string>; size: Record<Size, string> }
+---
+
+<Tag
+  slot="actions"
+  x-data={Astro.props['x-data']}
+  @click={Astro.props['@click']}
+  class:list={[
+    'flex justify-center items-center font-semibold rounded-md transition-colors',
+    classes,
+    variants.theme[theme],
+    variants.size[size],
+  ]}
+  type={type}
+  href={href}>
+  {
+    Astro.slots['icon-left'] && (
+      <div class="-ml-0.5 size-5">
+        <slot name="icon-left" />
+      </div>
+    )
+  }
+
+  {
+    Astro.slots['icon'] ? (
+      <div class="-mx-0.5 size-5">
+        <slot name="icon" />
+      </div>
+    ) : (
+      <slot />
+    )
+  }
+
+  {
+    Astro.slots['icon-right'] && (
+      <div class="-mr-0.5 size-5">
+        <slot name="icon-right" />
+      </div>
+    )
+  }
+</Tag>

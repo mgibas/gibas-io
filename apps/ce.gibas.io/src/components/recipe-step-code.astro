@@ -1,0 +1,69 @@
+---
+import { Code } from 'astro:components'
+import { transformerNotationFocus } from '@shikijs/transformers'
+import type { BundledLanguage } from 'shiki'
+import Button from '@components/button.astro'
+import Clipboard from '@components/icons/clipboard.astro'
+import Check from '@components/icons/check.astro'
+
+interface Props {
+  code: string
+  lang?: BundledLanguage
+  class: string
+  center?: boolean
+  copy?: boolean
+}
+const { code, class: classes, lang, center = false, copy = false } = Astro.props
+const showLines = import.meta.env.MODE === 'development'
+---
+
+<div class:list={['relative flex flex-col overflow-hidden', classes]}>
+  <Code
+    id="code"
+    class:list={['flex-1 w-full h-full px-4 py-2', { 'line-numbers': showLines, 'flex items-center': center }]}
+    tabindex="-1"
+    lang={lang ?? 'html'}
+    code={code}
+    theme="github-dark"
+    transformers={[transformerNotationFocus()]}
+  />
+
+  <Button
+    class:list={['absolute top-2 right-2', { hidden: !copy }]}
+    size="sm"
+    x-data="{ copied: false }"
+    @click={`() => {
+        navigator.clipboard.writeText(document.querySelector('#code')?.textContent ?? '')
+        copied = true
+        setTimeout(() => copied = false, 2000)
+      }`}>
+    <span class="sr-only">Copy</span>
+    <span slot="icon" :class="copied ? 'hidden' : ''"><Clipboard /></span>
+    <span slot="icon" :class="copied ? '' : 'hidden'"><Check /></span>
+  </Button>
+</div>
+
+<style is:global>
+  pre.line-numbers code {
+    counter-reset: step;
+    counter-increment: step -1;
+  }
+
+  pre.line-numbers code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    width: 1rem;
+    margin-right: 1.5rem;
+    display: inline-block;
+    text-align: right;
+    color: rgba(115, 138, 148, 0.4);
+  }
+
+  .line {
+    transition: filter 0.3s;
+  }
+
+  pre.has-focused:not(:hover) .line:not(.focused) {
+    filter: blur(10px);
+  }
+</style>

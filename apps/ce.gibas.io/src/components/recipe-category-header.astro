@@ -1,0 +1,24 @@
+---
+import { type Recipe } from '@types.js'
+
+export interface Props {
+  category: Recipe['category']
+}
+
+const { category } = Astro.props
+const copyMap: Record<typeof category, { title: string; description: string }> = {
+  basic: {
+    title: 'Basic Recipes',
+    description: 'Fundamentals for building custom elements',
+  },
+  forms: {
+    title: 'Forms',
+    description: 'Recipes for creating forms',
+  },
+}
+---
+
+<div class="flex flex-col gap-1">
+  <h2 class="text-lg font-semibold text-primary">{copyMap[category].title}</h2>
+  <p class="max-w-4xl text-base text-secondary">{copyMap[category].description}</p>
+</div>

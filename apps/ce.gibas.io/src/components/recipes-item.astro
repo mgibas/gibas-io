@@ -1,0 +1,23 @@
+---
+import RecipeStepCode from '@components/recipe-step-code.astro'
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  recipe: CollectionEntry<'recipes'>
+  class?: string
+  tag?: 'li' | 'section'
+  href: string
+}
+
+const { recipe, class: classes, tag: Tag = 'section', href } = Astro.props
+---
+
+<Tag class:list={[classes]}>
+  <a class="overflow-hidden rounded-lg ring-black/5 shadow-md ring-1 gap-0" href={href}>
+    <RecipeStepCode class="min-h-40" center code={recipe.data.hero.code} lang={recipe.data.hero.lang} />
+    <div class="bg-white flex flex-col gap-2 px-4 py-4">
+      <h2>{recipe.data.title}</h2>
+      <p class="text-gray-500">{recipe.data.hero.copy}</p>
+    </div>
+  </a>
+</Tag>

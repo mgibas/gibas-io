@@ -1,0 +1,29 @@
+---
+import { createMarkdownProcessor } from '@astrojs/markdown-remark'
+export interface MarkdownProps {
+  content: string
+  class?: string
+}
+const { content, class: classes } = Astro.props
+const processor = await createMarkdownProcessor()
+const contentHtml = await processor.render(content)
+---
+
+<div set:html={contentHtml.code} class:list={['markdown', classes]} />
+
+<style is:global>
+  .markdown {
+    & a {
+      text-decoration: underline;
+      font-weight: theme('fontWeight.bold');
+    }
+    & code {
+      font-family: theme('fontFamily.mono');
+      font-weight: theme('fontWeight.bold');
+      &::before,
+      &::after {
+        content: '`';
+      }
+    }
+  }
+</style>

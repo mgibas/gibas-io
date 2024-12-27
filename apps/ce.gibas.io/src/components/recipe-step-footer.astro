@@ -1,0 +1,32 @@
+---
+import ChevronDown from '@components/icons/chevron-down.astro'
+import RecipeStepDescription from '@components/recipe-step-description.astro'
+import type { Step } from '@/types.js'
+
+export interface RecipeStepFooterProps {
+  step: Step
+  class: string
+}
+const { step, class: classes } = Astro.props
+---
+
+<div class:list={['flex flex-col gap-4 p-4  bg-white  border border-gray-200', classes]}>
+  <div
+    x-data="{ open: false, hideExpand: true }"
+    x-init="$nextTick(() => { hideExpand = $refs.desc.scrollHeight <= $refs.desc.clientHeight })">
+    <button
+      @click="open = !open"
+      class="absolute top-4 right-4 hidden"
+      x-bind:class="{ 'rotate-180' : !open, hidden: hideExpand }">
+      <ChevronDown />
+    </button>
+    <p class="font-semibold pr-8">{step.title}</p>
+    <p x-bind:class="!open ? 'line-clamp-2' : ''" x-ref="desc">
+      <RecipeStepDescription description={step.description} />
+    </p>
+  </div>
+
+  <div class="flex gap-4">
+    <slot name="actions" />
+  </div>
+</div>

@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "create-basic-element",
+    "title": "Create basic element.",
+    "description": "Create basic custom element as described in [Basic](/recipes/basic/steps/0) recipe."
+  },
+  {
+    "slug": "create-shadow-element",
+    "title": "Create an element with Shadow DOM.",
+    "description": "Create a custom element with Shadow DOM as described in [Shadow DOM](/recipes/shadow-dom/steps/0) recipe."
+  },
+  {
+    "slug": "create-form-element",
+    "title": "Create a form associated element.",
+    "description": "Create a simple form associated custom element as described in [Form associated element](/recipes/form-associated-element/steps/0) recipe."
+  }
+]

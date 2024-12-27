@@ -1,0 +1,31 @@
+---
+import RecipeCategoryHeader from '@components/recipe-category-header.astro'
+import RecipesItem from '@components/recipes-item.astro'
+import { getCollection } from 'astro:content'
+export interface Props {
+  class?: string
+}
+
+const { class: classes } = Astro.props
+const allRecipes = await getCollection('recipes')
+const groupedRecipes = Object.groupBy(allRecipes, (r) => r.data.category)
+---
+
+<div class="flex flex-col gap-16">
+  {
+    Object.entries(groupedRecipes).map(([category, recipes]) => {
+      return (
+        <section class="flex flex-col gap-8">
+          <RecipeCategoryHeader category={category as keyof typeof groupedRecipes} />
+          <ul class:list={['grid gap-4 grid-cols-1 lg:grid-cols-2 ', classes]}>
+            {recipes.map((r) => {
+              return (
+                <RecipesItem tag="li" recipe={r} class="grid grid-rows-[1fr_auto]" href={`/recipes/${r.id}/steps/0`} />
+              )
+            })}
+          </ul>
+        </section>
+      )
+    })
+  }
+</div>

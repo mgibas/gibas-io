@@ -3,17 +3,14 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-    "types": ["node", "vite/client", "lib.dom"],
+    "types": ["node"],
     "baseUrl": ".",
     "paths": {
-      "@*": ["./*"],
-      "@src/*": ["src/*"],
+      "@*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@styles/*": ["src/styles/*"],
-      "@data/*": ["src/data/*"],
-      "@icons/*": ["src/icons/*"],
-      "@assets/*": ["src/assets/*"]
+      "@data/*": ["src/data/*"]
     }
   }
 }

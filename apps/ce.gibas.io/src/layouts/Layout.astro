@@ -1,0 +1,37 @@
+---
+import SquaredPattern from '@components/squared-pattern.astro'
+import '@styles/index.css'
+export interface Props {
+  class?: string
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Explore a collection of custom element recipes to enhance your web development skills. Learn step-by-step with code examples and detailed instructions."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Custom Element Recipes</title>
+    <slot name="head" />
+  </head>
+  <body class="relative min-h-screen">
+    <SquaredPattern
+      class="absolute inset-0 -z-10 h-screen w-screen stroke-gray-100 [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
+    />
+    <main class={`min-h-screen flex flex-col py-4 sm:py-8 ${Astro.props.class}`}>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  @view-transition {
+    navigation: auto;
+  }
+</style>

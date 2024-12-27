@@ -1,0 +1,446 @@
+[
+  {
+    "title": "Basic",
+    "slug": "basic",
+    "category": "basic",
+    "hero": {
+      "copy": "Minimal custom element.",
+      "lines": [3, 8],
+      "lang": "js"
+    },
+    "code": [
+      "<my-ce></my-ce>",
+      "",
+      "<script>",
+      "class MyCe extends HTMLElement {",
+      "constructor() {",
+      "super();",
+      "this.textContent = 'Hello, World!';",
+      "}",
+      "}",
+      "customElements.define('my-ce', MyCe);",
+      "</script>"
+    ],
+    "steps": [
+      {
+        "title": "Create class extending HTMLElement.",
+        "description": "We're creating a new class called `MyCe` that extends the `HTMLElement` class.",
+        "lines": [3, 8]
+      },
+      {
+        "title": "Define constructor method.",
+        "description": "The `constructor` method is called when a new instance of the custom element is created. This is where you can set up the initial state of the custom element.",
+        "lines": [4, 7]
+      },
+      {
+        "title": "Call super() method.",
+        "description": "The `super()` method is called to create a new instance of the `HTMLElement` class.",
+        "lines": [4, 5, 7]
+      },
+      {
+        "title": "Add a template",
+        "description": "The text content of the custom element is set to `\"Hello, World!\"`.",
+        "lines": [4, 6, 7]
+      },
+      {
+        "title": "Define custom element.",
+        "description": "The custom element is defined using the `customElements.define()` method. The first argument is the name of the custom element, and the second argument is the class that defines the custom element.",
+        "lines": [9]
+      },
+      {
+        "title": "Done 🎉",
+        "description": "And now you can use your custom element with the tag `<my-ce></my-ce>`."
+      }
+    ]
+  },
+  {
+    "title": "Shadow DOM",
+    "slug": "shadow-dom",
+    "category": "basic",
+    "hero": {
+      "copy": "Encapsulate styles with Shadow DOM.",
+      "lines": [6],
+      "lang": "js"
+    },
+    "code": [
+      "<my-ce></my-ce>",
+      "",
+      "<script>",
+      "class MyCe extends HTMLElement {",
+      "constructor() {",
+      "super();",
+      "const shadow = this.attachShadow({ mode: 'open' })",
+      "shadow.innerHTML = `<p>Hello, Shadow DOM!</p>`",
+      "shadow.innerHTML += '<style>p { color: red; }</style>'",
+      "}",
+      "}",
+      "customElements.define('my-ce', MyCe);",
+      "</script>"
+    ],
+    "steps": [
+      {
+        "definitionSlug": "create-basic-element",
+        "lines": [3, 4, 5, 9, 10, 11]
+      },
+      {
+        "title": "Attach shadow DOM.",
+        "description": "Instead of adding content directly to the element, create a shadow root using the `attachShadow` method.",
+        "lines": [4, 6, 9]
+      },
+      {
+        "title": "Set shadow DOM content.",
+        "description": "The inner HTML of the shadow DOM is set to a paragraph with the text `\"Hello, Shadow DOM!\"`.",
+        "lines": [4, 7, 9]
+      },
+      {
+        "title": "Add a style.",
+        "description": "You can add a `style` tag to the shadow DOM to style the content of the custom element.",
+        "lines": [4, 8, 9]
+      },
+      {
+        "title": "Done 🎉",
+        "description": "And now you have simple custom element with Shadow DOM and encapsulated style."
+      }
+    ]
+  },
+  {
+    "title": "Slots",
+    "slug": "slots",
+    "category": "basic",
+    "hero": {
+      "copy": "Slot content into elements shadow DOM.",
+      "lines": [0, 1, 2],
+      "lang": "html"
+    },
+    "code": [
+      "<my-ce>",
+      "<span>Hello, Slots!</span>",
+      "</my-ce>",
+      "",
+      "<script>",
+      "class MyCe extends HTMLElement {",
+      "constructor() {",
+      "super();",
+      "const shadow = this.attachShadow({ mode: 'open' });",
+      "shadow.innerHTML = '<slot></slot>';",
+      "}",
+      "}",
+      "customElements.define('my-ce', MyCe);",
+      "</script>"
+    ],
+    "steps": [
+      {
+        "definitionSlug": "create-shadow-element",
+        "lines": [5, 6, 7, 8, 10, 11, 12]
+      },
+      {
+        "title": "Add a default slot to the template.",
+        "description": "Add a `slot` element to the shadow DOM to define where the content of the custom element will be placed.",
+        "lines": [6, 9, 10]
+      },
+      {
+        "title": "Done 🎉",
+        "description": "And now you can slot content into your custom element."
+      }
+    ]
+  },
+  {
+    "title": "Named slots",
+    "slug": "named-slots",
+    "category": "basic",
+    "hero": {
+      "copy": "Precisely slot content into elements shadow DOM.",
+      "lines": [0, 1, 2, 3],
+      "lang": "html"
+    },
+    "code": [
+      "<my-ce>",
+      "<span slot=\"top\">I'm a top</span>",
+      "<span slot=\"bottom\">I'm a bottom</span>",
+      "</my-ce>",
+      "",
+      "<script>",
+      "class MyCe extends HTMLElement {",
+      "constructor() {",
+      "super();",
+      "const shadow = this.attachShadow({ mode: 'open' });",
+      "shadow.innerHTML = `",
+      "        <slot name=\"top\"></slot>",
+      "        <slot name=\"bottom\"></slot>",
+      "      `",
+      "}",
+      "}",
+      "customElements.define('my-ce', MyCe);",
+      "</script>"
+    ],
+    "steps": [
+      {
+        "definitionSlug": "create-shadow-element",
+        "lines": [6, 7, 8, 9, 14, 15, 16]
+      },
+      {
+        "title": "Add named slots to the template.",
+        "description": "Add couple of `slot` elements to the shadow DOM with `name` attribute to define where the content of the custom element will be placed.",
+        "lines": [7, 10, 11, 12, 13, 14]
+      },
+      {
+        "title": "Done 🎉",
+        "description": "And now you can precisely slot content into your custom element."
+      }
+    ]
+  },
+  {
+    "title": "Properties",
+    "slug": "properties",
+    "category": "basic",
+    "hero": {
+      "copy": "Expose properties on a custom element.",
+      "lines": [9, 11],
+      "lang": "js"
+    },
+    "code": [
+      "<my-ce></my-ce>",
+      "",
+      "<script>",
+      "class MyCe extends HTMLElement {",
+      "constructor() {",
+      "super();",
+      "this._name = 'Default Name';",
+      "}",
+      "",
+      "get name() {",
+      "return this._name;",
+      "}",
+      "",
+      "set name(value) {",
+      "this._name = value;",
+      "}",
+      "}",
+      "customElements.define('my-ce', MyCe);",
+      "</script>"
+    ],
+    "steps": [
+      {
+        "definitionSlug": "create-basic-element",
+        "lines": [3, 4, 5, 7, 17]
+      },
+      {
+        "title": "Initialize private property.",
+        "description": "This is optional, but it's always good to have some defaults.",
+        "lines": [4, 6, 7]
+      },
+      {
+        "title": "Define getter method.",
+        "description": "A getter method for the `name` property is defined to return the value of `_name`.",
+        "lines": [9, 10, 11]
+      },
+      {
+        "title": "Define setter method.",
+        "description": "A setter method for the `name` property is defined to set the value of `_name` and update the text content of the element.",
+        "lines": [13, 14, 15]
+      },
+      {
+        "title": "Done 🎉",
+        "description": "Now you can set `name` with `myCe.name = 'New Name'` and get it with `console.log(myCe.name)`."
+      }
+    ]
+  },
+  {
+    "title": "Attributes",
+    "slug": "attributes",
+    "category": "basic",
+    "hero": {
+      "copy": "React to attribute changes on a custom element.",
+      "lines": [0],
+      "lang": "html"
+    },
+    "code": [
+      "<my-ce name=\"Initial Name\"></my-ce>",
+      "",
+      "<script>",
+      "class MyCe extends HTMLElement {",
+      "constructor() {",
+      "super();",
+      "this.textContent = 'Hello, World!';",
+      "}",
+      "static get observedAttributes() {",
+      "return ['name'];",
+      "}",
+      "",
+      "attributeChangedCallback(name, oldValue, newValue) {",
+      "if (name === 'name') {",
+      "this.textContent = newValue;",
+      "}",
+      "}",
+      "}",
+      "customElements.define('my-ce', MyCe);",
+      "</script>"
+    ],
+    "steps": [
+      {
+        "definitionSlug": "create-basic-element",
+        "lines": [3, 4, 5, 6, 7, 17, 18]
+      },
+      {
+        "title": "Define observed attributes.",
+        "description": "The `observedAttributes` static method returns an array of attribute names to observe.",
+        "lines": [8, 9, 10]
+      },
+      {
+        "title": "Define attributeChangedCallback.",
+        "description": "The `attributeChangedCallback` method is called when an observed attribute changes. It updates the text content of the element based on the new attribute value.",
+        "lines": [12, 16]
+      },
+      {
+        "title": "React to attribute changes.",
+        "description": "When the `name` attribute changes, the `attributeChangedCallback` method is called which gives you a chance to update your state or template.",
+        "lines": [12, 13, 14, 15, 16]
+      },
+      {
+        "title": "Done 🎉",
+        "description": "Now you can set `name` attribute with `<my-ce name=\"New Name\"></my-ce>` and see the text content change."
+      }
+    ]
+  },
+  {
+    "title": "Events",
+    "slug": "events",
+    "category": "basic",
+    "hero": {
+      "copy": "Emit custom events from your element.",
+      "lines": [10],
+      "lang": "js"
+    },
+    "code": [
+      "<my-ce></my-ce>",
+      "",
+      "<script>",
+      "class MyCe extends HTMLElement {",
+      "constructor() {",
+      "super();",
+      "const shadow = this.attachShadow({ mode: 'open' });",
+      "shadow.innerHTML = '<button>Click me</button>';",
+      "",
+      "shadow.querySelector('button').addEventListener('click', () => {",
+      "this.dispatchEvent(new CustomEvent('my-event', { detail: 'Hello, World!' }));",
+      "})",
+      "}",
+      "}",
+      "customElements.define('my-ce', MyCe);",
+      "</script>"
+    ],
+    "steps": [
+      {
+        "definitionSlug": "create-shadow-element",
+        "lines": [3, 4, 5, 6, 12, 13, 14]
+      },
+      {
+        "title": "Add button element.",
+        "description": "Add a button element to the shadow DOM that will emit a custom event when clicked.",
+        "lines": [4, 7, 12]
+      },
+      {
+        "title": "Add event listener.",
+        "description": "Add an event listener to the button element.",
+        "lines": [4, 9, 11, 12]
+      },
+      {
+        "title": "Dispatch custom event.",
+        "description": "When the button is clicked, dispatch a custom event with the name `my-event` and a detail of `\"Hello, World!\"`.",
+        "lines": [4, 9, 10, 11, 12]
+      },
+      {
+        "title": "Done 🎉",
+        "description": "Now your element can emit any custom event you imagine."
+      }
+    ]
+  },
+  {
+    "title": "Form associated element",
+    "slug": "form-associated-element",
+    "category": "forms",
+    "hero": {
+      "copy": "Let the form know about your custom element.",
+      "lines": [0, 1, 2, 3],
+      "lang": "html"
+    },
+    "code": [
+      "<form>",
+      "<my-ce></my-ce>",
+      "</form>",
+      "",
+      "<script>",
+      "class MyCe extends HTMLElement {",
+      "static formAssociated = true;",
+      "",
+      "}",
+      "customElements.define('my-ce', MyCe);",
+      "</script>"
+    ],
+    "steps": [
+      {
+        "definitionSlug": "create-basic-element",
+        "lines": [5, 7, 8]
+      },
+      {
+        "title": "Define formAssociated static property.",
+        "description": "Set the `formAssociated` static property to `true` to indicate that the custom element is form-associated.",
+        "lines": [5, 6, 7]
+      },
+      {
+        "title": "Done 🎉",
+        "description": "Now your custom element can participate in form submission and validation. Check `form.elements` to see your element."
+      }
+    ]
+  },
+  {
+    "title": "Form value",
+    "slug": "form-value-element",
+    "category": "forms",
+    "hero": {
+      "copy": "Set form value from your custom element.",
+      "lines": [0, 1, 2, 3],
+      "lang": "html"
+    },
+    "code": [
+      "<form>",
+      "<my-ce name=\"foo\"></my-ce>",
+      "</form>",
+      "",
+      "<script>",
+      "class MyCe extends HTMLElement {",
+      "static formAssociated = true",
+      "constructor() {",
+      "super()",
+      "this._internals = this.attachInternals()",
+      "}",
+      "",
+      "connectedCallback() {",
+      "this._internals.setFormValue('Hello, World!')",
+      "}",
+      "}",
+      "customElements.define('my-ce', MyCe);",
+      "</script>"
+    ],
+    "steps": [
+      {
+        "definitionSlug": "create-form-element",
+        "lines": [5, 6, 15]
+      },
+      {
+        "title": "Element internals.",
+        "description": "Attach element internals to the element instance",
+        "lines": [7, 9, 10]
+      },
+      {
+        "title": "Set form value.",
+        "description": "Use `this._internals.setFormValue()` to set the form value from your custom element.",
+        "lines": [12, 13, 14]
+      },
+      {
+        "title": "Done 🎉",
+        "description": "Now whenever you post the form, `foo` (name) will have a value `Hello, World!`."
+      }
+    ]
+  }
+]
