@@ -1,5 +1,7 @@
 ---
 import Button from '@gibas/components/button'
+import Input from '@gibas/components/input'
+import Textarea from '@gibas/components/textarea'
 
 export interface Props {
   class: string
@@ -19,24 +21,11 @@ const { class: classes } = Astro.props
     <div class="grid grid-cols-1 gap-x-8 gap-y-6">
       <div class="flex flex-col gap-2.5">
         <label for="email" class="block text-sm/6 font-semibold text-primary">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          autocomplete="email"
-          required
-          class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-primary outline outline-2 -outline-offset-1 outline-gray-300 placeholder:text-disabled focus:outline-2 focus:-outline-offset-2 focus:outline-rose-600"
-        />
+        <Input type="email" name="email" id="email" autocomplete="email" required />
       </div>
       <div class="flex flex-col gap-2.5">
         <label for="idea" class="block text-sm/6 font-semibold text-primary">Idea</label>
-        <textarea
-          name="idea"
-          id="idea"
-          rows="4"
-          required
-          class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-primary outline outline-2 -outline-offset-1 outline-gray-300 placeholder:text-disabled focus:outline-2 focus:-outline-offset-2 focus:outline-rose-600"
-        ></textarea>
+        <Textarea name="idea" id="idea" required />
       </div>
     </div>
     <div class="mt-6">

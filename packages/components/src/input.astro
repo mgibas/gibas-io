@@ -1,0 +1,23 @@
+---
+export interface InputProps {
+  class: string
+  type?: string
+  id?: string
+  name?: string
+  autocomplete?: string
+  required?: boolean
+}
+const { class: classes, type = 'text', id, name, autocomplete, required = false } = Astro.props
+---
+
+<input
+  class:list={[
+    'w-full rounded-md border border-zinc-400 px-3.5 py-2 text-base text-primary leading-5 dark:bg-zinc-800',
+    classes,
+  ]}
+  type={type}
+  id={id}
+  name={name}
+  autocomplete={autocomplete}
+  required={required}
+/>

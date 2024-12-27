@@ -4,9 +4,11 @@
   "type": "module",
   "exports": {
     "./*": {
+      "types": "./src/*.astro",
       "import": "./src/*.astro"
     },
     "./icons/*": {
+      "types": "./src/icons/*.astro",
       "import": "./src/icons/*.astro"
     }
   }
