@@ -1,0 +1,12 @@
+{
+  "name": "@gibas/tailwind",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./preset": "./index.js"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "tailwindcss": "^3.4.17"
+  }
+}

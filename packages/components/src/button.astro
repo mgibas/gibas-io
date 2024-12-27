@@ -14,8 +14,9 @@ const { href, class: classes, theme = 'primary', size = 'md', type = 'button' } 
 const Tag = href ? 'a' : 'button'
 const variants = {
   theme: {
-    primary: 'bg-gray-700 text-gray-50 hover:bg-gray-800',
-    secondary: 'ring-1 ring-inset ring-gray-300 text-gray-700 hover:bg-gray-50',
+    primary: 'bg-zinc-700 text-zinc-50 hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-700 dark:hover:bg-zinc-200',
+    secondary:
+      'ring-1 ring-inset ring-zinc-300 text-zinc-700 dark:text-zinc-300 dark:ring-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800',
     gradient:
       'bg-gradient-to-r from-sunset-orange to-sunset-violet text-gray-50 hover:from-sunset-orange-600 hover:to-sunset-violet-600',
   },

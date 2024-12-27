@@ -71,7 +71,7 @@ const Tag = isCurrent ? 'span' : 'a'
       <span class:list={['text-sm font-medium', isCurrent || isCompleted ? 'text-primary' : 'text-secondary']}
         >{step.title}</span
       >
-      {isCurrent && <RecipeStepDescription class="text-sm text-gray-500" description={step.description} />}
+      {isCurrent && <RecipeStepDescription class="text-sm text-secondary" description={step.description} />}
     </span>
   </Tag>
 </li>

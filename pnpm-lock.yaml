@@ -6,7 +6,11 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      prettier:
+        specifier: ^3.4.2
+        version: 3.4.2
 
   apps/ce.gibas.io:
     dependencies:
@@ -25,6 +29,12 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.4
         version: 5.1.4(astro@5.1.1(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.17)
+      '@gibas/components':
+        specifier: workspace:*
+        version: link:../../packages/components
+      '@gibas/tailwind':
+        specifier: workspace:*
+        version: link:../../packages/tailwind
       '@shikijs/transformers':
         specifier: ^1.24.2
         version: 1.24.4
@@ -40,9 +50,6 @@ importers:
       astro:
         specifier: ^5.0.3
         version: 5.1.1(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1)
-      prettier:
-        specifier: ^3.4.2
-        version: 3.4.2
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -71,9 +78,12 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.4
         version: 5.1.4(astro@5.1.1(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.17)
-      '@tailwindcss/typography':
-        specifier: ^0.5.15
-        version: 0.5.15(tailwindcss@3.4.17)
+      '@gibas/components':
+        specifier: workspace:*
+        version: link:../../packages/components
+      '@gibas/tailwind':
+        specifier: workspace:*
+        version: link:../../packages/tailwind
       '@types/reveal.js':
         specifier: ^5.0.4
         version: 5.0.4
@@ -83,12 +93,6 @@ importers:
       astro:
         specifier: ^5.1.1
         version: 5.1.1(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1)
-      prettier:
-        specifier: ^3.4.2
-        version: 3.4.2
-      prettier-plugin-astro:
-        specifier: ^0.14.1
-        version: 0.14.1
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -98,6 +102,17 @@ importers:
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
+
+  packages/components: {}
+
+  packages/tailwind:
+    dependencies:
+      '@tailwindcss/typography':
+        specifier: ^0.5.15
+        version: 0.5.15(tailwindcss@3.4.17)
+      tailwindcss:
+        specifier: ^3.4.17
+        version: 3.4.17
 
 packages:
 
@@ -4276,6 +4291,7 @@ snapshots:
       '@astrojs/compiler': 2.10.3
       prettier: 3.4.2
       sass-formatter: 0.7.9
+    optional: true
 
   prettier@2.8.7:
     optional: true
@@ -4454,11 +4470,13 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  s.color@0.0.15: {}
+  s.color@0.0.15:
+    optional: true
 
   sass-formatter@0.7.9:
     dependencies:
       suf-log: 2.5.3
+    optional: true
 
   sax@1.4.1: {}
 
@@ -4574,6 +4592,7 @@ snapshots:
   suf-log@2.5.3:
     dependencies:
       s.color: 0.0.15
+    optional: true
 
   supports-preserve-symlinks-flag@1.0.0: {}
 

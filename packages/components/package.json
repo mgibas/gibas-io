@@ -1,0 +1,13 @@
+{
+  "name": "@gibas/components",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./*": {
+      "import": "./src/*.astro"
+    },
+    "./icons/*": {
+      "import": "./src/icons/*.astro"
+    }
+  }
+}

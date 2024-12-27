@@ -20,9 +20,9 @@ export interface Props {
     <title>Custom Element Recipes</title>
     <slot name="head" />
   </head>
-  <body class="relative min-h-screen">
+  <body class="bg-theme text-primary relative min-h-screen">
     <SquaredPattern
-      class="absolute inset-0 -z-10 h-screen w-screen stroke-gray-100 [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
+      class="absolute inset-0 -z-10 h-screen w-screen stroke-gray-100 dark:stroke-gray-800 [mask-image:radial-gradient(100%_100%_at_top_left,white,transparent)]"
     />
     <main class={`min-h-screen flex flex-col py-4 sm:py-8 ${Astro.props.class}`}>
       <slot />

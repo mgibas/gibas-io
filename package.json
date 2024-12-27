@@ -1,8 +1,11 @@
 {
-  "name": "gibas-io-suite",
+  "name": "@gibas/monorepo",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "pnpm -r build"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2"
   }
 }

@@ -1,23 +1,22 @@
 ---
 import Link from '@components/link.astro'
-import { Image } from 'astro:assets'
-import logoAstro from '@assets/logo-astro.svg'
-import logoTs from '@assets/logo-ts.svg'
-import logoTailwind from '@assets/logo-tailwind.svg'
+import LogoAstro from '@gibas/components/icons/logo-astro'
+import LogoTailwind from '@gibas/components/icons/logo-tailwind'
+import LogoTs from '@gibas/components/icons/logo-ts'
 ---
 
-<footer class="bg-white text-sm text-secondary">
+<footer class="bg-theme text-sm text-secondary">
   <div class="flex flex-col gap-2">
     <span>Made by <Link href="https://gibas.io/">gibas.io</Link></span>
     <ul class="flex gap-4">
       <li class="inline-flex gap-2 items-center">
-        <Image src={logoAstro} alt="Astro logo" format="webp" height={16} /> Astro
+        <LogoAstro class="w-4 h-4" /> Astro
       </li>
       <li class="inline-flex gap-2 items-center">
-        <Image src={logoTs} alt="TypeScript logo" format="webp" height={16} /> Typescript
+        <LogoTs class="w-4 h-4" /> Typescript
       </li>
       <li class="inline-flex gap-2 items-center">
-        <Image src={logoTailwind} alt="Tailwindcss logo" format="webp" height={16} /> Tailwindcss
+        <LogoTailwind class="w-4 h-4" /> Tailwindcss
       </li>
     </ul>
   </div>

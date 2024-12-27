@@ -2,12 +2,12 @@
 import { getCollection } from 'astro:content'
 import Layout from '@layouts/Layout.astro'
 import PageHeader from '@components/page-header.astro'
-import Button from '@components/button.astro'
+import Button from '@gibas/components/button'
 import RecipeStepper from '@components/recipe-stepper.astro'
 import RecipeStepCode from '@components/recipe-step-code.astro'
 import RecipeStepFooter from '@components/recipe-step-footer.astro'
-import ChevronRight from '@components/icons/chevron-right.astro'
-import ChevronLeft from '@components/icons/chevron-left.astro'
+import ChevronRight from '@gibas/components/icons/chevron-right'
+import ChevronLeft from '@gibas/components/icons/chevron-left'
 
 export async function getStaticPaths() {
   const recipes = await getCollection('recipes')
@@ -40,7 +40,7 @@ const { recipe, step, nextHref, prevHref } = Astro.props
   <link slot="head" rel="prefetch" href={nextHref} />
 
   <div
-    class="mx-auto container space-y-4 sm:space-y-10 flex flex-1 flex-col"
+    class="container space-y-4 sm:space-y-10 flex flex-1 flex-col"
     x-data
     @keyup.escape.window="location = '/'"
     @keyup.right.window={`location = '${nextHref}'`}
@@ -67,7 +67,7 @@ const { recipe, step, nextHref, prevHref } = Astro.props
       <RecipeStepCode class="rounded-lg shadow flex-1 md:grow-[2]" code={step!.codeFormatted ?? ''} copy />
     </div>
   </div>
-  <RecipeStepFooter class="sticky bottom-0 shadow-[0_-1px_2px_0_rgb(0_0_0_/_0.05)] md:hidden -m-4" step={step}>
+  <RecipeStepFooter class="sticky bottom-0 md:hidden -mb-4" step={step}>
     <Button theme="secondary" slot="actions" href={prevHref} class="flex-1">
       <ChevronLeft slot="icon-left" />
       Previous

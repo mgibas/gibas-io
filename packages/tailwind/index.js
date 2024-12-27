@@ -1,0 +1,224 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
+import TypographyPlugin from '@tailwindcss/typography'
+import plugin from 'tailwindcss/plugin'
+
+export default {
+  theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+      },
+    },
+    extend: {
+      stroke: {
+        theme: 'var(--theme-background)',
+      },
+      borderColor: () => ({
+        theme: 'var(--theme-border)',
+      }),
+      backgroundColor: {
+        theme: 'var(--theme-background)',
+      },
+      backgroundImage: {
+        stripes: `linear-gradient(to top right, transparent, var(--tw-gradient-from), transparent, var(--tw-gradient-to), transparent),
+                  repeating-linear-gradient(to top right, var(--tw-gradient-from), var(--tw-gradient-from) 2px, transparent 0%, transparent 4px)`,
+      },
+      textColor: () => ({
+        primary: 'var(--theme-text-primary)',
+        secondary: 'var(--theme-text-secondary)',
+        disabled: 'var(--theme-text-disabled)',
+      }),
+      fontSize: {
+        '10xl': '12.5rem',
+        '11xl': '16rem',
+      },
+      colors: {
+        sunset: {
+          'orange-400': '#FFCB3D',
+          orange: '#FCB827',
+          'orange-600': '#E5A31F',
+          'violet-400': '#FF33FF',
+          violet: '#FC14E6',
+          'violet-600': '#E312CF',
+        },
+      },
+      flexBasis: {
+        content: 'content',
+        max: 'max-content',
+        min: 'min-content',
+        fit: 'fit-content',
+      },
+      fontFamily: {
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      },
+      spacing: {
+        100: '25rem',
+        150: '37.5rem',
+        200: '50rem',
+        'full-vw': '100vw',
+        'full-vh': '100vh',
+      },
+      animation: {
+        cursor: 'cursor 1s infinite',
+        wave: 'wave 2.5s infinite',
+      },
+      keyframes: {
+        cursor: {
+          '0%, 40%': { opacity: 0 },
+          '50%, 90%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+        wave: {
+          '0%': { transform: 'rotate( 0.0deg)' },
+          '10%': { transform: 'rotate(14.0deg)' },
+          '20%': { transform: 'rotate(-8.0deg)' },
+          '30%': { transform: 'rotate(14.0deg)' },
+          '40%': { transform: 'rotate(-4.0deg)' },
+          '50%': { transform: 'rotate(10.0deg)' },
+          '60%': { transform: 'rotate( 0.0deg)' },
+          '100%': { transform: 'rotate( 0.0deg)' },
+        },
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: 'var(--theme-text-primary)',
+            maxWidth: '100%',
+            a: {
+              color: 'var(--theme-text-primary)',
+              fontWeight: theme('fontWeight.bold'),
+            },
+            h2: {
+              textDecoration: 'underline',
+              textUnderlineOffset: theme('spacing.1'),
+              textTransform: 'uppercase',
+              color: 'var(--theme-text-secondary)',
+            },
+            h3: {
+              color: 'var(--theme-text-primary)',
+            },
+          },
+        },
+        inverted: {
+          css: {
+            color: 'var(--theme-inverted-text-primary)',
+            backgroundColor: 'var(--theme-inverted-background)',
+            h2: {
+              color: 'var(--theme-inverted-text-secondary)',
+            },
+            h3: {
+              color: 'var(--theme-inverted-text-primary)',
+            },
+          },
+        },
+        lg: {
+          css: {
+            lineHeight: theme('lineHeight.normal'),
+            h2: {
+              fontSize: theme('fontSize.base'),
+              marginTop: theme('spacing.32'),
+              marginBottom: theme('spacing.4'),
+              lineHeight: theme('lineHeight.tight'),
+              fontWeight: theme('fontWeight.bold'),
+            },
+            h3: {
+              fontSize: theme('fontSize.5xl'),
+              marginTop: theme('spacing.12'),
+              marginBottom: theme('spacing.6'),
+              lineHeight: theme('lineHeight.tight'),
+            },
+            p: {
+              marginTop: theme('spacing.3'),
+              marginBottom: theme('spacing.3'),
+            },
+            ul: {
+              marginTop: theme('spacing.3'),
+              marginBottom: theme('spacing.3'),
+            },
+            ':not(.prose-inverted) + =.prose-inverted > h2': {
+              marginTop: 0,
+            },
+            ':not(.prose-inverted) + .prose-inverted:has(> h2)': {
+              marginTop: theme('spacing.32'),
+              paddingTop: theme('spacing.32'),
+              paddingBottom: theme('spacing.32'),
+            },
+            '.prose-inverted + .prose-inverted:has(> h2)': {
+              marginTop: `-${theme('spacing.32')}`,
+              paddingBottom: theme('spacing.32'),
+            },
+            ':not(.prose-inverted) + .prose-inverted > h3': {
+              marginTop: 0,
+            },
+            ':not(.prose-inverted) + .prose-inverted:has(>h3)': {
+              marginTop: theme('spacing.12'),
+              paddingTop: theme('spacing.12'),
+              paddingBottom: theme('spacing.12'),
+            },
+            '.prose-inverted + .prose-inverted:has(> h3)': {
+              marginTop: `-${theme('spacing.12')}`,
+              paddingBottom: theme('spacing.12'),
+            },
+          },
+        },
+      }),
+    },
+  },
+  plugins: [
+    TypographyPlugin,
+    plugin(({ addBase, theme }) => {
+      addBase({
+        ':root': {
+          '--theme-light-background': theme('colors.white'),
+          '--theme-light-primary-text': theme('colors.zinc.800'),
+          '--theme-light-secondary-text': theme('colors.zinc.600'),
+          '--theme-light-disabled-text': theme('colors.zinc.300'),
+          '--theme-light-border': theme('colors.zinc.100'),
+          '--theme-dark-background': theme('colors.zinc.900'),
+          '--theme-dark-primary-text': theme('colors.zinc.50'),
+          '--theme-dark-secondary-text': theme('colors.zinc.400'),
+          '--theme-dark-disabled-text': theme('colors.zinc.700'),
+          '--theme-dark-border': theme('colors.zinc.800'),
+        },
+        html: {
+          '--theme-background': 'var(--theme-light-background)',
+          '--theme-text-primary': 'var(--theme-light-primary-text)',
+          '--theme-text-secondary': 'var(--theme-light-secondary-text)',
+          '--theme-text-disabled': 'var(--theme-light-disabled-text)',
+          '--theme-border': 'var(--theme-light-border)',
+          '--theme-inverted-background': 'var(--theme-dark-background)',
+          '--theme-inverted-text-primary': 'var(--theme-dark-primary-text)',
+          '--theme-inverted-text-secondary': 'var(--theme-dark-secondary-text)',
+          '--theme-inverted-text-disabled': 'var(--theme-dark-disabled-text)',
+          '--theme-inverted-border': 'var(--theme-dark-border)',
+        },
+        '@media (prefers-color-scheme: dark)': {
+          html: {
+            '--theme-background': 'var(--theme-dark-background)',
+            '--theme-text-primary': 'var(--theme-dark-primary-text)',
+            '--theme-text-secondary': 'var(--theme-dark-secondary-text)',
+            '--theme-text-disabled': 'var(--theme-dark-disabled-text)',
+            '--theme-border': 'var(--theme-dark-border)',
+            '--theme-inverted-background': 'var(--theme-light-background)',
+            '--theme-inverted-text-primary': 'var(--theme-light-primary-text)',
+            '--theme-inverted-text-secondary': 'var(--theme-light-secondary-text)',
+            '--theme-inverted-text-disabled': 'var(--theme-light-disabled-text)',
+            '--theme-inverted-border': 'var(--theme-light-border)',
+          },
+        },
+        'body, h1, h2, p, section': {
+          transitionProperty: 'color, background-color, border-color, text-decoration-color, fill, stroke',
+          transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+          transitionDuration: '200ms',
+        },
+        '*': {
+          outlineColor: theme('colors.zinc.400'),
+          outlineWidth: '2px',
+          outlineOffset: '4px',
+        },
+      })
+    }),
+  ],
+}
