@@ -1,10 +1,10 @@
 ---
 import Layout from '@layouts/Layout.astro'
+import PageFooter from '@gibas/components/page-footer'
 import PageHeader from '@components/page-header.astro'
-import PageFooter from '@components/page-footer.astro'
 import Typewriter from '@components/typewriter.astro'
 import PhotoGrid from '@components/photo-grid.astro'
-import Link from '@components/link.astro'
+import Link from '@gibas/components/link'
 import ContactForm from '@components/contact-form.astro'
 import ArrowRight from '@gibas/components/icons/arrow-right'
 ---
@@ -116,5 +116,11 @@ import ArrowRight from '@gibas/components/icons/arrow-right'
     <ContactForm class="flex-1" />
   </div>
 
-  <PageFooter class="relative -ml-10" slot="footer" />
+  <div slot="footer" class:list={['max-w-screen-2xl mx-auto pt-12']}>
+    <span
+      class="text-[12rem] leading-none text-zinc-900 text-shadow-zinc-600 dark:text-zinc-100 dark:text-shadow-zinc-400 sm:text-[13rem] md:text-[15rem] lg:text-[20rem]"
+      >BYE</span
+    >
+  </div>
+  <PageFooter href="/" class="px-6 py-8" slot="footer" />
 </Layout>

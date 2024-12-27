@@ -1,0 +1,32 @@
+---
+import Link from './link.astro'
+import LogoAstro from './icons/logo-astro.astro'
+import LogoAlpine from './icons/logo-alpine.astro'
+import LogoTailwind from './icons/logo-tailwind.astro'
+import LogoTs from './icons/logo-ts.astro'
+export interface PageFooterProps {
+  class?: string
+  href?: string
+}
+const { class: classes, href = 'https://gibas.io/' } = Astro.props
+---
+
+<footer class:list={['bg-theme text-sm text-secondary', classes]}>
+  <div class="flex flex-col gap-2">
+    <span>Made by <Link href={href}>gibas.io</Link></span>
+    <ul class="flex gap-4">
+      <li class="inline-flex gap-2 items-center">
+        <LogoAstro class="w-4 h-4" /> Astro
+      </li>
+      <li class="inline-flex gap-2 items-center">
+        <LogoAlpine class="w-4 h-4" /> Alpine
+      </li>
+      <li class="inline-flex gap-2 items-center">
+        <LogoTs class="w-4 h-4" /> Typescript
+      </li>
+      <li class="inline-flex gap-2 items-center">
+        <LogoTailwind class="w-4 h-4" /> Tailwindcss
+      </li>
+    </ul>
+  </div>
+</footer>
