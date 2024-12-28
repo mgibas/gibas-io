@@ -35,7 +35,7 @@ const Tag = isCurrent ? 'span' : 'a'
   {
     !isLast && (
       <div
-        class={`absolute left-4 top-4 -ml-px mt-0.5 h-full w-0.5  ${isCompleted ? 'bg-rose-300' : 'bg-gray-300'}`}
+        class={`absolute left-4 top-4 -ml-px mt-0.5 h-full w-0.5  ${isCompleted ? 'bg-rose-300 dark:bg-rose-500' : 'bg-gray-300'}`}
         aria-hidden="true"
       />
     )
@@ -44,13 +44,13 @@ const Tag = isCurrent ? 'span' : 'a'
   <Tag href={href} class="group relative flex items-start" aria-current={isCurrent ? 'step' : undefined}>
     <span class="flex h-9 items-center" aria-hidden="true">
       <span
-        class={`relative z-10 flex size-8 items-center justify-center rounded-full ${isCurrent ? 'border-2 border-rose-300 bg-white' : isCompleted ? 'bg-white border-rose-300 border-2' : 'border-2 border-gray-300 bg-white group-hover:border-gray-400'}`}>
+        class={`relative z-10 flex size-8 items-center justify-center rounded-full ${isCurrent ? 'border-2 border-rose-300 dark:border-rose-500 bg-theme' : isCompleted ? 'bg-theme border-rose-300 dark:border-rose-500 border-2' : 'border-2 border-gray-300 bg-theme group-hover:border-gray-400'}`}>
         {
           isCurrent ? (
-            <span class="size-2.5 rounded-full bg-rose-500" />
+            <span class="size-2.5 rounded-full bg-rose-600 dark:bg-rose-300" />
           ) : isCompleted ? (
             <svg
-              class="size-5 text-rose-600"
+              class="size-5 text-rose-600 dark:text-rose-300"
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true"
