@@ -11,6 +11,7 @@ const { title, description, class: classes, 'main-class': mainClasses, container
 ---
 
 <Base title={title} description={description} class:list={['bg-theme text-primary', classes]}>
+  <slot name="head" slot="head" />
   {
     Astro.slots.header && (
       <header class:list={[containers ? 'container' : '']}>
