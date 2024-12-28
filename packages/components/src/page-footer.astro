@@ -11,7 +11,8 @@ export interface PageFooterProps {
 const { class: classes, href = 'https://gibas.io/' } = Astro.props
 ---
 
-<footer class:list={['bg-theme text-sm text-secondary', classes]}>
+<div class:list={['bg-theme text-sm text-secondary', classes]}>
+  <slot />
   <div class="flex flex-col gap-2">
     <span>Made by <Link href={href}>gibas.io</Link></span>
     <ul class="flex gap-4">
@@ -29,4 +30,4 @@ const { class: classes, href = 'https://gibas.io/' } = Astro.props
       </li>
     </ul>
   </div>
-</footer>
+</div>

@@ -1,15 +1,18 @@
 ---
-import Base from '@layouts/Base.astro'
+import Pancakes from '@gibas/components/layouts/pancakes'
 export interface LayoutProps {
   title: string
 }
 const { title } = Astro.props
 ---
 
-<Base title={title} class="bg-theme text-xl text-primary">
-  <slot name="header" />
-  <main class="prose-lg prose container">
-    <slot />
-  </main>
-  <slot name="footer" />
-</Base>
+<Pancakes
+  title={title}
+  description="Maciej Gibas, Personal website, portfolio, frontend engineer, developer, designer, leader, manager."
+  class="text-xl"
+  containers
+  main-class="prose-lg prose">
+  <slot name="header" slot="header" />
+  <slot />
+  <slot name="footer" slot="footer" />
+</Pancakes>

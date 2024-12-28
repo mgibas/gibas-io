@@ -6,8 +6,8 @@ import RecipesHeader from '@components/recipes-header.astro'
 import Recipes from '@components/recipes.astro'
 ---
 
-<Layout class="container flex gap-4">
-  <RecipesHeader />
+<Layout main-class="py-4 sm:py-8">
+  <RecipesHeader slot="header" />
   <Recipes />
   <ContactForm
     class="py-32"
@@ -15,5 +15,5 @@ import Recipes from '@components/recipes.astro'
     title="Have an idea for a recipe?"
     subtitle="Send your idea so I can expand the cook book!"
   />
-  <PageFooter />
+  <PageFooter class="py-8" slot="footer" />
 </Layout>

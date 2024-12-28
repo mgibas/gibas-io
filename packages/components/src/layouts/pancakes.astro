@@ -1,0 +1,52 @@
+---
+import Base from './base.astro'
+export interface PancakesProps {
+  title: string
+  description: string
+  class?: string
+  'main-class'?: string
+  containers?: boolean
+}
+const { title, description, class: classes, 'main-class': mainClasses, containers } = Astro.props
+---
+
+<Base title={title} description={description} class:list={['bg-theme text-primary', classes]}>
+  {
+    Astro.slots.header && (
+      <header class:list={[containers ? 'container' : '']}>
+        <slot name="header" />
+      </header>
+    )
+  }
+  <main class:list={[mainClasses, containers ? 'container' : '']}>
+    <slot />
+  </main>
+  {
+    Astro.slots.footer && (
+      <footer class:list={[containers ? 'container' : '']}>
+        <slot name="footer" />
+      </footer>
+    )
+  }
+</Base>
+
+<style>
+  body {
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      'header'
+      'main'
+      'footer';
+    grid-template-rows: auto 1fr auto;
+  }
+  header {
+    grid-area: header;
+  }
+  main {
+    grid-area: main;
+  }
+  footer {
+    grid-area: footer;
+  }
+</style>

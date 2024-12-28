@@ -1,6 +1,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
 import TypographyPlugin from '@tailwindcss/typography'
 import plugin from 'tailwindcss/plugin'
+import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
 
 export default {
   theme: {
@@ -85,7 +86,8 @@ export default {
         DEFAULT: {
           css: {
             color: 'var(--theme-text-primary)',
-            maxWidth: '100%',
+            width: '100%',
+            maxWidth: 'auto',
             a: {
               color: 'var(--theme-text-primary)',
               fontWeight: theme('fontWeight.bold'),
@@ -137,27 +139,27 @@ export default {
               marginTop: theme('spacing.3'),
               marginBottom: theme('spacing.3'),
             },
-            ':not(.prose-inverted) + =.prose-inverted > h2': {
+            ':not(.prose-inverted) + =.prose-inverted h2': {
               marginTop: 0,
             },
-            ':not(.prose-inverted) + .prose-inverted:has(> h2)': {
+            ':not(.prose-inverted) + .prose-inverted:has(h2)': {
               marginTop: theme('spacing.32'),
               paddingTop: theme('spacing.32'),
               paddingBottom: theme('spacing.32'),
             },
-            '.prose-inverted + .prose-inverted:has(> h2)': {
+            '.prose-inverted + .prose-inverted:has(h2)': {
               marginTop: `-${theme('spacing.32')}`,
               paddingBottom: theme('spacing.32'),
             },
-            ':not(.prose-inverted) + .prose-inverted > h3': {
+            ':not(.prose-inverted) + .prose-inverted h3': {
               marginTop: 0,
             },
-            ':not(.prose-inverted) + .prose-inverted:has(>h3)': {
+            ':not(.prose-inverted) + .prose-inverted:has(h3)': {
               marginTop: theme('spacing.12'),
               paddingTop: theme('spacing.12'),
               paddingBottom: theme('spacing.12'),
             },
-            '.prose-inverted + .prose-inverted:has(> h3)': {
+            '.prose-inverted + .prose-inverted:has(h3)': {
               marginTop: `-${theme('spacing.12')}`,
               paddingBottom: theme('spacing.12'),
             },
@@ -168,7 +170,7 @@ export default {
   },
   plugins: [
     TypographyPlugin,
-    plugin(({ addBase, theme }) => {
+    plugin(({ addBase, addComponents, matchUtilities, addVariant, theme }) => {
       addBase({
         ':root': {
           '--theme-light-background': theme('colors.white'),
@@ -219,6 +221,31 @@ export default {
           outlineOffset: '4px',
         },
       })
+      addComponents({
+        '.container-bleed': {
+          width: '100vw',
+          position: 'relative',
+          left: '50%',
+          right: '50%',
+          marginLeft: '-50vw',
+          marginRight: '-50vw',
+        },
+      })
+      matchUtilities({
+        'clip-path-inset': (value) => ({
+          clipPath: `inset(${value})`,
+        }),
+      })
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: `4px 8px ${value}`,
+          }),
+        },
+        { values: flattenColorPalette(theme('colors')) },
+      )
+
+      addVariant('odd-alternate', ['&:nth-child(4n)', '&:nth-child(4n + 1)'])
     }),
   ],
 }

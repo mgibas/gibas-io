@@ -39,23 +39,22 @@ const { recipe, step, nextHref, prevHref } = Astro.props
   <link slot="head" rel="prefetch" href={prevHref} />
   <link slot="head" rel="prefetch" href={nextHref} />
 
+  <PageHeader slot="header" class="py-4" title={recipe.data.title} actionsBreakpoint="md">
+    <Button theme="secondary" slot="actions" href={prevHref} size="lg">
+      <ChevronLeft slot="icon-left" />
+      Previous
+    </Button>
+    <Button slot="actions" href={nextHref} size="lg">
+      <ChevronRight slot="icon-right" />
+      Next
+    </Button>
+  </PageHeader>
   <div
-    class="container space-y-4 sm:space-y-10 flex flex-1 flex-col"
+    class="space-y-4 sm:space-y-10 flex flex-1 flex-col"
     x-data
     @keyup.escape.window="location = '/'"
     @keyup.right.window={`location = '${nextHref}'`}
     @keyup.left.window={`location = '${prevHref}'`}>
-    <PageHeader title={recipe.data.title} actionsBreakpoint="md">
-      <Button theme="secondary" slot="actions" href={prevHref} size="lg">
-        <ChevronLeft slot="icon-left" />
-        Previous
-      </Button>
-      <Button slot="actions" href={nextHref} size="lg">
-        <ChevronRight slot="icon-right" />
-        Next
-      </Button>
-    </PageHeader>
-
     <div class="flex flex-1 flex-col gap-4 md:flex-row-reverse">
       <RecipeStepper
         class="md:flex-1"

@@ -49,13 +49,16 @@ import ArrowRight from '@gibas/components/icons/arrow-right'
     <li><b>Collaboration</b> - full ownership of your work, influence others and accept their influence.</li>
   </ul>
 
-  <section class="prose-inverted container container-bleed">
-    <h3>Personal life</h3>
-    <p>
-      After work, I spend most of my time with family and friends. I like brewing specialty ☕️ coffee, baking artisan 🍞
-      bread, watching 🎬 movies, traveling (mostly for food 😉), hiking and couple other minor things 🏎 🧗🏼 🏋🏼‍♀️ 🏓 🏃🏼
-    </p>
-    <PhotoGrid class="not-prose mt-6 container-bleed" />
+  <section class="prose-inverted container-bleed overflow-auto">
+    <div class="container">
+      <h3>Personal life</h3>
+      <p>
+        After work, I spend most of my time with family and friends. I like brewing specialty ☕️ coffee, baking artisan
+        🍞 bread, watching 🎬 movies, traveling (mostly for food 😉), hiking and couple other minor things 🏎 🧗🏼 🏋🏼‍♀️ 🏓
+        🏃🏼
+      </p>
+    </div>
+    <PhotoGrid class="not-prose mt-6" />
   </section>
 
   <section>
@@ -114,11 +117,14 @@ import ArrowRight from '@gibas/components/icons/arrow-right'
     </p>
   </ContactForm>
 
-  <div slot="footer" class:list={['max-w-screen-2xl mx-auto pt-12']}>
-    <span
-      class="text-[12rem] leading-none text-zinc-900 text-shadow-zinc-600 dark:text-zinc-100 dark:text-shadow-zinc-400 sm:text-[13rem] md:text-[15rem] lg:text-[20rem]"
-      >BYE</span
-    >
-  </div>
-  <PageFooter href="/" class="px-6 py-8" slot="footer" />
+  <PageFooter slot="footer" href="/" class="py-8">
+    <div class="container-bleed py-4">
+      <div class="max-w-screen-2xl mx-auto">
+        <span
+          class="text-[12rem] leading-none text-zinc-900 text-shadow-zinc-600 dark:text-zinc-100 dark:text-shadow-zinc-400 sm:text-[13rem] md:text-[15rem] lg:text-[20rem]">
+          BYE
+        </span>
+      </div>
+    </div>
+  </PageFooter>
 </Layout>
