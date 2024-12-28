@@ -1,14 +1,19 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import PageFooter from '@gibas/components/page-footer'
+import ContactForm from '@gibas/components/contact-form'
 import RecipesHeader from '@components/recipes-header.astro'
 import Recipes from '@components/recipes.astro'
-import RecipeIdeasForm from '@components/recipe-ideas-form.astro'
 ---
 
 <Layout class="container flex gap-4">
   <RecipesHeader />
   <Recipes />
-  <RecipeIdeasForm class="py-32" />
+  <ContactForm
+    class="py-32"
+    name="recipe-idea"
+    title="Have an idea for a recipe?"
+    subtitle="Send your idea so I can expand the cook book!"
+  />
   <PageFooter />
 </Layout>

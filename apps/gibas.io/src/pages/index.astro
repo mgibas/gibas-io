@@ -1,11 +1,11 @@
 ---
 import Layout from '@layouts/Layout.astro'
 import PageFooter from '@gibas/components/page-footer'
+import ContactForm from '@gibas/components/contact-form'
 import PageHeader from '@components/page-header.astro'
 import Typewriter from '@components/typewriter.astro'
 import PhotoGrid from '@components/photo-grid.astro'
 import Link from '@gibas/components/link'
-import ContactForm from '@components/contact-form.astro'
 import ArrowRight from '@gibas/components/icons/arrow-right'
 ---
 
@@ -107,14 +107,12 @@ import ArrowRight from '@gibas/components/icons/arrow-right'
   </section>
 
   <h2>Contact</h2>
-  <h3>Let's get in touch</h3>
-  <div class="mt-3 flex flex-col gap-4 md:flex-row md:gap-16">
-    <p class="mt-0 flex-1">
+  <ContactForm class="-mt-12" name="contact" title="Let's get in touch" title-tag="h3">
+    <p class="m-0" slot="subtitle">
       If you have something interesting to share or want to say hi - use the form or send me a message on
       <Link href="https://twitter.com/gibasmaciej">Twitter</Link>.
     </p>
-    <ContactForm class="flex-1" />
-  </div>
+  </ContactForm>
 
   <div slot="footer" class:list={['max-w-screen-2xl mx-auto pt-12']}>
     <span

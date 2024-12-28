@@ -10,7 +10,7 @@ export interface ButtonProps {
   'x-data'?: string
   '@click'?: string
 }
-const { href, class: classes, theme = 'primary', size = 'md', type = 'button' } = Astro.props
+const { href, class: classes, theme = 'primary', size = 'md', type = 'button' } = Astro.props as ButtonProps
 const Tag = href ? 'a' : 'button'
 const variants = {
   theme: {

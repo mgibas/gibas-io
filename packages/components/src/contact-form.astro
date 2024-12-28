@@ -1,0 +1,39 @@
+---
+import Button from './button.astro'
+import Input from './input.astro'
+import Textarea from './textarea.astro'
+
+export interface ContactFormProps {
+  class?: string
+  title: string
+  subtitle?: string
+  name: string
+  'title-tag'?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+}
+const { class: classes, title, subtitle, name, 'title-tag': TitleTag = 'h2' } = Astro.props as ContactFormProps
+---
+
+<div class:list={['flex flex-col gap-10', classes]}>
+  <div>
+    <TitleTag class="text-balance text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{title}</TitleTag>
+    <p class="mt-2 text-lg/8 text-secondary">
+      <slot name="subtitle">{subtitle}</slot>
+    </p>
+  </div>
+
+  <form name={name} method="post" class="max-w-xl" data-netlify="true">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-6">
+      <div class="flex flex-col gap-2.5">
+        <label for="email" class="block text-sm/6 font-semibold text-primary">E-mail</label>
+        <Input type="email" name="email" id="email" autocomplete="email" required />
+      </div>
+      <div class="flex flex-col gap-2.5">
+        <label for="message" class="block text-sm/6 font-semibold text-primary">Message</label>
+        <Textarea name="message" id="message" required />
+      </div>
+    </div>
+    <div class="mt-6">
+      <Button class="w-full" theme="gradient" type="submit">Send</Button>
+    </div>
+  </form>
+</div>
