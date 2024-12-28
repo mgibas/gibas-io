@@ -2,6 +2,7 @@
 import PageHero from '@components/page-hero.astro'
 import IconMapPin from '@gibas/components/icons/map-pin'
 import IconGithub from '@gibas/components/icons/logo-github'
+import IconLinkedin from '@gibas/components/icons/logo-linkedin'
 import IconTwitter from '@gibas/components/icons/logo-twitter'
 export interface PageHeaderProps {
   location: string
@@ -11,14 +12,19 @@ const { location, class: classes } = Astro.props
 
 const social = [
   {
-    name: 'Twitter',
-    url: 'https://twitter.com/gibasmaciej',
-    Icon: IconTwitter,
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/gibasmaciej',
+    Icon: IconLinkedin,
   },
   {
     name: 'GitHub',
     url: 'https://github.com/mgibas',
     Icon: IconGithub,
+  },
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/gibasmaciej',
+    Icon: IconTwitter,
   },
 ]
 ---
