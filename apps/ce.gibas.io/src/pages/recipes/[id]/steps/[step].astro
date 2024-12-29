@@ -66,7 +66,7 @@ const { recipe, step, nextHref, prevHref } = Astro.props
       <RecipeStepCode class="rounded-lg shadow flex-1 md:grow-[2]" code={step!.codeFormatted ?? ''} copy />
     </div>
   </div>
-  <RecipeStepFooter class="sticky bottom-0 md:hidden -mb-4" step={step}>
+  <RecipeStepFooter class="sticky bottom-0 md:hidden -m-4" step={step}>
     <Button theme="secondary" slot="actions" href={prevHref} class="flex-1">
       <ChevronLeft slot="icon-left" />
       Previous
