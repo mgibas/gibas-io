@@ -1,0 +1,29 @@
+name: Chromatic
+description: Publish chromatic results
+inputs:
+  artifacts-name: # id of input
+    required: true
+  artifacts-path: # id of input
+    required: true
+  test-results: # id of input
+    required: true
+  chromatic-token:
+    required: true
+    secret: true
+runs:
+  using: 'composite'
+  steps:
+    - uses: ./actions/setup.yml
+    - name: Install dependencies
+      run: pnpm install
+    - name: Download test results
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.artifacts_name }}
+        path: ${{ inputs.artifacts_path }}
+    - name: Run Chromatic
+      uses: chromaui/action@latest
+      with:
+        playwright: true
+        projectToken: ${{ inputs.chromatic_token }}
+      env: CHROMATIC_ARCHIVE_LOCATION=${{ inputs.test_results }}

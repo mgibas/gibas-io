@@ -1,0 +1,9 @@
+name: Setup
+description: Setup node and pnpm
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+    - uses: pnpm/action-setup@v4

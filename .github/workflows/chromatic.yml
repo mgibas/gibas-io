@@ -1,0 +1,54 @@
+name: 'Chromatic'
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.49.0-jammy
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./actions/setup.yml
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run Playwright tests
+        run: pnpm test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          if-no-files-found: error
+          retention-days: 1
+          path: apps/**/test-results/
+
+  gibas-io-chromatic:
+    name: Run Chromatic on gibas.io
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./actions/chromatic.yml
+        with:
+          artifacts-name: test-results
+          artifacts-path: apps/
+          test-results: ./apps/gibas.io/test-results/
+          chromatic-token: ${{ secrets.CHROMATIC_TOKEN_GIBAS_IO }}
+
+  ce-gibas-io-chromatic:
+    name: Run Chromatic on ce.gibas.io
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./actions/chromatic.yml
+        with:
+          artifacts-name: test-results
+          artifacts-path: apps/
+          test-results: ./apps/gibas.io/test-results/
+          chromatic-token: ${{ secrets.CHROMATIC_TOKEN_CE_GIBAS_IO }}
