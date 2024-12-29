@@ -31,3 +31,4 @@ apps/**/test-results/
 apps/**/playwright-report/
 apps/**/blob-report/
 apps/**/playwright/.cache/
+apps/**/build-archive.log
