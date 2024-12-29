@@ -60,6 +60,45 @@ importers:
         specifier: ^3.4.17
         version: 3.4.17
 
+  apps/em.gibas.io:
+    dependencies:
+      '@astrojs/alpinejs':
+        specifier: ^0.4.0
+        version: 0.4.1(@types/alpinejs@3.13.11)(alpinejs@3.14.8)
+      '@astrojs/check':
+        specifier: ^0.9.4
+        version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.4.2)(typescript@5.7.2)
+      '@astrojs/sitemap':
+        specifier: ^3.2.1
+        version: 3.2.1
+      '@astrojs/tailwind':
+        specifier: ^5.1.4
+        version: 5.1.4(astro@5.1.1(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.17)
+      '@gibas/components':
+        specifier: workspace:*
+        version: link:../../packages/components
+      '@gibas/tailwind':
+        specifier: workspace:*
+        version: link:../../packages/tailwind
+      '@types/alpinejs':
+        specifier: ^3.13.11
+        version: 3.13.11
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.10.2
+      alpinejs:
+        specifier: ^3.14.7
+        version: 3.14.8
+      astro:
+        specifier: ^5.0.3
+        version: 5.1.1(@types/node@22.10.2)(jiti@2.4.2)(lightningcss@1.28.2)(rollup@4.29.1)(typescript@5.7.2)(yaml@2.6.1)
+      sharp:
+        specifier: ^0.33.5
+        version: 0.33.5
+      tailwindcss:
+        specifier: ^3.4.17
+        version: 3.4.17
+
   apps/gibas.io:
     dependencies:
       '@astrojs/check':
