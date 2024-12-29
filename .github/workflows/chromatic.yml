@@ -53,4 +53,4 @@ jobs:
         with:
           playwright: true
           workingDir: apps/ce.gibas.io
-          projectToken: ${{ secrets.CHROMATIC_TOKEN_GIBAS_IO }}
+          projectToken: ${{ secrets.CHROMATIC_TOKEN_CE_GIBAS_IO }}
