@@ -1,13 +1,18 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import PageFooter from '@gibas/components/page-footer'
+import PageFooter from '@gibas/components/page/page-footer'
+import PageHeader from '@gibas/components/page/page-header'
 import ContactForm from '@gibas/components/contact-form'
-import RecipesHeader from '@components/recipes-header.astro'
 import Recipes from '@components/recipes.astro'
 ---
 
 <Layout main-class="py-4 sm:py-8">
-  <RecipesHeader slot="header" />
+  <PageHeader
+    slot="header"
+    teaser="Essential web cook book"
+    title="Custom Elements Recipes"
+    subtitle="Recipes your mom would be proud of. Learn how to create custom elements from scratch!"
+  />
   <Recipes />
   <ContactForm
     class="py-32"

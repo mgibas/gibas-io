@@ -12,6 +12,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@data/*": ["src/data/*"],
       "@assets/*": ["src/assets/*"]
-    }
+    },
+    "strictNullChecks": true
   }
 }

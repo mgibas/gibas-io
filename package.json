@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "pnpm -r build"
+    "build": "pnpm -r build",
+    "dev": "pnpm -r dev"
   },
   "devDependencies": {
     "prettier": "^3.4.2"

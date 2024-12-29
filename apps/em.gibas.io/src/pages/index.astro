@@ -1,0 +1,35 @@
+---
+import Layout from '@layouts/Layout.astro'
+import PageHeader from '@gibas/components/page/page-header'
+import PageFooter from '@gibas/components/page/page-footer'
+import ContactForm from '@gibas/components/contact-form'
+import { getCollection } from 'astro:content'
+
+const articles = await getCollection('articles')
+---
+
+<Layout main-class="py-4 sm:py-8">
+  <PageHeader
+    slot="header"
+    teaser="Cause we all need a little help"
+    title="Engineering Manager 101"
+    subtitle="Essential skills and resources for new engineering managers."
+  />
+
+  <ul>
+    {
+      articles.map((article) => (
+        <li>
+          <a href={`/articles/${article.id}`}>{article.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <ContactForm
+    class="py-32"
+    name="recipe-idea"
+    title="What else should I cover?"
+    subtitle="Send your idea so I can expand this guide!"
+  />
+  <PageFooter class="py-8" slot="footer" />
+</Layout>
