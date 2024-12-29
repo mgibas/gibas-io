@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build"
+    "build": "astro check && astro build",
+    "test": "playwright test"
   },
   "devDependencies": {
     "@gibas/tailwind": "workspace:*",
@@ -17,7 +18,11 @@
     "astro": "^5.1.1",
     "sharp": "^0.33.5",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "@chromatic-com/playwright": "^0.10.2",
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.2",
+    "chromatic": "^11.20.2"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

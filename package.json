@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
-    "dev": "pnpm -r dev"
+    "dev": "pnpm -r dev",
+    "test": "pnpm -r test"
   },
   "devDependencies": {
     "prettier": "^3.4.2"
