@@ -21,7 +21,7 @@ jobs:
         with:
           playwright: true
           projectToken: ${{ secrets.CHROMATIC_TOKEN_GIBAS_IO }}
-        env: CHROMATIC_ARCHIVE_LOCATION=./apps/gibas.io/test-results/
+        env: CHROMATIC_ARCHIVE_LOCATION="./apps/gibas.io/test-results/"
 
   test-ce-gibas-io:
     runs-on: ubuntu-latest
@@ -41,4 +41,4 @@ jobs:
         with:
           playwright: true
           projectToken: ${{ secrets.CHROMATIC_TOKEN_GIBAS_IO }}
-        env: CHROMATIC_ARCHIVE_LOCATION=./apps/ce.gibas.io/test-results/
+        env: CHROMATIC_ARCHIVE_LOCATION="./apps/ce.gibas.io/test-results/"
