@@ -8,8 +8,8 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   projects: [
-    { name: 'desktop', use: { ...devices['Desktop Chrome'] } },
-    { name: 'mobile', use: { ...devices['iPhone 12 Pro'] } },
+    { name: 'desktop', use: { ...devices['Desktop Chrome'], viewport: { width: 1280, height: 720 } } },
+    { name: 'mobile', use: { ...devices['iPhone 12 Pro'], viewport: { width: 390, height: 844 } } },
   ],
   use: { baseURL: 'http://localhost:4320/' },
   webServer: {
