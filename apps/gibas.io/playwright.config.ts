@@ -13,7 +13,7 @@ export default defineConfig({
   ],
   use: { baseURL: 'http://localhost:4320/' },
   webServer: {
-    command: 'pnpm dev --port 4320',
+    command: 'pnpm preview --port 4320',
     url: 'http://localhost:4320/',
     reuseExistingServer: !process.env.CI,
   },

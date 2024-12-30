@@ -4,9 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro check && astro build",
-    "test": "playwright test"
+    "test": "playwright test",
+    "preview": "astro preview"
   },
   "devDependencies": {
     "@gibas/tailwind": "workspace:*",

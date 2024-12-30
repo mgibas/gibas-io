@@ -24,6 +24,8 @@ jobs:
       - uses: ./.github/actions/setup
       - name: Install dependencies
         run: pnpm install
+      - name: Build
+        run: pnpm --filter @gibas/ibas.io build
       - name: Run Playwright tests
         run: pnpm --filter @gibas/gibas.io test
       - name: Upload test results
@@ -46,6 +48,8 @@ jobs:
       - uses: ./.github/actions/setup
       - name: Install dependencies
         run: pnpm install
+      - name: Build
+        run: pnpm --filter @gibas/ce.gibas.io build
       - name: Run Playwright tests
         run: pnpm --filter @gibas/ce.gibas.io test
       - name: Upload test results
