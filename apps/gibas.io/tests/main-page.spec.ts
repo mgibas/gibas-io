@@ -1,17 +1,16 @@
 import { test, expect } from '@chromatic-com/playwright'
 import type { Page } from '@playwright/test'
-import { describe } from 'node:test'
-
-describe('Main page', () => {
-  test.use({ delay: 3000, prefersReducedMotion: 'reduce' })
-
-  test('renders', async ({ page }) => {
-    await page.goto('/')
-    await forceLoadLazyImages(page)
-    const images = await page.locator('img')
-    await images.evaluateAll((imgs) => imgs.every((img) => (img as HTMLImageElement).complete))
-    await page.waitForTimeout(5000)
-    await expect(page.getByRole('heading').first()).toHaveText(/Hello 👋🏼 I'm Maciej Gibas/)
+;[
+  { name: 'desktop', width: 1280, height: 720 },
+  { name: 'mobile', width: 390, height: 844 },
+].forEach(({ name, width, height }) => {
+  test.describe(name, () => {
+    test.use({ viewport: { width, height } })
+    test('renders', async ({ page }) => {
+      await page.goto('/')
+      await forceLoadLazyImages(page)
+      await expect(page.getByRole('heading').first()).toHaveText(/Hello 👋🏼 I'm Maciej Gibas/)
+    })
   })
 })
 

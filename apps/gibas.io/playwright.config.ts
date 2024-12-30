@@ -7,10 +7,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-  projects: [
-    { name: 'desktop', use: { ...devices['Desktop Chrome'], viewport: { width: 1280, height: 720 } } },
-    { name: 'mobile', use: { ...devices['iPhone 12 Pro'], viewport: { width: 390, height: 844 } } },
-  ],
+  projects: [{ name: 'desktop', use: { ...devices['Desktop Chrome'] } }],
   use: { baseURL: 'http://localhost:4320/' },
   webServer: {
     command: 'pnpm preview --port 4320',
