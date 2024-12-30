@@ -6,7 +6,7 @@ const testCases: { name: string; width: number; height: number; colorScheme: 'li
   { name: 'desktop dark', width: 1280, height: 720, colorScheme: 'dark' },
   { name: 'mobile dark', width: 390, height: 844, colorScheme: 'dark' },
 ]
-test.use({ colorScheme: 'dark' })
+
 testCases.forEach(({ name, width, height, colorScheme }) => {
   test.describe(name, () => {
     test.use({ viewport: { width, height }, colorScheme })
