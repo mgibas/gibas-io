@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Build
-        run: pnpm --filter @gibas/ibas.io build
+        run: pnpm --filter @gibas/gibas.io build
       - name: Run Playwright tests
         run: pnpm --filter @gibas/gibas.io test
       - name: Upload test results
