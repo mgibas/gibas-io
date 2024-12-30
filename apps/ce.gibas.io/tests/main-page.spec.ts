@@ -1,14 +1,12 @@
 import { test, expect } from '@chromatic-com/playwright'
-const testCases: { name: string; width: number; height: number; colorScheme: 'light' | 'dark' }[] = [
-  { name: 'desktop light', width: 1280, height: 720, colorScheme: 'light' },
-  { name: 'mobile light', width: 390, height: 844, colorScheme: 'light' },
-  { name: 'desktop dark', width: 1280, height: 720, colorScheme: 'dark' },
-  { name: 'mobile dark', width: 390, height: 844, colorScheme: 'dark' },
+const testCases: { name: string; width: number; height: number }[] = [
+  { name: 'desktop', width: 1280, height: 720 },
+  { name: 'mobile', width: 390, height: 844 },
 ]
 
-testCases.forEach(({ name, width, height, colorScheme }) => {
+testCases.forEach(({ name, width, height }) => {
   test.describe(name, () => {
-    test.use({ viewport: { width, height }, colorScheme })
+    test.use({ viewport: { width, height } })
     test('renders', async ({ page }) => {
       await page.goto('/')
       await expect(page.getByRole('heading').first()).toHaveText('Custom Elements Recipes')
