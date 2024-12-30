@@ -10,13 +10,14 @@ const { prefix, copy, class: classes } = Astro.props
 <div class:list={[classes, 'flex gap-x-2']} role="img" aria-label={prefix + ' ' + copy.join(', ')} aria-hidden="true">
   <span class="whitespace-nowrap">{prefix}</span>
   <span class="whitespace-nowrap">
-    <span
-      class="bg-gradient-to-r from-sunset-orange to-sunset-violet bg-clip-text text-transparent"
-      x-data="typewriter()"
-      x-init="setTimeout(() => erase(), 3000)">
-      <template x-for="char in text"><span x-text="char"></span></template>
+    <span class="bg-gradient-to-r from-sunset-orange to-sunset-violet bg-clip-text text-transparent">
+      <span class="motion-reduce:hidden" x-data="typewriter()" x-init="setTimeout(() => erase(), 3000)">
+        <template x-for="char in text"><span x-text="char"></span></template>
+      </span>
+      <span class="whitespace-nowrap motion-safe:hidden">{copy.join(', ')}</span>
     </span>
-    <span class="animate-cursor">_</span>
+
+    <span class="motion-safe:animate-cursor">_</span>
   </span>
 </div>
 

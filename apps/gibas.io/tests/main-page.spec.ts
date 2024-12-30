@@ -3,7 +3,7 @@ import type { Page } from '@playwright/test'
 import { describe } from 'node:test'
 
 describe('Main page', () => {
-  test.use({ delay: 3000 })
+  test.use({ delay: 3000, prefersReducedMotion: 'reduce' })
 
   test('renders', async ({ page }) => {
     await page.goto('/')
