@@ -8,6 +8,7 @@ describe('Main page', () => {
     await forceLoadLazyImages(page)
     const images = await page.locator('img')
     await images.evaluateAll((imgs) => imgs.every((img) => (img as HTMLImageElement).complete))
+    await page.waitForTimeout(5000)
     await expect(page.getByRole('heading').first()).toHaveText(/Hello 👋🏼 I'm Maciej Gibas/)
   })
 })
