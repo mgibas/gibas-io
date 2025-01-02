@@ -1,6 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro'
-import PageHeader from '@gibas/components/page/page-header'
+import PageHeroHeader from '@gibas/components/page/page-hero-header'
 import PageFooter from '@gibas/components/page/page-footer'
 import ContactForm from '@gibas/components/contact-form'
 import { getCollection } from 'astro:content'
@@ -9,7 +9,7 @@ const articles = await getCollection('articles')
 ---
 
 <Layout main-class="py-4 sm:py-8">
-  <PageHeader
+  <PageHeroHeader
     slot="header"
     teaser="Cause we all need a little help"
     title="Engineering Manager 101"
