@@ -108,6 +108,16 @@ importers:
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
+    devDependencies:
+      '@chromatic-com/playwright':
+        specifier: ^0.10.2
+        version: 0.10.2(@playwright/test@1.49.1)(@types/react@19.0.2)(prettier@3.4.2)(typescript@5.7.2)
+      '@playwright/test':
+        specifier: ^1.49.1
+        version: 1.49.1
+      chromatic:
+        specifier: ^11.20.2
+        version: 11.20.2(@chromatic-com/playwright@0.10.2(@playwright/test@1.49.1)(@types/react@19.0.2)(prettier@3.4.2)(typescript@5.7.2))
 
   apps/gibas.io:
     dependencies:
