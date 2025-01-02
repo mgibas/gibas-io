@@ -1,6 +1,39 @@
 ---
 slug: calendar
-title: Calendar
+nextSlug: one-on-one
+title: 'Calendar'
+subtitle: 'Organize and own your time'
 ---
 
-#Hello
+You can divide your time into couple different slots that tightly correlate with [The Job](/articles/the-job):
+
+- One on ones
+- Team meetings
+- Project meetings
+- Your contributions
+
+## One on ones
+
+- Once a week or every other week - you can adjust based of how well you know your people, how experienced they are etc. You can also have different schedule for different people if necessary.
+- 30-60min - It's plenty. My baseline is 30 minutes and sometimes it's a quick, 15 minutes, check-in and sometimes it will go over 1 hour.
+- Don't schedule it back to back - it's one of those meetings that you want to have some margin (15-30min)
+- Best before lunch (before afternoon crash) but not too early - 10-11 is your best shot.
+
+## Team meetings
+
+- 30min twice a week or 60min weekly - depends on the type of the team
+- Keep it light, prioritize chit-chat and anything that engages the whole team
+- Get everyone's status so you and the team knows what's going on
+- Good place to send a praise or demo some new development
+- Update your team on organizational changes, events, upcoming holidays, vacations etc.
+
+## Project meetings
+
+- Strictly business meetings with clear goals
+- Place and moment where you'll drive results
+- Plan and/or solve engineering problems
+
+## Your contributions
+
+- Schedule dedicated time for all-the-things in your calendar OR/AND use a TODO list - personally I just stick to TODO and every gap in my calendar is dedicated to it.
+- Whatever you do and however you want to plan it - have either mental or

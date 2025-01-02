@@ -1,17 +1,76 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
+import PageHeader from '@gibas/components/page/page-header'
+import PageFooter from '@gibas/components/page/page-footer'
+import PageStickyFooter from '@gibas/components/page/page-sticky-footer'
+import ChevronLeft from '@gibas/components/icons/chevron-left'
+import ChevronRight from '@gibas/components/icons/chevron-right'
+import Button from '@gibas/components/button'
+import Layout from '@layouts/Layout.astro'
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles')
 
-  return articles.map((art, index) => {
+  return articles.map((article) => {
+    const nextArticle = article.data.nextSlug ? articles.find((a) => a.data.slug === article.data.nextSlug) : null
+    const prevArticle = articles.find((a) => a.data.nextSlug === article.data.slug)
     return {
-      params: { slug: art.data.slug },
-      props: { article: art.data },
+      params: { slug: article.data.slug },
+      props: { article, prevArticle, nextArticle },
     }
   })
 }
-const { article } = Astro.props
+const { article, prevArticle, nextArticle } = Astro.props
+const { Content } = await render(article)
+const prevHref = prevArticle ? `/articles/${prevArticle.data.slug}` : null
+const nextHref = nextArticle ? `/articles/${nextArticle.data.slug}` : null
 ---
 
-Hello {article.title}
+<Layout>
+  <PageHeader
+    slot="header"
+    class="py-4"
+    title={article.data.title}
+    subtitle={article.data.subtitle}
+    hide-actions-breakpoint="sm"
+    back-href="/"
+    back-copy="Engineering Manager 101">
+    {
+      prevHref && (
+        <Button slot="actions" theme="secondary" href={prevHref}>
+          Back
+        </Button>
+      )
+    }
+    {
+      nextArticle && (
+        <Button slot="actions" theme="primary" href={nextHref}>
+          Next: {nextArticle.data.title}
+        </Button>
+      )
+    }
+  </PageHeader>
+  <section class="prose">
+    <Content />
+  </section>
+
+  <PageStickyFooter class="sm:hidden -mx-4 py-6 px-4">
+    {
+      prevHref && (
+        <Button theme="secondary" slot="actions" href={prevHref} class="flex-1">
+          <ChevronLeft slot="icon-left" />
+          Previous
+        </Button>
+      )
+    }
+    {
+      nextHref && (
+        <Button slot="actions" href={nextHref} class="flex-1">
+          <ChevronRight slot="icon-right" />
+          Next
+        </Button>
+      )
+    }
+  </PageStickyFooter>
+  <PageFooter class="py-4" slot="footer" />
+</Layout>
