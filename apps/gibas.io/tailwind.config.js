@@ -7,7 +7,7 @@ export default {
   safelist: ['html'],
   theme: {
     extend: {
-      typography: () => ({
+      typography: (theme) => ({
         DEFAULT: {
           css: {
             h2: {
