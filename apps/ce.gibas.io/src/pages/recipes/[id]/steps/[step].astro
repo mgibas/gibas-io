@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import Layout from '@layouts/Layout.astro'
-import PageHeader from '@components/page-header.astro'
+import PageHeader from '@gibas/components/page/page-header'
 import Button from '@gibas/components/button'
 import RecipeStepper from '@components/recipe-stepper.astro'
 import RecipeStepCode from '@components/recipe-step-code.astro'
@@ -39,7 +39,13 @@ const { recipe, step, nextHref, prevHref } = Astro.props
   <link slot="head" rel="prefetch" href={prevHref} />
   <link slot="head" rel="prefetch" href={nextHref} />
 
-  <PageHeader slot="header" class="py-4" title={recipe.data.title} actionsBreakpoint="md">
+  <PageHeader
+    slot="header"
+    class="py-4"
+    title={recipe.data.title}
+    hide-actions-breakpoint="md"
+    back-href="/"
+    back-copy="Custom Element Recipes">
     <Button theme="secondary" slot="actions" href={prevHref} size="lg">
       <ChevronLeft slot="icon-left" />
       Previous

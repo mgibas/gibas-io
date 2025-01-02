@@ -93,10 +93,7 @@ export default {
               fontWeight: theme('fontWeight.bold'),
             },
             h2: {
-              textDecoration: 'underline',
-              textUnderlineOffset: theme('spacing.1'),
-              textTransform: 'uppercase',
-              color: 'var(--theme-text-secondary)',
+              color: 'var(--theme-text-primary)',
             },
             h3: {
               color: 'var(--theme-text-primary)',
@@ -108,7 +105,7 @@ export default {
             color: 'var(--theme-inverted-text-primary)',
             backgroundColor: 'var(--theme-inverted-background)',
             h2: {
-              color: 'var(--theme-inverted-text-secondary)',
+              color: 'var(--theme-inverted-text-primary)',
             },
             h3: {
               color: 'var(--theme-inverted-text-primary)',

@@ -1,5 +1,6 @@
 ---
 import ChevronDown from '@gibas/components/icons/chevron-down'
+import PageStickyFooter from '@gibas/components/page/page-sticky-footer'
 import RecipeStepDescription from '@components/recipe-step-description.astro'
 import type { Step } from '@/types.js'
 
@@ -10,7 +11,7 @@ export interface RecipeStepFooterProps {
 const { step, class: classes } = Astro.props
 ---
 
-<div class:list={['flex flex-col gap-4 p-4  bg-theme  border border-theme', classes]}>
+<PageStickyFooter class:list={['p-4', classes]}>
   <div
     x-data="{ open: false, hideExpand: true }"
     x-init="$nextTick(() => { hideExpand = $refs.desc.scrollHeight <= $refs.desc.clientHeight })">
@@ -26,7 +27,5 @@ const { step, class: classes } = Astro.props
     </p>
   </div>
 
-  <div class="flex gap-4">
-    <slot name="actions" />
-  </div>
-</div>
+  <slot slot="actions" name="actions" />
+</PageStickyFooter>
