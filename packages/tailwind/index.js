@@ -179,7 +179,7 @@ export default {
           '--theme-dark-primary-text': theme('colors.zinc.50'),
           '--theme-dark-secondary-text': theme('colors.zinc.400'),
           '--theme-dark-disabled-text': theme('colors.zinc.700'),
-          '--theme-dark-border': theme('colors.zinc.800'),
+          '--theme-dark-border': theme('colors.zinc.700'),
         },
         html: {
           '--theme-background': 'var(--theme-light-background)',
