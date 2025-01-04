@@ -7,6 +7,7 @@ import ChevronLeft from '@gibas/components/icons/chevron-left'
 import ChevronRight from '@gibas/components/icons/chevron-right'
 import Button from '@gibas/components/button'
 import Layout from '@layouts/Layout.astro'
+import Link from '@gibas/components/link'
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles')
@@ -22,6 +23,7 @@ export async function getStaticPaths() {
 }
 const { article, prevArticle, nextArticle } = Astro.props
 const { Content } = await render(article)
+const components = { a: Link }
 const prevHref = prevArticle ? `/articles/${prevArticle.data.slug}` : null
 const nextHref = nextArticle ? `/articles/${nextArticle.data.slug}` : null
 ---
@@ -51,7 +53,7 @@ const nextHref = nextArticle ? `/articles/${nextArticle.data.slug}` : null
     }
   </PageHeader>
   <section class="prose">
-    <Content />
+    <Content components={components} />
   </section>
 
   <PageStickyFooter class="sm:hidden -mx-4 py-6 px-4">

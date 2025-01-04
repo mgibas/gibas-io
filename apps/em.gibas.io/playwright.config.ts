@@ -10,7 +10,7 @@ export default defineConfig({
   projects: [{ name: 'desktop', use: { ...devices['Desktop Chrome'] } }],
   use: { baseURL: 'http://localhost:4322/' },
   webServer: {
-    command: 'pnpm preview --port 4322',
+    command: 'pnpm preview',
     url: 'http://localhost:4322/',
     reuseExistingServer: !process.env.CI,
   },

@@ -1,0 +1,28 @@
+---
+export interface Props {
+  title: string
+  copy: string
+  theme: 'teal' | 'purple' | 'yellow'
+}
+
+const { title, copy, theme = 'teal' } = Astro.props as Props
+const iconClasses = {
+  teal: 'bg-teal-50 text-teal-700',
+  purple: 'bg-purple-50 text-purple-700',
+  yellow: 'bg-yellow-50 text-yellow-700',
+}
+---
+
+<li class="flex flex-col gap-8 group relative border rounded-lg p-6">
+  {
+    Astro.slots.icon && (
+      <span class:list={['w-12 h-12 rounded-lg p-3', iconClasses[theme]]}>
+        <slot name="icon" class="size-6" />
+      </span>
+    )
+  }
+  <div class="flex flex-col gap-2">
+    <h3 class="text-lg font-semibold text-primary">{title}</h3>
+    <p class="text-base">{copy}</p>
+  </div>
+</li>

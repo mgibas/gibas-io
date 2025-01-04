@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --port 4320",
     "build": "astro check && astro build",
     "test": "playwright test",
-    "preview": "astro preview"
+    "preview": "astro preview --port 4320"
   },
   "devDependencies": {
     "@gibas/tailwind": "workspace:*",
