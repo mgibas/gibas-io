@@ -1,0 +1,25 @@
+---
+export interface Props {
+  class: string
+  copy: string
+  theme: 'yellow' | 'purple' | 'teal'
+}
+
+const { class: classes, copy, theme = 'yellow' } = Astro.props as Props
+const themeClasses = {
+  yellow:
+    'bg-yellow-50 text-yellow-800 ring-yellow-600/20 dark:bg-yellow-400/10 dark:text-yellow-500 dark:ring-yellow-400/20',
+  purple:
+    'bg-purple-50 text-purple-700 ring-purple-700/10 dark:bg-purple-400/10 dark:text-purple-400 dark:ring-purple-400/30',
+  teal: 'bg-teal-50 text-teal-700 ring-teal-600 dark:bg-teal-400/10 dark:text-teal-400 dark:ring-teal-400/20',
+}
+---
+
+<span
+  class:list={[
+    'inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset',
+    themeClasses[theme],
+    classes,
+  ]}>
+  {copy}
+</span>
