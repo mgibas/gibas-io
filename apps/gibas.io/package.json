@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --port 4320",
-    "build": "astro check && astro build",
+    "build": "rm -rf test-results && astro check && astro build",
     "test": "playwright test",
     "preview": "astro preview --port 4320"
   },
