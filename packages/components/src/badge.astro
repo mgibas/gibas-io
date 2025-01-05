@@ -1,8 +1,10 @@
 ---
+import type { Theme } from '@/types'
+
 export interface Props {
   class: string
   copy: string
-  theme: 'yellow' | 'purple' | 'teal'
+  theme: Theme
 }
 
 const { class: classes, copy, theme = 'yellow' } = Astro.props as Props
