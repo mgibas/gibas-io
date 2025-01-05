@@ -1,9 +1,10 @@
+import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
 import TypographyPlugin from '@tailwindcss/typography'
 import plugin from 'tailwindcss/plugin'
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
 
-export default {
+const preset: Partial<Config> = {
   theme: {
     container: {
       center: true,
@@ -67,9 +68,9 @@ export default {
       },
       keyframes: {
         cursor: {
-          '0%, 40%': { opacity: 0 },
-          '50%, 90%': { opacity: 1 },
-          '100%': { opacity: 0 },
+          '0%, 40%': { opacity: '0' },
+          '50%, 90%': { opacity: '1' },
+          '100%': { opacity: '0' },
         },
         wave: {
           '0%': { transform: 'rotate( 0.0deg)' },
@@ -136,7 +137,7 @@ export default {
               marginTop: theme('spacing.3'),
               marginBottom: theme('spacing.3'),
             },
-            ':not(.prose-inverted) + =.prose-inverted h2': {
+            ':not(.prose-inverted) + .prose-inverted h2': {
               marginTop: 0,
             },
             ':not(.prose-inverted) + .prose-inverted:has(h2)': {
@@ -246,3 +247,4 @@ export default {
     }),
   ],
 }
+export default preset

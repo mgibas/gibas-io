@@ -3,6 +3,7 @@
   "include": [".astro/types.d.ts", "**/*"],
   "compilerOptions": {
     "types": ["node"],
-    "baseUrl": "."
+    "baseUrl": ".",
+    "esModuleInterop": true
   }
 }
