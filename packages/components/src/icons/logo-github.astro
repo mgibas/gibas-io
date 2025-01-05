@@ -1,8 +1,7 @@
 ---
-export interface GithubProps {
-  class?: string
-}
-const { class: classes } = Astro.props
+import type { BaseProps } from '@/types'
+
+const { class: classes } = Astro.props as BaseProps
 ---
 
 <svg class:list={[classes]} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -1,5 +1,6 @@
 ---
-const { class: classes } = Astro.props
+import type { BaseProps } from '@/types'
+const { class: classes } = Astro.props as BaseProps
 ---
 
 <svg class:list={[classes]} viewBox="0 0 54 33">

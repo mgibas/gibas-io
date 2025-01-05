@@ -1,13 +1,15 @@
 ---
-export interface TextareaProps {
-  class?: string
+import type { BaseProps } from '@/types'
+
+export interface TextareaProps extends BaseProps {
   id?: string
   name?: string
   autocomplete?: string
   required?: boolean
   rows?: number
 }
-const { class: classes, id, name, autocomplete, required = false, rows = 4 } = Astro.props
+
+const { class: classes, id, name, autocomplete, required = false, rows = 4 } = Astro.props as TextareaProps
 ---
 
 <textarea

@@ -1,8 +1,7 @@
 ---
-export interface PageStickyFooterProps {
-  class?: string
-}
-const { class: classes } = Astro.props
+import type { BaseProps } from '@/types'
+
+const { class: classes } = Astro.props as BaseProps
 ---
 
 <div class:list={['sticky bottom-0 flex flex-col gap-4 bg-theme border-t border-theme', classes]}>

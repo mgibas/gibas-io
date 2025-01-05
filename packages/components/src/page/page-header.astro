@@ -1,8 +1,8 @@
 ---
+import type { BaseProps } from '@/types'
 import ChevronLeft from '@gibas/components/icons/chevron-left'
 
-interface Props {
-  class?: string
+interface PageHeaderProps extends BaseProps {
   title: string
   subtitle?: string
   'back-href': string
@@ -17,7 +17,7 @@ const {
   ['hide-actions-breakpoint']: hideActionsBreakpoint,
   'back-copy': backCopy,
   'back-href': backHref,
-} = Astro.props
+} = Astro.props as PageHeaderProps
 const actionsWrapperClass = {
   default: 'flex',
   sm: 'hidden sm:flex',

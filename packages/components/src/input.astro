@@ -1,13 +1,37 @@
 ---
-export interface InputProps {
-  class: string
-  type?: string
+import type { BaseProps } from '@/types'
+
+export interface InputProps extends BaseProps {
+  type?:
+    | 'button'
+    | 'checkbox'
+    | 'color'
+    | 'date'
+    | 'datetime-local'
+    | 'email'
+    | 'file'
+    | 'hidden'
+    | 'image'
+    | 'month'
+    | 'number'
+    | 'password'
+    | 'radio'
+    | 'range'
+    | 'reset'
+    | 'search'
+    | 'submit'
+    | 'tel'
+    | 'text'
+    | 'time'
+    | 'url'
+    | 'week'
   id?: string
   name?: string
   autocomplete?: string
   required?: boolean
 }
-const { class: classes, type = 'text', id, name, autocomplete, required = false } = Astro.props
+
+const { class: classes, type = 'text', id, name, autocomplete, required = false } = Astro.props as InputProps
 ---
 
 <input
