@@ -22,6 +22,7 @@ const preset: Partial<Config> = {
       }),
       backgroundColor: {
         theme: 'var(--theme-background)',
+        'theme-secondary': 'var(--theme-background-secondary)',
       },
       backgroundImage: {
         stripes: `linear-gradient(to top right, transparent, var(--tw-gradient-from), transparent, var(--tw-gradient-to), transparent),
@@ -172,11 +173,13 @@ const preset: Partial<Config> = {
       addBase({
         ':root': {
           '--theme-light-background': theme('colors.white'),
+          '--theme-light-background-secondary': theme('colors.zinc.50'),
           '--theme-light-primary-text': theme('colors.zinc.800'),
           '--theme-light-secondary-text': theme('colors.zinc.600'),
           '--theme-light-disabled-text': theme('colors.zinc.300'),
           '--theme-light-border': theme('colors.zinc.100'),
           '--theme-dark-background': theme('colors.zinc.900'),
+          '--theme-dark-background-secondary': theme('colors.zinc.800'),
           '--theme-dark-primary-text': theme('colors.zinc.50'),
           '--theme-dark-secondary-text': theme('colors.zinc.400'),
           '--theme-dark-disabled-text': theme('colors.zinc.700'),
@@ -184,6 +187,7 @@ const preset: Partial<Config> = {
         },
         html: {
           '--theme-background': 'var(--theme-light-background)',
+          '--theme-background-secondary': 'var(--theme-light-background-secondary)',
           '--theme-text-primary': 'var(--theme-light-primary-text)',
           '--theme-text-secondary': 'var(--theme-light-secondary-text)',
           '--theme-text-disabled': 'var(--theme-light-disabled-text)',
@@ -197,11 +201,13 @@ const preset: Partial<Config> = {
         '@media (prefers-color-scheme: dark)': {
           html: {
             '--theme-background': 'var(--theme-dark-background)',
+            '--theme-background-secondary': 'var(--theme-dark-background-secondary)',
             '--theme-text-primary': 'var(--theme-dark-primary-text)',
             '--theme-text-secondary': 'var(--theme-dark-secondary-text)',
             '--theme-text-disabled': 'var(--theme-dark-disabled-text)',
             '--theme-border': 'var(--theme-dark-border)',
             '--theme-inverted-background': 'var(--theme-light-background)',
+            '--theme-inverted-background-secondary': 'var(--theme-light-background-secondary)',
             '--theme-inverted-text-primary': 'var(--theme-light-primary-text)',
             '--theme-inverted-text-secondary': 'var(--theme-light-secondary-text)',
             '--theme-inverted-text-disabled': 'var(--theme-light-disabled-text)',
