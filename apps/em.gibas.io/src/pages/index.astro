@@ -7,7 +7,7 @@ import BentoGrid from '@gibas/components/collections/bento-grid'
 import BentoGridItem from '@gibas/components/collections/bento-grid-item'
 import { getCollection } from 'astro:content'
 
-const articles = await getCollection('articles')
+const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order)
 ---
 
 <Layout main-class="py-4 sm:py-8">
@@ -20,7 +20,6 @@ const articles = await getCollection('articles')
 
   <BentoGrid>
     {articles.map((article) => <BentoGridItem title={article.data.title} description={article.data.subtitle} />)}
-    <BentoGridItem title="TODO" description="TODO" />
   </BentoGrid>
 
   <ContactForm
