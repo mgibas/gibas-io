@@ -1,0 +1,36 @@
+---
+import type { BaseProps } from '@/types'
+
+export interface BentoGridProps extends BaseProps {
+  'grid-cols'?: string
+  'grid-rows'?: string
+}
+
+const {
+  class: classes,
+  'grid-cols': gridCols = 'lg:grid-cols-3',
+  'grid-rows': gridRows = 'lg:grid-rows-2',
+} = Astro.props as BentoGridProps
+---
+
+<ul class:list={['bento-grid mt-10 grid gap-4 sm:mt-16', gridCols, gridRows, classes]}>
+  <slot />
+</ul>
+
+<style is:global>
+  .bento-grid > li {
+    @apply overflow-hidden rounded-lg border border-theme;
+    &:nth-child(1) {
+      @apply lg:row-span-2 lg:rounded-l-[2rem];
+    }
+    &:nth-child(2) {
+      @apply max-lg:row-start-1 max-lg:rounded-t-[2rem];
+    }
+    &:nth-child(3) {
+      @apply lg:col-start-2 lg:row-start-2;
+    }
+    &:nth-child(4) {
+      @apply lg:row-span-2 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem];
+    }
+  }
+</style>
