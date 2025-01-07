@@ -21,7 +21,12 @@ const articles = (await getCollection('articles')).sort((a, b) => a.data.order -
   <BentoGrid>
     {
       articles.map((article) => (
-        <BentoGridItem class="bg-theme-secondary" title={article.data.title} description={article.data.subtitle} />
+        <BentoGridItem
+          class="bg-theme-secondary"
+          title={article.data.title}
+          description={article.data.subtitle}
+          href={`/articles/${article.data.slug}`}
+        />
       ))
     }
   </BentoGrid>

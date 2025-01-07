@@ -4,15 +4,19 @@ import type { BaseProps } from '@/types'
 export interface BentoGridItemProps extends BaseProps {
   title: string
   description: string
+  href?: string
 }
 
-const { class: classes, title, description } = Astro.props as BentoGridItemProps
+const { class: classes, title, description, href } = Astro.props as BentoGridItemProps
+const Tag = href ? 'a' : 'div'
 ---
 
 <li class:list={['relative flex h-full flex-col', classes]}>
-  <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-    <p class="mt-2 text-primary text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">{title}</p>
-    <p class="mt-2 text-secondary max-w-lg text-sm/6 text-gray-600 max-lg:text-center">{description}</p>
-  </div>
-  <slot />
+  <Tag class="flex h-full flex-col" href={href}>
+    <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+      <p class="mt-2 text-primary text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">{title}</p>
+      <p class="mt-2 text-secondary max-w-lg text-sm/6 text-gray-600 max-lg:text-center">{description}</p>
+    </div>
+    <slot />
+  </Tag>
 </li>
