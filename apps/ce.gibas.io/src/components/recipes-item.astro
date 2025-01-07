@@ -15,7 +15,7 @@ const { recipe, class: classes, tag: Tag = 'section', href } = Astro.props
 <Tag class:list={[classes]}>
   <a class="overflow-hidden rounded-lg ring-black/5 border border-theme ring-1 gap-0" href={href}>
     <RecipeStepCode class="min-h-40" center code={recipe.data.hero.code} lang={recipe.data.hero.lang} />
-    <div class="bg-theme-secondary flex flex-col gap-2 px-4 py-4">
+    <div class="bg-theme-secondary flex flex-col gap-2 px-4 py-4 border-t border-theme">
       <h2>{recipe.data.title}</h2>
       <p class="text-secondary">{recipe.data.hero.copy}</p>
     </div>

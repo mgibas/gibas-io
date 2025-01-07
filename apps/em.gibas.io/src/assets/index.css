@@ -12,8 +12,5 @@
 :root {
   --theme-light-background: theme('colors.zinc.50');
   --theme-light-background-secondary: theme('colors.white');
-  --theme-dark-background: theme('colors.zinc.800');
-  --theme-dark-background-secondary: theme('colors.zinc.900');
   --theme-light-border: theme('colors.zinc.200');
-  --theme-dark-border: theme('colors.zinc.700');
 }
