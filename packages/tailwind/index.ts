@@ -20,6 +20,10 @@ const preset: Partial<Config> = {
       borderColor: () => ({
         theme: 'var(--theme-border)',
       }),
+      gradientColorStops: {
+        theme: 'var(--theme-background)',
+        'theme-secondary': 'var(--theme-background-secondary)',
+      },
       backgroundColor: {
         theme: 'var(--theme-background)',
         'theme-secondary': 'var(--theme-background-secondary)',
@@ -90,6 +94,7 @@ const preset: Partial<Config> = {
             color: 'var(--theme-text-primary)',
             width: '100%',
             maxWidth: 'auto',
+            '--tw-prose-bold': 'var(--theme-text-primary)',
             a: {
               color: 'var(--theme-text-primary)',
               fontWeight: theme('fontWeight.bold'),
@@ -111,56 +116,6 @@ const preset: Partial<Config> = {
             },
             h3: {
               color: 'var(--theme-inverted-text-primary)',
-            },
-          },
-        },
-        lg: {
-          css: {
-            lineHeight: theme('lineHeight.normal'),
-            h2: {
-              fontSize: theme('fontSize.base'),
-              marginTop: theme('spacing.32'),
-              marginBottom: theme('spacing.4'),
-              lineHeight: theme('lineHeight.tight'),
-              fontWeight: theme('fontWeight.bold'),
-            },
-            h3: {
-              fontSize: theme('fontSize.5xl'),
-              marginTop: theme('spacing.12'),
-              marginBottom: theme('spacing.6'),
-              lineHeight: theme('lineHeight.tight'),
-            },
-            p: {
-              marginTop: theme('spacing.3'),
-              marginBottom: theme('spacing.3'),
-            },
-            ul: {
-              marginTop: theme('spacing.3'),
-              marginBottom: theme('spacing.3'),
-            },
-            ':not(.prose-inverted) + .prose-inverted h2': {
-              marginTop: 0,
-            },
-            ':not(.prose-inverted) + .prose-inverted:has(h2)': {
-              marginTop: theme('spacing.32'),
-              paddingTop: theme('spacing.32'),
-              paddingBottom: theme('spacing.32'),
-            },
-            '.prose-inverted + .prose-inverted:has(h2)': {
-              marginTop: `-${theme('spacing.32')}`,
-              paddingBottom: theme('spacing.32'),
-            },
-            ':not(.prose-inverted) + .prose-inverted h3': {
-              marginTop: 0,
-            },
-            ':not(.prose-inverted) + .prose-inverted:has(h3)': {
-              marginTop: theme('spacing.12'),
-              paddingTop: theme('spacing.12'),
-              paddingBottom: theme('spacing.12'),
-            },
-            '.prose-inverted + .prose-inverted:has(h3)': {
-              marginTop: `-${theme('spacing.12')}`,
-              paddingBottom: theme('spacing.12'),
             },
           },
         },
