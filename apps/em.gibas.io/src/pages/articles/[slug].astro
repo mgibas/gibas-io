@@ -32,52 +32,50 @@ const nextHref = nextArticle ? `/articles/${nextArticle.data.slug}` : null
   {prevHref && <link slot="head" rel="prefetch" href={prevHref} />}
   {nextHref && <link slot="head" rel="prefetch" href={nextHref} />}
 
-  <Layout>
-    <PageHeader
-      slot="header"
-      class="py-4"
-      title={article.data.title}
-      subtitle={article.data.subtitle}
-      hide-actions-breakpoint="sm"
-      back-href="/"
-      back-copy="Engineering Manager 101">
-      {
-        prevHref && (
-          <Button slot="actions" theme="secondary" href={prevHref}>
-            Back
-          </Button>
-        )
-      }
-      {
-        nextArticle && (
-          <Button slot="actions" theme="primary" href={nextHref}>
-            Next: {nextArticle.data.title}
-          </Button>
-        )
-      }
-    </PageHeader>
-    <section class="prose">
-      <Content components={components} />
-    </section>
+  <PageHeader
+    slot="header"
+    class="py-4"
+    title={article.data.title}
+    subtitle={article.data.subtitle}
+    hide-actions-breakpoint="sm"
+    back-href="/"
+    back-copy="Engineering Manager 101">
+    {
+      prevHref && (
+        <Button slot="actions" theme="secondary" href={prevHref}>
+          Back
+        </Button>
+      )
+    }
+    {
+      nextArticle && (
+        <Button slot="actions" theme="primary" href={nextHref}>
+          Next: {nextArticle.data.title}
+        </Button>
+      )
+    }
+  </PageHeader>
+  <section class="prose prose-lg">
+    <Content components={components} />
+  </section>
 
-    <PageStickyFooter class="sm:hidden -mx-4 py-6 px-4">
-      {
-        prevHref && (
-          <Button theme="secondary" slot="actions" href={prevHref} class="flex-1">
-            <ChevronLeft slot="icon-left" />
-            Previous
-          </Button>
-        )
-      }
-      {
-        nextHref && (
-          <Button slot="actions" href={nextHref} class="flex-1">
-            <ChevronRight slot="icon-right" />
-            Next
-          </Button>
-        )
-      }
-    </PageStickyFooter>
-    <PageFooter class="py-4" slot="footer" />
-  </Layout>
+  <PageStickyFooter class="sm:hidden -mx-4 py-6 px-4">
+    {
+      prevHref && (
+        <Button theme="secondary" slot="actions" href={prevHref} class="flex-1">
+          <ChevronLeft slot="icon-left" />
+          Previous
+        </Button>
+      )
+    }
+    {
+      nextHref && (
+        <Button slot="actions" href={nextHref} class="flex-1">
+          <ChevronRight slot="icon-right" />
+          Next
+        </Button>
+      )
+    }
+  </PageStickyFooter>
+  <PageFooter class="py-4" slot="footer" />
 </Layout>
