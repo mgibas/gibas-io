@@ -24,15 +24,19 @@ const articles = (await getCollection('articles')).sort((a, b) => a.data.order -
       articles.map((article) => (
         <BentoGridItem
           class="bg-theme-secondary"
+          pattern="signal"
           title={article.data.title}
           description={article.data.subtitle}
           href={`/articles/${article.data.slug}`}>
           {article.data.cover && article.data.coverAlt && (
-            <Image
-              class="relative top-10 -right-8 -rotate-6 h-60 ml-auto mr-0 w-auto object-cover object-left-top shadow-2xl rounded-xl border border-theme"
-              src={article.data.cover}
-              alt={article.data.coverAlt}
-            />
+            <div class="relative">
+              <Image
+                class="relative top-10 -right-8 -rotate-6 h-60 ml-auto mr-0 w-auto object-cover object-left-top shadow-2xl rounded-xl border border-theme"
+                src={article.data.cover}
+                alt={article.data.coverAlt}
+              />
+              <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-theme-secondary to-transparent" />
+            </div>
           )}
         </BentoGridItem>
       ))

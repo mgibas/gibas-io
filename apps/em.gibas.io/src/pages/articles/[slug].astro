@@ -51,7 +51,8 @@ const nextHref = nextArticle ? `/articles/${nextArticle.data.slug}` : null
     {
       nextArticle && (
         <Button slot="actions" theme="primary" href={nextHref}>
-          Next: {nextArticle.data.title}
+          {nextArticle.data.title}
+          <ChevronRight slot="icon-right" />
         </Button>
       )
     }
