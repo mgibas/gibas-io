@@ -6,6 +6,7 @@ import ContactForm from '@gibas/components/contact-form'
 import BentoGrid from '@gibas/components/collections/bento-grid'
 import BentoGridItem from '@gibas/components/collections/bento-grid-item'
 import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
 
 const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order)
 ---
@@ -25,8 +26,15 @@ const articles = (await getCollection('articles')).sort((a, b) => a.data.order -
           class="bg-theme-secondary"
           title={article.data.title}
           description={article.data.subtitle}
-          href={`/articles/${article.data.slug}`}
-        />
+          href={`/articles/${article.data.slug}`}>
+          {article.data.cover && article.data.coverAlt && (
+            <Image
+              class="relative top-10 -right-8 -rotate-6 h-60 ml-auto mr-0 w-auto object-cover object-left-top shadow-2xl rounded-xl border border-theme"
+              src={article.data.cover}
+              alt={article.data.coverAlt}
+            />
+          )}
+        </BentoGridItem>
       ))
     }
   </BentoGrid>
