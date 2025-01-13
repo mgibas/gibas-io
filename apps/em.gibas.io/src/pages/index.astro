@@ -5,10 +5,13 @@ import PageFooter from '@gibas/components/page/page-footer'
 import ContactForm from '@gibas/components/contact-form'
 import BentoGrid from '@gibas/components/collections/bento-grid'
 import BentoGridItem from '@gibas/components/collections/bento-grid-item'
+import ArticleCoverTheJob from '@components/article-cover-the-job.astro'
 import { getCollection } from 'astro:content'
-import { Image } from 'astro:assets'
 
 const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order)
+const articleCovers = {
+  'the-job': ArticleCoverTheJob,
+}
 ---
 
 <Layout main-class="py-4 sm:py-8">
@@ -28,16 +31,7 @@ const articles = (await getCollection('articles')).sort((a, b) => a.data.order -
           title={article.data.title}
           description={article.data.subtitle}
           href={`/articles/${article.data.slug}`}>
-          {article.data.cover && article.data.coverAlt && (
-            <div class="relative">
-              <Image
-                class="relative top-10 -right-8 -rotate-6 h-60 ml-auto mr-0 w-auto object-cover object-left-top shadow-2xl rounded-xl border border-theme"
-                src={article.data.cover}
-                alt={article.data.coverAlt}
-              />
-              <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-theme-secondary to-transparent" />
-            </div>
-          )}
+          {Object.entries(articleCovers).map(([slug, Cover]) => slug === article.data.slug && <Cover class="mt-10" />)}
         </BentoGridItem>
       ))
     }

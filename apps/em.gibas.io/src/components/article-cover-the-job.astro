@@ -1,0 +1,121 @@
+---
+import type { BaseProps } from '@gibas/components/types'
+import ArrowTrendingUp from '@gibas/components/icons/arrow-trending-up'
+import UserGroup from '@gibas/components/icons/user-group'
+import UserPlus from '@gibas/components/icons/user-plus'
+
+interface ArticleCoverTheJobProps extends BaseProps {}
+const { class: classes } = Astro.props as ArticleCoverTheJobProps
+const iconClasses = {
+  teal: 'bg-teal-50 text-teal-700 ring-teal-600 dark:bg-teal-400/10 dark:text-teal-400 dark:ring-teal-400/20',
+  purple:
+    'bg-purple-50 text-purple-700 ring-purple-600 dark:bg-purple-400/10 dark:text-purple-400 dark:ring-purple-400/20',
+  yellow:
+    'bg-yellow-50 text-yellow-700 ring-yellow-600 dark:bg-yellow-400/10 dark:text-yellow-400 dark:ring-yellow-400/20',
+}
+const fibonacciMax = 34
+const fibonacciRings = [
+  {
+    r: `${(34 / fibonacciMax / 2) * 100}%`,
+    class: 'text-zinc-200 dark:text-zinc-600 motion-safe:animate-[spin_55s_linear_infinite_reverse]',
+  },
+  {
+    r: `${(21 / fibonacciMax / 2) * 100}%`,
+    class: 'text-zinc-200/60 dark:text-zinc-600/60 motion-safe:animate-[spin_34s_linear_infinite]',
+  },
+  {
+    r: `${(13 / fibonacciMax / 2) * 100}%`,
+    class: 'text-zinc-200/90 dark:text-zinc-600/90 motion-safe:animate-[spin_21s_linear_infinite_reverse]',
+  },
+  {
+    r: `${(8 / fibonacciMax / 2) * 100}%`,
+    class: 'text-zinc-200/50 dark:text-zinc-600/50 motion-safe:animate-[spin_13_linear_infinite]',
+  },
+  {
+    r: `${(5 / fibonacciMax / 2) * 100}%`,
+    class: 'text-zinc-200/50 dark:text-zinc-600/50 motion-safe:animate-[spin_8s_linear_infinite]',
+  },
+  {
+    r: `${(3 / fibonacciMax / 2) * 100}%`,
+    class: 'text-zinc-200/10 dark:text-zinc-600/10 fill-zinc-200/10 dark:fill-zinc-600/10',
+  },
+]
+const fibonacciPlanets = [
+  {
+    inset: `${(100 - (34 / fibonacciMax) * 100) / 2}%`,
+    wrapperClass: 'motion-safe:animate-[spin_55s_linear_infinite_reverse]',
+    Icon: ArrowTrendingUp,
+    iconWrapperClass: [iconClasses.teal, 'size-16 lg:size-10 motion-safe:animate-[spin_55s_linear_infinite]'],
+    iconClasses: 'size-10 lg:size-6',
+  },
+  {
+    inset: `${(100 - (21 / fibonacciMax) * 100) / 2}%`,
+    wrapperClass: 'motion-safe:animate-[spin_34s_linear_infinite]',
+    Icon: UserPlus,
+    iconWrapperClass: [iconClasses.yellow, 'size-12 lg:size-10 motion-safe:animate-[spin_34s_linear_infinite_reverse]'],
+    iconClasses: 'size-6 lg:size-6',
+  },
+  {
+    inset: `${(100 - (13 / fibonacciMax) * 100) / 2}%`,
+    wrapperClass: 'motion-safe:animate-[spin_21s_linear_infinite_reverse]',
+    Icon: UserGroup,
+    iconWrapperClass: [iconClasses.purple, 'size-12 lg:size-10 motion-safe:animate-[spin_21s_linear_infinite]'],
+    iconClasses: 'size-6 lg:size-6',
+  },
+]
+---
+
+<div class:list={[classes]} style="height:0;width:100%;padding-bottom:100%;">
+  <div class="relative m-8">
+    <svg viewBox="0 0 340 340" class="size-full overflow-visible">
+      {
+        fibonacciRings.map((ring, index) => (
+          <circle
+            class:list={['origin-center', ring.class]}
+            r={ring.r}
+            cx="50%"
+            cy="50%"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-dasharray="3 2"
+          />
+        ))
+      }
+      <!-- 
+      
+      <circle
+        class="text-zinc-200/50 origin-center motion-safe:animate-[spin_8s_linear_infinite_reverse]"
+        cx="170"
+        cy="170"
+        r="12%"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-dasharray="3 2"></circle>
+      <circle
+        class="text-zinc-200/80 origin-center motion-safe:animate-[spin_5s_linear_infinite]"
+        cx="170"
+        cy="170"
+        r="6%"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-dasharray="3 2"></circle>
+      <circle cx="170" cy="170" r="3%" fill="currentColor" class="text-zinc-200/40"></circle> -->
+    </svg>
+    {
+      fibonacciPlanets.map(({ inset, Icon, iconClasses, iconWrapperClass, wrapperClass }, index) => (
+        <div
+          class:list={['absolute origin-center', wrapperClass]}
+          style={{ top: inset, left: inset, right: inset, bottom: inset }}>
+          <div class="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2">
+            <div class:list={['flex items-center justify-center rounded-full ring-1 ring-inset ', ...iconWrapperClass]}>
+              <Icon class:list={[iconClasses]} />
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

@@ -70,6 +70,7 @@ const preset: Partial<Config> = {
       animation: {
         cursor: 'cursor 1s infinite',
         wave: 'wave 2.5s infinite',
+        'reverse-spin': 'reverse-spin 1s linear infinite',
       },
       keyframes: {
         cursor: {
@@ -86,6 +87,11 @@ const preset: Partial<Config> = {
           '50%': { transform: 'rotate(10.0deg)' },
           '60%': { transform: 'rotate( 0.0deg)' },
           '100%': { transform: 'rotate( 0.0deg)' },
+        },
+        'reverse-spin': {
+          from: {
+            transform: 'rotate(360deg)',
+          },
         },
       },
       typography: (theme) => ({
