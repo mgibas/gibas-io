@@ -1,0 +1,18 @@
+---
+import type { BaseProps } from '@gibas/components/types'
+
+interface ArticleCoverTheJobProps extends BaseProps {}
+const { class: classes } = Astro.props as ArticleCoverTheJobProps
+---
+
+<div>
+  <div
+    class:list={[
+      'text-3xl bg-gradient-to-r from-sunset-orange  to-sunset-violet bg-clip-text text-transparent',
+      classes,
+    ]}>
+    <span class="text-primary">"</span>What's on <span class="font-bold">your</span> mind?<span class="text-primary"
+      >"</span
+    >
+  </div>
+</div>
