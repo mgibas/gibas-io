@@ -9,7 +9,7 @@ export interface BentoGridProps extends BaseProps {
 const {
   class: classes,
   'grid-cols': gridCols = 'lg:grid-cols-3',
-  'grid-rows': gridRows = 'lg:grid-rows-2',
+  'grid-rows': gridRows = 'lg:grid-rows-3',
 } = Astro.props as BentoGridProps
 ---
 
@@ -21,15 +21,16 @@ const {
   .bento-grid > li {
     @apply overflow-hidden rounded-lg border border-theme;
     &:nth-child(1) {
-      @apply lg:row-span-2 lg:rounded-l-[2rem] max-lg:rounded-t-[2rem];
+      @apply lg:row-span-3 lg:rounded-l-[2rem] max-lg:rounded-t-[2rem];
     }
     &:nth-child(2) {
+      @apply lg:row-span-2;
     }
     &:nth-child(3) {
-      @apply lg:col-start-2 lg:row-start-2;
+      @apply lg:col-start-2 lg:row-start-3;
     }
     &:nth-child(4) {
-      @apply lg:row-span-2 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem];
+      @apply lg:row-span-3 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem];
     }
   }
 </style>

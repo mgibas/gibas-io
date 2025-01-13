@@ -33,7 +33,7 @@ const articleCovers = {
           title={article.data.title}
           description={article.data.subtitle}
           href={`/articles/${article.data.slug}`}>
-          {Object.entries(articleCovers).map(([slug, Cover]) => slug === article.data.slug && <Cover class="mt-10" />)}
+          {Object.entries(articleCovers).map(([slug, Cover]) => slug === article.data.slug && <Cover />)}
         </BentoGridItem>
       ))
     }
