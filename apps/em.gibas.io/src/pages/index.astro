@@ -6,11 +6,13 @@ import ContactForm from '@gibas/components/contact-form'
 import BentoGrid from '@gibas/components/collections/bento-grid'
 import BentoGridItem from '@gibas/components/collections/bento-grid-item'
 import ArticleCoverTheJob from '@components/article-cover-the-job.astro'
+import ArticleCoverCalendar from '@components/article-cover-calendar.astro'
 import { getCollection } from 'astro:content'
 
 const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order)
 const articleCovers = {
   'the-job': ArticleCoverTheJob,
+  calendar: ArticleCoverCalendar,
 }
 ---
 
