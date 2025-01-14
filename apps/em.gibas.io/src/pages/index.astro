@@ -8,6 +8,7 @@ import BentoGridItem from '@gibas/components/collections/bento-grid-item'
 import ArticleCoverTheJob from '@components/article-cover-the-job.astro'
 import ArticleCoverCalendar from '@components/article-cover-calendar.astro'
 import ArticleCoverOneOnOne from '@components/article-cover-one-on-one.astro'
+import ArticleCoverResources from '@components/article-cover-resources.astro'
 import { getCollection } from 'astro:content'
 
 const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order)
@@ -15,6 +16,7 @@ const articleCovers = {
   'the-job': ArticleCoverTheJob,
   calendar: ArticleCoverCalendar,
   'one-on-one': ArticleCoverOneOnOne,
+  resources: ArticleCoverResources,
 }
 ---
 
