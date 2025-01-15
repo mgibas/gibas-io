@@ -7,6 +7,10 @@ export interface Props {
 
 const { category } = Astro.props
 const copyMap: Record<typeof category, { title: string; description: string }> = {
+  atoms: {
+    title: 'Atoms',
+    description: 'Small reusable elements',
+  },
   basic: {
     title: 'Basic Recipes',
     description: 'Fundamentals for building custom elements',

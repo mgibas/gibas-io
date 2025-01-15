@@ -17,7 +17,7 @@ export const StepSchema = z.object({
 })
 export const RecipeSchema = z.object({
   slug: z.string(),
-  category: z.union([z.literal('basic'), z.literal('forms')]),
+  category: z.union([z.literal('basic'), z.literal('forms'), z.literal('atoms')]),
   title: z.string(),
   hero: z.object({
     copy: z.string(),

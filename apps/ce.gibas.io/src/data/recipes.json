@@ -23,17 +23,17 @@
     ],
     "steps": [
       {
-        "title": "Create class extending HTMLElement.",
+        "title": "Create class extending HTMLElement",
         "description": "We're creating a new class called `MyCe` that extends the `HTMLElement` class.",
         "lines": [3, 8]
       },
       {
-        "title": "Define constructor method.",
+        "title": "Define constructor method",
         "description": "The `constructor` method is called when a new instance of the custom element is created. This is where you can set up the initial state of the custom element.",
         "lines": [4, 7]
       },
       {
-        "title": "Call super() method.",
+        "title": "Call super() method",
         "description": "The `super()` method is called to create a new instance of the `HTMLElement` class.",
         "lines": [4, 5, 7]
       },
@@ -43,7 +43,7 @@
         "lines": [4, 6, 7]
       },
       {
-        "title": "Define custom element.",
+        "title": "Define custom element",
         "description": "The custom element is defined using the `customElements.define()` method. The first argument is the name of the custom element, and the second argument is the class that defines the custom element.",
         "lines": [9]
       },
@@ -83,17 +83,17 @@
         "lines": [3, 4, 5, 9, 10, 11]
       },
       {
-        "title": "Attach shadow DOM.",
+        "title": "Attach shadow DOM",
         "description": "Instead of adding content directly to the element, create a shadow root using the `attachShadow` method.",
         "lines": [4, 6, 9]
       },
       {
-        "title": "Set shadow DOM content.",
+        "title": "Set shadow DOM content",
         "description": "The inner HTML of the shadow DOM is set to a paragraph with the text `\"Hello, Shadow DOM!\"`.",
         "lines": [4, 7, 9]
       },
       {
-        "title": "Add a style.",
+        "title": "Add a style",
         "description": "You can add a `style` tag to the shadow DOM to style the content of the custom element.",
         "lines": [4, 8, 9]
       },
@@ -134,7 +134,7 @@
         "lines": [5, 6, 7, 8, 10, 11, 12]
       },
       {
-        "title": "Add a default slot to the template.",
+        "title": "Add a default slot to the template",
         "description": "Add a `slot` element to the shadow DOM to define where the content of the custom element will be placed.",
         "lines": [6, 9, 10]
       },
@@ -179,7 +179,7 @@
         "lines": [6, 7, 8, 9, 14, 15, 16]
       },
       {
-        "title": "Add named slots to the template.",
+        "title": "Add named slots to the template",
         "description": "Add couple of `slot` elements to the shadow DOM with `name` attribute to define where the content of the custom element will be placed.",
         "lines": [7, 10, 11, 12, 13, 14]
       },
@@ -225,17 +225,17 @@
         "lines": [3, 4, 5, 7, 17]
       },
       {
-        "title": "Initialize private property.",
+        "title": "Initialize private property",
         "description": "This is optional, but it's always good to have some defaults.",
         "lines": [4, 6, 7]
       },
       {
-        "title": "Define getter method.",
+        "title": "Define getter method",
         "description": "A getter method for the `name` property is defined to return the value of `_name`.",
         "lines": [9, 10, 11]
       },
       {
-        "title": "Define setter method.",
+        "title": "Define setter method",
         "description": "A setter method for the `name` property is defined to set the value of `_name` and update the text content of the element.",
         "lines": [13, 14, 15]
       },
@@ -282,17 +282,17 @@
         "lines": [3, 4, 5, 6, 7, 17, 18]
       },
       {
-        "title": "Define observed attributes.",
+        "title": "Define observed attributes",
         "description": "The `observedAttributes` static method returns an array of attribute names to observe.",
         "lines": [8, 9, 10]
       },
       {
-        "title": "Define attributeChangedCallback.",
+        "title": "Define attributeChangedCallback",
         "description": "The `attributeChangedCallback` method is called when an observed attribute changes. It updates the text content of the element based on the new attribute value.",
         "lines": [12, 16]
       },
       {
-        "title": "React to attribute changes.",
+        "title": "React to attribute changes",
         "description": "When the `name` attribute changes, the `attributeChangedCallback` method is called which gives you a chance to update your state or template.",
         "lines": [12, 13, 14, 15, 16]
       },
@@ -335,17 +335,17 @@
         "lines": [3, 4, 5, 6, 12, 13, 14]
       },
       {
-        "title": "Add button element.",
+        "title": "Add button element",
         "description": "Add a button element to the shadow DOM that will emit a custom event when clicked.",
         "lines": [4, 7, 12]
       },
       {
-        "title": "Add event listener.",
+        "title": "Add event listener",
         "description": "Add an event listener to the button element.",
         "lines": [4, 9, 11, 12]
       },
       {
-        "title": "Dispatch custom event.",
+        "title": "Dispatch custom event",
         "description": "When the button is clicked, dispatch a custom event with the name `my-event` and a detail of `\"Hello, World!\"`.",
         "lines": [4, 9, 10, 11, 12]
       },
@@ -383,7 +383,7 @@
         "lines": [5, 7, 8]
       },
       {
-        "title": "Define formAssociated static property.",
+        "title": "Define formAssociated static property",
         "description": "Set the `formAssociated` static property to `true` to indicate that the custom element is form-associated.",
         "lines": [5, 6, 7]
       },
@@ -428,18 +428,88 @@
         "lines": [5, 6, 15]
       },
       {
-        "title": "Element internals.",
+        "title": "Element internals",
         "description": "Attach element internals to the element instance",
         "lines": [7, 9, 10]
       },
       {
-        "title": "Set form value.",
+        "title": "Set form value",
         "description": "Use `this._internals.setFormValue()` to set the form value from your custom element.",
         "lines": [12, 13, 14]
       },
       {
         "title": "Done 🎉",
         "description": "Now whenever you post the form, `foo` (name) will have a value `Hello, World!`."
+      }
+    ]
+  },
+  {
+    "title": "Button",
+    "slug": "button",
+    "category": "atoms",
+    "hero": {
+      "copy": "Custom accessible button.",
+      "lines": [0],
+      "lang": "html"
+    },
+    "code": [
+      "<my-button>Hello</my-button>",
+      "",
+      "<script>",
+      "  class MyButton extends HTMLElement {",
+      "    #internals",
+      "    ",
+      "    constructor() {",
+      "      super()",
+      "      const shadow = this.attachShadow({ mode: 'open', delegateFocus: true })",
+      "      shadow.innerHTML = '<div tabindex=\"0\"><slot/></div>'",
+      "",
+      "      this.#internals = this.attachInternals()",
+      "      this.#internals.role = 'button'",
+      "      ",
+      "      this.addEventListener('keydown', this.#onKeydown)",
+      "    }",
+      "    ",
+      "     #onKeydown (e) {",
+      "      if(['Enter', ' '].includes(e.key)) this.dispatchEvent(new MouseEvent('click'))",
+      "    }",
+      "  }",
+      "  customElements.define('my-button', MyButton)",
+      "</script>"
+    ],
+    "steps": [
+      {
+        "definitionSlug": "create-shadow-element",
+        "lines": [3, 6, 7, 8, 15, 20, 21]
+      },
+      {
+        "title": "Delegate focus",
+        "description": "While creating shadow DOM, configure it to delegate focus so that the _focusable_ element inside the shadow DOM will be focused when your button is focused.",
+        "lines": [6, 8, 15]
+      },
+      {
+        "title": "Add a template",
+        "description": "Add a template to the shadow DOM with _focusable_ element and the default slot in it.",
+        "lines": [6, 9, 15]
+      },
+      {
+        "title": "Element internals",
+        "description": "Attach element internals to the element instance",
+        "lines": [6, 11, 15]
+      },
+      {
+        "title": "Set the role",
+        "description": "Set the role to `button` so it's properly recognized by the browser.",
+        "lines": [6, 12, 15]
+      },
+      {
+        "title": "Handle keydown",
+        "description": "Native button handles `Enter` and `Space` keys to trigger click event, so we need to do the same.",
+        "lines": [6, 14, 15, 17, 18, 19]
+      },
+      {
+        "title": "Done 🎉",
+        "description": "Now you can use your custom button like a native one! Add some style and you're good to go."
       }
     ]
   }
