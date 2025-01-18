@@ -3,45 +3,56 @@ slug: resources
 order: 4
 title: Resources
 subtitle: Read and learn
+resources:
+  - title: 'Radical Candor'
+    author: 'Kim Scott'
+    url: 'https://a.co/d/aZLfcko'
+    cover: '../../assets/images/books/radical-candor.jpg'
+  - title: "The Manager's Path"
+    author: 'Camille Fournier'
+    url: 'https://a.co/d/8I6kXH9'
+    cover: '../../assets/images/books/the-managers-path.jpg'
+  - title: 'Resilient Management'
+    author: 'Lara Hogan'
+    url: 'https://a.co/d/dSTCEJq'
+    cover: '../../assets/images/books/resilient-management.jpg'
+  - title: 'The Coaching Habit'
+    author: 'Michael Bungay Stanier'
+    url: 'https://a.co/d/e4XXaG3'
+    cover: '../../assets/images/books/the-coaching-habit.jpg'
+  - title: 'The Making of a Manager'
+    author: 'Julie Zhuo'
+    url: 'https://a.co/d/22WF38z'
+    cover: '../../assets/images/books/the-making-of-a-manager.jpg'
 ---
 
-The most important type of meetings for every manager. You can't drive result without having great understanding and bond with your team members. You can't expect trust if you haven't spent time building it. You can't expect performance if you're not supporting your people. Couple general and crucial advices on how to approach this time:
+import { Image } from 'astro:assets'
 
-- **Care**:
-  Care deeply, be interested, be engaged, have interest in your people day to day, in their hobbies, what they did on the weekend, what challenges they face at work or outside of it. Just have a genuine conversation human-to-human.
+## Books
 
-- **Be candid**:
-  Never shy away from the feedback, be candid, direct and honest. The best you can give your people is time you spent thinking about their progress, what they did right and what they did wrong. Celebrate every small win and talk about behavior that requires correction or may use some improvement. The worse the feedback the more trust you'll need... build it with **Care**. Never cave into ruinous empathy - second best thing after being radically candid (candid and caring) is being obnoxiously aggressive (candid but not caring).
+- [Radical Candor by Kim Scott](https://a.co/d/aZLfcko)
+- [The Manager's Path by Camille Fournier](https://a.co/d/8I6kXH9)
+- [Resilient Management by Lara Hogan](https://a.co/d/dSTCEJq)
+- [The Coaching Habit by Michael Bungay Stanier](https://a.co/d/e4XXaG3)
+- [The Making of a Manager by Julie Zhuo](https://a.co/d/22WF38z)
 
-- **It's not your time**:
-  Kind of - you'll benefit from it greatly, but approach one on ones as a dedicated time for your people, that's 30-60min dedicated just for them. Don't prioritize progress updates - prioritize bonding, mentoring, coaching, career discussions instead.
+<ul role="list" class="divide-y divide-gray-100">
+  {frontmatter.resources.map((resource) => (
+    <li class="flex gap-4 py-5">
+      <Image class="w-32 flex-none rounded-lg mt-0" src={import(resource.cover)} alt={resource.title} width={128} />
 
-## Goals of One on Ones
+      <div class="flex-auto">
+        <div class="flex flex-col gap-1">
+          <span class="font-semibold text-primary">{resource.title}</span>
+          <span class="flex-none text-sm text-secondary italic">{resource.author}</span>
+        </div>
+        <p class="">
+          Explicabo nihil laborum. Saepe facilis consequuntur in eaque. Consequatur perspiciatis quam. Sed est illo
+          quia. Culpa vitae placeat vitae. Repudiandae sunt exercitationem nihil nisi facilis placeat minima eveniet.
+        </p>
+      </div>
+    </li>
 
-- **Know your people**: Get familiar with how they work, what they like or dislike, when they're happy or sad.
-- **Build Trust:** Create a safe space for honest conversations.
-- **Provide Feedback:** Offer constructive and candid feedback and recognize achievements.
-- **Career Development:** Discuss career aspirations and development plans.
-- **Address Issues:** Identify and resolve any issues or concerns early.
+))}
 
-## The _"script"_
-
-You should always come to meetings prepared - one on one is no exception. It will get mmuch more natural with time but you can start with something like that:
-
-- **Intro**:
-  How are you? How was your weekend etc. Ease into the meeting, show care, actively LISTEN.
-
-- **What's on your mind?**:
-  "Ok, so what's on your mind?" it may be projects, people, patterns - let them think and open up. Sometimes (rarely) there is nothing and that's fine. Double down with "Anything else?"
-
-- **Listen or help**:
-  If previous question yeld some challenges that are not trivial like "Where is the travel policy?" but require some engineering, experience or both start with listening and try to find solution together, "What's the challenge there for your?", "What's your goal there?", "What you'll need to say no to, to say yes to this?", "What do you need from me?"
-
-- **Wrap it up**:
-  Summarize what you decided (if anything), ask about upcoming weekend plans, maybe there are upcoming vacations plans - be genuine and interested. Have a great rest of your day, bye.
-
-### Scheduling One on Ones
-
-- **Frequency:** Aim to have one on ones weekly or bi-weekly.
-- **Duration:** Each session should last between 30 minutes to an hour.
-- **Timing:** Schedule them at a consistent time each week to create a routine. Avoid scheduling them back-to-back to allow for preparation and follow-up.
+</ul>

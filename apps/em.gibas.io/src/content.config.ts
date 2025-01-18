@@ -1,5 +1,5 @@
 import { defineCollection } from 'astro:content'
-import { glob } from 'astro/loaders'
+import { glob, file } from 'astro/loaders'
 import { z } from 'astro:content'
 
 const articles = defineCollection({
@@ -12,4 +12,13 @@ const articles = defineCollection({
     cover: z.string().optional(),
   }),
 })
-export const collections = { articles }
+const resources = defineCollection({
+  loader: file('./src/data/resources.json'),
+  schema: z.object({
+    slug: z.string(),
+    title: z.string(),
+    author: z.string(),
+    url: z.string(),
+  }),
+})
+export const collections = { articles, resources }
