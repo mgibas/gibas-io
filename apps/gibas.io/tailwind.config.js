@@ -10,6 +10,7 @@ export default {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            maxWidth: '100ch',
             h2: {
               color: 'var(--theme-text-secondary)',
               textDecoration: 'underline',
@@ -20,6 +21,7 @@ export default {
         },
         inverted: {
           css: {
+            maxWidth: '100ch',
             h2: {
               color: 'var(--theme-inverted-text-secondary)',
             },

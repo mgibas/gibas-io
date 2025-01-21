@@ -22,6 +22,7 @@ const preset: Partial<Config> = {
       }),
       backgroundColor: {
         theme: 'var(--theme-background)',
+        'theme-inverted': 'var(--theme-inverted-background)',
         'theme-secondary': 'var(--theme-background-secondary)',
       },
       backgroundImage: {
