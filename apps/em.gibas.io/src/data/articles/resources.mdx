@@ -8,48 +8,46 @@ resources:
     author: 'Kim Scott'
     url: 'https://a.co/d/aZLfcko'
     cover: '../../assets/images/books/radical-candor.jpg'
-  - title: "The Manager's Path"
-    author: 'Camille Fournier'
-    url: 'https://a.co/d/8I6kXH9'
-    cover: '../../assets/images/books/the-managers-path.jpg'
-  - title: 'Resilient Management'
-    author: 'Lara Hogan'
-    url: 'https://a.co/d/dSTCEJq'
-    cover: '../../assets/images/books/resilient-management.jpg'
+    summary: "Care deeply, challenge directly and be candid. I can't recommend this book enough - it's a must read for anyone in a leadership role!"
   - title: 'The Coaching Habit'
     author: 'Michael Bungay Stanier'
     url: 'https://a.co/d/e4XXaG3'
     cover: '../../assets/images/books/the-coaching-habit.jpg'
+    summary: 'Great quick read that gives you simple framework on how to have better and meaningful conversations, like one on ones.'
+  - title: 'Resilient Management'
+    author: 'Lara Hogan'
+    url: 'https://a.co/d/dSTCEJq'
+    cover: '../../assets/images/books/resilient-management.jpg'
+    summary: 'A great book on how to become resilient manager and resilient teams. Importance of goals, expectations, and a "north star" are my personal favorites.'
+  - title: "The Manager's Path"
+    author: 'Camille Fournier'
+    url: 'https://a.co/d/8I6kXH9'
+    cover: '../../assets/images/books/the-managers-path.jpg'
+    summary: "I don't think any other book was recommended to me as much as this one when I started my management journey. It offers lots of great advice and insights, even for someone that doesn't plan to become a manager. This book will take you from individual contributor to CTO."
   - title: 'The Making of a Manager'
     author: 'Julie Zhuo'
     url: 'https://a.co/d/22WF38z'
     cover: '../../assets/images/books/the-making-of-a-manager.jpg'
+    summary: 'Easy to read, practical advice on key aspects of management like hiring, meetings, feedback and making tough decisions.'
 ---
 
 import { Image } from 'astro:assets'
+import Link from '@gibas/components/Link'
 
 ## Books
 
-- [Radical Candor by Kim Scott](https://a.co/d/aZLfcko)
-- [The Manager's Path by Camille Fournier](https://a.co/d/8I6kXH9)
-- [Resilient Management by Lara Hogan](https://a.co/d/dSTCEJq)
-- [The Coaching Habit by Michael Bungay Stanier](https://a.co/d/e4XXaG3)
-- [The Making of a Manager by Julie Zhuo](https://a.co/d/22WF38z)
-
-<ul role="list" class="divide-y divide-gray-100">
-  {frontmatter.resources.map((resource) => (
-    <li class="flex gap-4 py-5">
-      <Image class="w-32 flex-none rounded-lg mt-0" src={import(resource.cover)} alt={resource.title} width={128} />
+<ul class="px-0">
+{frontmatter.resources.map((resource) =>(
+    <li class="flex flex-col gap-4 py-5 my-0 px-0 sm:flex-row">
+      <Image class="w-32 flex-none rounded-lg mt-0 mb-auto" src={import(resource.cover)} alt={resource.title} width={128} />
 
       <div class="flex-auto">
         <div class="flex flex-col gap-1">
-          <span class="font-semibold text-primary">{resource.title}</span>
+          <Link href={resource.url}>{resource.title}</Link>
           <span class="flex-none text-sm text-secondary italic">{resource.author}</span>
         </div>
-        <p class="">
-          Explicabo nihil laborum. Saepe facilis consequuntur in eaque. Consequatur perspiciatis quam. Sed est illo
-          quia. Culpa vitae placeat vitae. Repudiandae sunt exercitationem nihil nisi facilis placeat minima eveniet.
-        </p>
+        <p>{resource.summary}</p>
+
       </div>
     </li>
 
