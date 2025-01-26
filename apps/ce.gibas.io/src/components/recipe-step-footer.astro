@@ -11,7 +11,7 @@ export interface RecipeStepFooterProps {
 const { step, class: classes } = Astro.props
 ---
 
-<PageStickyFooter class:list={['p-4', classes]}>
+<PageStickyFooter class:list={['p-4 bg-theme-secondary', classes]}>
   <div
     x-data="{ open: false, hideExpand: true }"
     x-init="$nextTick(() => { hideExpand = $refs.desc.scrollHeight <= $refs.desc.clientHeight })">
