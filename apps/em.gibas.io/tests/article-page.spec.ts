@@ -6,7 +6,8 @@ const testCases: { name: string; width: number; height: number }[] = [
 const articles = [
   { slug: 'the-job', title: 'The Job' },
   { slug: 'calendar', title: 'Calendar' },
-  { slug: 'one-on-one', title: 'One-on-one' },
+  { slug: 'one-on-one', title: 'One on one' },
+  { slug: 'resources', title: 'Resources' },
 ]
 
 testCases.forEach(({ name, width, height }) => {

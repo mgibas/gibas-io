@@ -1,0 +1,35 @@
+---
+interface CalendarProps {
+  class?: string
+}
+
+const { class: classes = '' } = Astro.props as CalendarProps
+---
+
+<div class:list={['grid grid-cols-1 grid-rows-5 gap-1 md:grid-cols-5 md:grid-rows-[auto_repeat(17,1fr)]', classes]}>
+  <div
+    class="grid grid-cols-1 p-2 border border-theme border-dashed rounded-lg md:row-span-full grid-rows-[repeat(auto-fit,minmax(auto,1fr))] md:grid-rows-subgrid">
+    <span>Mon</span>
+    <slot name="mon" />
+  </div>
+  <div
+    class="grid grid-cols-1 p-2 border border-theme border-dashed rounded-lg md:row-span-full grid-rows-[repeat(auto-fit,minmax(auto,1fr))] md:grid-rows-subgrid">
+    <span>Tue</span>
+    <slot name="tue" />
+  </div>
+  <div
+    class="grid grid-cols-1 p-2 border border-theme border-dashed rounded-lg md:row-span-full grid-rows-[repeat(auto-fit,minmax(auto,1fr))] md:grid-rows-subgrid">
+    <span>Wed</span>
+    <slot name="wed" />
+  </div>
+  <div
+    class="grid grid-cols-1 p-2 border border-theme border-dashed rounded-lg md:row-span-full grid-rows-[repeat(auto-fit,minmax(auto,1fr))] md:grid-rows-subgrid">
+    <span>Thu</span>
+    <slot name="thu" />
+  </div>
+  <div
+    class="grid grid-cols-1 p-2 border border-theme border-dashed rounded-lg md:row-span-full grid-rows-[repeat(auto-fit,minmax(auto,1fr))] md:grid-rows-subgrid">
+    <span>Fri</span>
+    <slot name="fri" />
+  </div>
+</div>

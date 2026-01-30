@@ -1,7 +1,8 @@
 ---
-export interface TwitterProps {
-  class?: string
-}
+import type { BaseProps } from '@/types'
+
+export interface TwitterProps extends BaseProps {}
+
 const { class: classes } = Astro.props
 ---
 

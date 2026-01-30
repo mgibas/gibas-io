@@ -1,11 +1,13 @@
 ---
-export interface Props {
-  class?: string
+import type { BaseProps } from '@/types'
+
+export interface PageHeroHeaderProps extends BaseProps {
   teaser: string
   title: string
   subtitle: string
 }
-const { class: className, teaser, title, subtitle } = Astro.props
+
+const { class: className, teaser, title, subtitle } = Astro.props as PageHeroHeaderProps
 ---
 
 <div class={`py-24 sm:py-32 ${className}`}>

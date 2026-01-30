@@ -1,39 +1,209 @@
 ---
 slug: calendar
-nextSlug: one-on-one
+order: 2
 title: 'Calendar'
 subtitle: 'Organize and own your time'
 ---
 
-You can divide your time into couple different slots that tightly correlate with [The Job](/articles/the-job):
+import TheJobBadge from '@components/the-job-badge.astro'
+import Calendar from '@components/calendar.astro'
+import CalendarEntry from '@components/calendar-entry.astro'
+import CalendarEntryHeading from '@components/calendar-entry-heading.astro'
 
-- One on ones
-- Team meetings
-- Project meetings
-- Your contributions
+Now that you know what's your job is, let's see how you can organize your time to make sure you're doing it well.
+Everyone is different and you'll need to find your own rhythm and structure but your calendar can be divided into couple different slots:
 
-## One on ones
+- One on ones <TheJobBadge job="growth" /> <TheJobBadge job="result" />
+- Team meetings <TheJobBadge job="team" /> <TheJobBadge job="result" />
+- Project meetings <TheJobBadge job="result" />
+- Your contributions <TheJobBadge job="result" />
 
-- Once a week or every other week - you can adjust based of how well you know your people, how experienced they are etc. You can also have different schedule for different people if necessary.
-- 30-60min - It's plenty. My baseline is 30 minutes and sometimes it's a quick, 15 minutes, check-in and sometimes it will go over 1 hour.
-- Don't schedule it back to back - it's one of those meetings that you want to have some margin (15-30min)
-- Best before lunch (before afternoon crash) but not too early - 10-11 is your best shot.
+<CalendarEntryHeading copy="One on ones" class="rotate-2 max-w-80" startTime="10:00" endTime="11:00" theme="yellow" />
 
-## Team meetings
+- **Once a week** or every other week - you can adjust based of how well you know your people, how experienced they are
+  etc. You can also have different schedule for different people if necessary.
+- **30-60min** - It's plenty. My baseline is 30 minutes and sometimes it's a quick, 15 minutes, check-in and sometimes it will go over 1 hour.
+- **Don't schedule it back to back** - it's one of those meetings that you want to have some margin (15-30min)
+- **Best before lunch** (before afternoon crash) but not too early - 10-11 is your best shot.
 
-- 30min twice a week or 60min weekly - depends on the type of the team
-- Keep it light, prioritize chit-chat and anything that engages the whole team
+<CalendarEntryHeading copy="Team meetings" class="rotate-2 max-w-80" startTime="9:30" endTime="10:00" theme="teal" />
+
+- **30min** twice a week or 60min weekly - depends on the type of the team
+- **Keep it light**, prioritize chit-chat and anything that engages the whole team
 - Get everyone's status so you and the team knows what's going on
 - Good place to send a praise or demo some new development
 - Update your team on organizational changes, events, upcoming holidays, vacations etc.
 
-## Project meetings
+<CalendarEntryHeading
+  copy="Project meetings"
+  class="-rotate-1 max-w-80"
+  startTime="1:30"
+  endTime="3:00"
+  theme="purple"
+/>
 
 - Strictly business meetings with clear goals
 - Place and moment where you'll drive results
 - Plan and/or solve engineering problems
 
-## Your contributions
+<CalendarEntryHeading
+  copy="Your contributions"
+  class="rotate-2 max-w-80"
+  startTime="3:00"
+  endTime="4:00"
+  theme="purple"
+/>
 
 - Schedule dedicated time for all-the-things in your calendar OR/AND use a TODO list - personally I just stick to TODO and every gap in my calendar is dedicated to it.
 - Whatever you do and however you want to plan it - have either mental or
+
+<CalendarEntryHeading copy="Schedule" class="rotate-1 max-w-80" startTime="Mon" endTime="Fri" theme="sunset" />
+
+So now lets see how you can fit all of this into your calendar and how much time you have left for anything else.
+Calendar below is an example of how you can organize your time when you manage a team of **6** people.
+
+<figure>
+  <div class="relative md:overflow-hidden md:max-h-screen ">
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-theme to-theme/10 pointer-events-none z-10" />
+
+    <Calendar class="not-prose">
+    <CalendarEntry
+      slot="mon"
+      class="md:row-start-3"
+      title="Team meeting"
+      startTime="9:30"
+      endTime="10:00"
+      theme="teal"
+    />
+    <CalendarEntry slot="mon" class="md:row-start-4" title="One on one with Alice" startTime="10:00" endTime="10:30" />
+    <CalendarEntry slot="mon" class="md:row-start-6" title="One on one with John" startTime="11:00" endTime="11:30" />
+    <CalendarEntry
+      slot="mon"
+      class="md:row-start-8 md:row-end-10 opacity-75"
+      title="Lunch"
+      startTime="12:00"
+      endTime="1:00"
+      theme="gray"
+    />
+    <CalendarEntry
+      slot="mon"
+      class="md:row-start-10 md:row-end-[-1] opacity-75"
+      title="Projects or your contributions"
+      startTime="1:00"
+      endTime="5:00"
+      theme="purple"
+    />
+    <CalendarEntry slot="tue" class="md:row-start-3" title="One on one with Bob" startTime="9:30" endTime="10:00" />
+    <CalendarEntry
+      slot="tue"
+      class="md:row-start-5"
+      title="One on one with Charlie"
+      startTime="10:30"
+      endTime="11:00"
+    />
+    <CalendarEntry
+      slot="tue"
+      class="md:row-start-6 md:row-end-8 opacity-75"
+      title="Projects or your contributions"
+      startTime="11:00"
+      endTime="12:00"
+      theme="purple"
+    />
+    <CalendarEntry
+      slot="tue"
+      class="md:row-start-8 md:row-end-10 opacity-75"
+      title="Lunch"
+      startTime="12:00"
+      endTime="1:00"
+      theme="gray"
+    />
+    <CalendarEntry
+      slot="tue"
+      class="md:row-start-10 md:row-end-[-1] opacity-75"
+      title="Projects or your contributions"
+      startTime="1:00"
+      endTime="5:00"
+      theme="purple"
+    />
+    <CalendarEntry
+      slot="wed"
+      class="md:row-start-3"
+      title="Team meeting"
+      startTime="9:30"
+      endTime="10:00"
+      theme="teal"
+    />
+    <CalendarEntry slot="wed" class="md:row-start-4" title="One on one with Paul" startTime="10:00" endTime="10:30" />
+    <CalendarEntry slot="wed" class="md:row-start-6" title="One on one with Laura" startTime="11:00" endTime="11:30" />
+    <CalendarEntry
+      slot="wed"
+      class="md:row-start-8 md:row-end-10 opacity-75"
+      title="Lunch"
+      startTime="12:00"
+      endTime="1:00"
+      theme="gray"
+    />
+    <CalendarEntry
+      slot="wed"
+      class="md:row-start-10 md:row-end-[-1] opacity-75"
+      title="Projects or your contributions"
+      startTime="1:00"
+      endTime="5:00"
+      theme="purple"
+    />
+    <CalendarEntry
+      slot="thu"
+      class="md:row-start-2 md:row-end-8 opacity-75"
+      title="Projects or your contributions"
+      startTime="9:00"
+      endTime="12:00"
+      theme="purple"
+    />
+    <CalendarEntry
+      slot="thu"
+      class="md:row-start-8 md:row-end-10 opacity-75"
+      title="Lunch"
+      startTime="12:00"
+      endTime="1:00"
+      theme="gray"
+    />
+    <CalendarEntry
+      slot="thu"
+      class="md:row-start-10 md:row-end-[-1] opacity-75"
+      title="Projects or your contributions"
+      startTime="1:00"
+      endTime="5:00"
+      theme="purple"
+    />
+    <CalendarEntry
+      slot="fri"
+      class="md:row-start-2 md:row-end-8 opacity-75"
+      title="Projects or your contributions"
+      startTime="9:00"
+      endTime="12:00"
+      theme="purple"
+    />
+    <CalendarEntry
+      slot="fri"
+      class="md:row-start-8 md:row-end-10 opacity-75"
+      title="Lunch"
+      startTime="12:00"
+      endTime="1:00"
+      theme="gray"
+    />
+    <CalendarEntry
+      slot="fri"
+      class="md:row-start-10 md:row-end-[-1] opacity-75"
+      title="Projects or your contributions"
+      startTime="1:00"
+      endTime="5:00"
+      theme="purple"
+    />
+
+  </Calendar>
+  </div>
+  <figcaption>Example schedule for a manager of 6 people</figcaption>
+</figure>
+
+So in total, for 6 people, you need to spent at least **4h** hours in meetings. Not bad I would say!
+Depends on other responsibilities and projects you have, it might be a busy week for you so skip one-on-ones next week so you (and your people) have some breather.

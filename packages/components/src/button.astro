@@ -1,15 +1,18 @@
 ---
+import type { BaseProps } from '@/types'
+
 type Theme = 'primary' | 'secondary' | 'gradient'
 type Size = 'sm' | 'md' | 'lg'
-export interface ButtonProps {
+
+export interface ButtonProps extends BaseProps {
   href?: string
-  class?: string
   theme?: Theme
   size?: Size
   type?: 'button' | 'submit' | 'reset'
   'x-data'?: string
   '@click'?: string
 }
+
 const { href, class: classes, theme = 'primary', size = 'md', type = 'button' } = Astro.props as ButtonProps
 const Tag = href ? 'a' : 'button'
 const variants = {

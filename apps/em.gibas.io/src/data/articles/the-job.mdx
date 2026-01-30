@@ -1,42 +1,37 @@
 ---
 slug: the-job
-nextSlug: calendar
+order: 1
 title: 'The Job'
 subtitle: "What's your actual job"
 ---
 
 import GridListItem from '@gibas/components/collections/grid-list-item'
-import Badge from '@gibas/components/badge'
+import TheJobBadge from '@components/the-job-badge.astro'
 import ArrowTrendingUp from '@gibas/components/icons/arrow-trending-up'
 import UserGroup from '@gibas/components/icons/user-group'
 import UserPlus from '@gibas/components/icons/user-plus'
 
-Your job is much more complicated than this, but in general you can distill it to 3 objectives:
+Your job is much more complicated than this, but in general, you can distill it into 3 objectives:
 
 <ul class=" not-prose grid gap-4 my-12 sm:grid-cols-2 lg:grid-cols-3">
-  <GridListItem theme="purple" title="Results">
+  <GridListItem
+    theme="purple"
+    title="Results"
+    copy="Whether it's revenue, new features, better performance, or meeting SLAs, the results you achieve are the ultimate goal that supports and propels the business you work for.">
     <ArrowTrendingUp slot="icon" />
-    Revenue, new features, better performance, SLA - different things for everyone but end of the day it's the ultimate goal that supports and drives the business you work for.
-    
-    I'll use <Badge theme="purple" copy="result" /> badge to mark anything that is focused on this aspect.
   </GridListItem>
-
-<GridListItem theme="teal" title="Team building">
-  <UserGroup slot="icon" />
-  Creating a cohesive, synchronized and energized group of people that can tackle any task together. Recruiting,
-  bonding, resolving any issues, and creating a place where everyone wants to contribute to is the name of the game.
-
-I'll use <Badge theme="teal" copy="team" /> badge to mark anything that is focused on this aspect.
-
-</GridListItem>
-
-  <GridListItem theme="yellow" title="Individual growth">
+  <GridListItem
+    theme="teal"
+    title="Team building"
+    copy="Creating a cohesive, synchronized and energized group of people that can tackle any task together. Recruiting, bonding, resolving any issues, and creating a place where everyone wants to contribute to is the name of the game.">
+    <UserGroup slot="icon" />
+  </GridListItem>
+  <GridListItem
+    theme="yellow"
+    title="Individual growth"
+    copy="From coaching and mentoring to actively considering others' career paths, your role in fostering individual growth is critical. By finding your replacement and enabling others to reach their full potential, you contribute significantly to the team's success.">
     <UserPlus slot="icon" />
-    Coaching, mentoring, actively thinking about others careers, finding your replacement and letting others achieve their full potential.
-
-    I'll use <Badge theme="yellow" copy="growth" /> badge to mark anything that is focused on this aspect.
-
   </GridListItem>
 </ul>
 
-That's it - just 3 things! Many books have been written for each one of them and stay assured, I'll definitely give you some quick run-down for all of them!
+It's as simple as that - just 3 things! As you navigate through the remaining articles, you'll find <TheJobBadge job="result" />, <TheJobBadge job="team" /> and <TheJobBadge job="growth" /> badges to mark the articles that are focused on each of the 3 objectives. This will help you gain a better understanding of your role and stay focused on what's important.

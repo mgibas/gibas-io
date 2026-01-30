@@ -1,0 +1,18 @@
+---
+import type { BaseProps } from '@gibas/components/types'
+import CalendarEntry from '@components/calendar-entry.astro'
+
+interface ArticleCoverTheJobProps extends BaseProps {}
+const { class: classes } = Astro.props as ArticleCoverTheJobProps
+---
+
+<div role="presentation" class="relative overflow-hidden w-9/12">
+  <div class:list={['relative -bottom-10 bg-theme border border-theme border-dashed rounded-lg p-4', classes]}>
+    <CalendarEntry title="Team meeting" startTime="9:30" endTime="10:00" theme="teal" />
+    <CalendarEntry title="One on one with Alice" startTime="10:00" endTime="10:30" />
+    <CalendarEntry title="One on one with John" startTime="11:00" endTime="11:30" />
+    <CalendarEntry title="Lunch" startTime="12:00" endTime="1:00" theme="gray" />
+    <CalendarEntry title="Projects or your contributions" startTime="1:00" endTime="5:00" theme="purple" />
+    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-theme-secondary to-transparent"></div>
+  </div>
+</div>

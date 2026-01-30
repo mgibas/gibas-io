@@ -13,8 +13,8 @@ export async function getStaticPaths() {
   const articles = await getCollection('articles')
 
   return articles.map((article) => {
-    const nextArticle = article.data.nextSlug ? articles.find((a) => a.data.slug === article.data.nextSlug) : null
-    const prevArticle = articles.find((a) => a.data.nextSlug === article.data.slug)
+    const nextArticle = articles.find((a) => a.data.order === article.data.order + 1) ?? null
+    const prevArticle = articles.find((a) => a.data.order === article.data.order - 1) ?? null
     return {
       params: { slug: article.data.slug },
       props: { article, prevArticle, nextArticle },
@@ -29,11 +29,15 @@ const nextHref = nextArticle ? `/articles/${nextArticle.data.slug}` : null
 ---
 
 <Layout>
+  {prevHref && <link slot="head" rel="prefetch" href={prevHref} />}
+  {nextHref && <link slot="head" rel="prefetch" href={nextHref} />}
+
   <PageHeader
     slot="header"
     class="py-4"
     title={article.data.title}
     subtitle={article.data.subtitle}
+    size="lg"
     hide-actions-breakpoint="sm"
     back-href="/"
     back-copy="Engineering Manager 101">
@@ -47,12 +51,13 @@ const nextHref = nextArticle ? `/articles/${nextArticle.data.slug}` : null
     {
       nextArticle && (
         <Button slot="actions" theme="primary" href={nextHref}>
-          Next: {nextArticle.data.title}
+          {nextArticle.data.title}
+          <ChevronRight slot="icon-right" />
         </Button>
       )
     }
   </PageHeader>
-  <section class="prose">
+  <section class="prose prose-lg">
     <Content components={components} />
   </section>
 

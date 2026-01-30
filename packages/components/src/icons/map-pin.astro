@@ -1,8 +1,7 @@
 ---
-export interface MapPinProps {
-  class?: string
-}
-const { class: classes } = Astro.props
+import type { BaseProps } from '@/types'
+
+const { class: classes } = Astro.props as BaseProps
 ---
 
 <svg

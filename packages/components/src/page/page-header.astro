@@ -1,13 +1,14 @@
 ---
+import type { BaseProps } from '@/types'
 import ChevronLeft from '@gibas/components/icons/chevron-left'
 
-interface Props {
-  class?: string
+interface PageHeaderProps extends BaseProps {
   title: string
   subtitle?: string
   'back-href': string
   'back-copy': string
   'hide-actions-breakpoint'?: string
+  size?: 'md' | 'lg'
 }
 
 const {
@@ -17,7 +18,8 @@ const {
   ['hide-actions-breakpoint']: hideActionsBreakpoint,
   'back-copy': backCopy,
   'back-href': backHref,
-} = Astro.props
+  size = 'md',
+} = Astro.props as PageHeaderProps
 const actionsWrapperClass = {
   default: 'flex',
   sm: 'hidden sm:flex',
@@ -25,20 +27,22 @@ const actionsWrapperClass = {
   lg: 'hidden lg:flex',
   xl: 'hidden xl:flex',
 }[hideActionsBreakpoint ?? 'default']
+const sizeClasses = {
+  md: 'text-3xl',
+  lg: 'text-5xl',
+}
 ---
 
 <div class:list={[classes]}>
-  <div>
-    <nav aria-label="Back to Custom Element Recipes">
-      <a href={backHref} class="flex gap-2 items-center text-sm font-medium text-secondary">
-        <ChevronLeft class="size-4" />
-        {backCopy}
-      </a>
-    </nav>
-  </div>
+  <nav class="sm:-ml-6" aria-label={`Back to ${backCopy}`}>
+    <a href={backHref} class="flex gap-2 items-center text-sm font-medium text-secondary">
+      <ChevronLeft class="size-4" />
+      {backCopy}
+    </a>
+  </nav>
   <div class="mt-2 gap-4 flex items-center justify-between">
     <div class="min-w-0 flex-1">
-      <h1 class="text-2xl/7 font-bold text-primary sm:truncate sm:text-3xl sm:tracking-tight">{title}</h1>
+      <h1 class:list={[sizeClasses[size], 'font-bold text-primary sm:truncate sm:tracking-tight']}>{title}</h1>
       {subtitle && <span class="text-secondary">{subtitle}</span>}
     </div>
     <div class={`shrink-0 md:ml-4 md:mt-0 gap-2 ${actionsWrapperClass}`}>

@@ -1,15 +1,16 @@
 ---
+import type { BaseProps } from '@/types'
 import Button from './button.astro'
 import Input from './input.astro'
 import Textarea from './textarea.astro'
 
-export interface ContactFormProps {
-  class?: string
+export interface ContactFormProps extends BaseProps {
   title: string
   subtitle?: string
   name: string
   'title-tag'?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }
+
 const { class: classes, title, subtitle, name, 'title-tag': TitleTag = 'h2' } = Astro.props as ContactFormProps
 ---
 

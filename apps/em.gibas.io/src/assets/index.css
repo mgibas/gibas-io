@@ -9,3 +9,8 @@
     outline-color: theme('colors.rose.600');
   }
 }
+:root {
+  --theme-light-background: theme('colors.zinc.50');
+  --theme-light-background-secondary: theme('colors.white');
+  --theme-light-border: theme('colors.zinc.200');
+}
