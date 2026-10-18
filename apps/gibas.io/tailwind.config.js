@@ -9,17 +9,26 @@ export default {
         DEFAULT: {
           css: {
             maxWidth: '100ch',
+            color: 'var(--theme-text-secondary)',
             h2: {
               color: 'var(--theme-text-secondary)',
-              textDecoration: 'underline',
-              textUnderlineOffset: theme('spacing.1'),
+              fontFamily: "ui-monospace, 'SF Mono', Menlo, Consolas, monospace",
               textTransform: 'uppercase',
+            },
+            h3: {
+              fontWeight: '510',
+              letterSpacing: '-0.022em',
+            },
+            b: {
+              color: 'var(--tw-prose-bold)',
             },
           },
         },
         inverted: {
           css: {
             maxWidth: '100ch',
+            color: 'var(--theme-inverted-text-secondary)',
+            '--tw-prose-bold': 'var(--theme-inverted-text-primary)',
             h2: {
               color: 'var(--theme-inverted-text-secondary)',
             },
@@ -27,19 +36,20 @@ export default {
         },
         lg: {
           css: {
-            lineHeight: theme('lineHeight.normal'),
+            lineHeight: '1.65',
             h2: {
-              fontSize: theme('fontSize.base'),
+              fontSize: '0.875rem',
               marginTop: theme('spacing.32'),
               marginBottom: theme('spacing.4'),
               lineHeight: theme('lineHeight.tight'),
-              fontWeight: theme('fontWeight.bold'),
+              fontWeight: theme('fontWeight.medium'),
+              letterSpacing: '0.12em',
             },
             h3: {
-              fontSize: theme('fontSize.5xl'),
+              fontSize: '3rem',
               marginTop: theme('spacing.12'),
               marginBottom: theme('spacing.6'),
-              lineHeight: theme('lineHeight.tight'),
+              lineHeight: '1.1',
             },
             p: {
               marginTop: theme('spacing.3'),
