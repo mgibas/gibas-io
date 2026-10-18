@@ -19,6 +19,9 @@ export interface PhotoGridProps {
 
 const { class: classes, imgClass } = Astro.props
 
+const widths = [320, 640, 960, 1280]
+const sizes = '(min-width: 768px) 25vw, 300px'
+
 const photos = [
   { src: photo1, alt: 'Me, smiling in front of a camera.' },
   { src: photo2, overlaySrc: photo2Overlay, alt: 'Carrying my 4y old daughter down the mountain trail.' },
@@ -43,6 +46,8 @@ const photos = [
           src={src}
           alt={alt}
           quality="high"
+          widths={widths}
+          sizes={sizes}
           loading="lazy"
           formats={['avif', 'webp']}
         />
@@ -54,6 +59,8 @@ const photos = [
             src={overlaySrc}
             alt={alt}
             quality="high"
+            widths={widths}
+            sizes={sizes}
             aria-hidden="true"
             loading="lazy"
             formats={['avif', 'webp']}

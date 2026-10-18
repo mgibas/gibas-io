@@ -9,26 +9,27 @@
     "test": "playwright test"
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.0",
+    "@astrojs/alpinejs": "^1.0.0",
     "@astrojs/check": "^0.9.10",
-    "@astrojs/markdown-remark": "^6.0.1",
+    "@astrojs/markdown-remark": "^7.3.3",
     "@astrojs/sitemap": "^3.7.4",
-    "@astrojs/tailwind": "^5.1.4",
     "@gibas/components": "workspace:*",
     "@gibas/tailwind": "workspace:*",
-    "@shikijs/transformers": "^1.24.2",
+    "@shikijs/transformers": "^4.5.0",
+    "@tailwindcss/vite": "^4.3.3",
     "@types/alpinejs": "^3.17.0",
     "alpinejs": "^3.17.4",
-    "astro": "^5.0.3",
+    "astro": "^7.4.0",
     "sharp": "^0.35.5",
-    "shiki": "^1.24.0",
-    "tailwindcss": "^3.4.17"
+    "shiki": "^4.5.0",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@chromatic-com/playwright": "^1.0.0",
     "@playwright/test": "^1.64.1",
     "@types/node": "^26.6.5",
     "chromatic": "^18.13.0",
+    "prettier": "^3.9.10",
     "typescript": "^6.0.3"
   }
 }

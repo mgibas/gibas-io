@@ -1,4 +1,4 @@
-import { z } from 'astro:content'
+import { z } from 'astro/zod'
 import { StepSchema, RecipeSchema, StepDefinitionSchema } from './schemas.js'
 
 export type Step = z.infer<typeof StepSchema>

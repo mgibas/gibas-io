@@ -5,14 +5,13 @@
   "compilerOptions": {
     "types": ["node"],
     "lib": ["dom", "dom.iterable", "esnext"],
-    "baseUrl": ".",
     "paths": {
-      "@*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@styles/*": ["src/styles/*"],
-      "@data/*": ["src/data/*"],
-      "@images/*": ["src/assets/images/*"]
+      "@*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@data/*": ["./src/data/*"],
+      "@images/*": ["./src/assets/images/*"]
     },
     "strictNullChecks": true
   }

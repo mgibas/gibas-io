@@ -26,7 +26,7 @@ export async function getStaticPaths() {
             : `/recipes/${recipe.id}/steps/${step.prev.slug}`
 
         return {
-          params: { id: recipe.id, step: index },
+          params: { id: recipe.id, step: String(index) },
           props: { recipe, step, nextHref, prevHref },
         }
       }) ?? []
