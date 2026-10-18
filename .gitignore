@@ -2,7 +2,7 @@
 apps/**/dist/
 
 # generated types
-apps/**/.astro/
+**/.astro/
 
 # dependencies
 node_modules/

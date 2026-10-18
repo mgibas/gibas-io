@@ -28,6 +28,7 @@ async function formatRecipe(
   stepDefinitions: StepDefinition[],
   prettierOptions: prettier.Options,
 ) {
+  recipe.order = recipes.indexOf(recipe)
   recipe.next = {
     slug: recipes[(recipes.indexOf(recipe) + 1) % recipes.length].slug,
     stepsLength: recipes[(recipes.indexOf(recipe) + 1) % recipes.length].steps.length,
@@ -50,9 +51,10 @@ async function formatRecipe(
 }
 
 async function formatStep(step: Step, recipe: Recipe, stepDefinitions: StepDefinition[]) {
-  step.slug = String(recipe.steps.indexOf(step))
-  step.next = recipe.steps[(recipe.steps.indexOf(step) + 1) % recipe.steps.length]
-  step.prev = recipe.steps[(recipe.steps.indexOf(step) - 1 + recipe.steps.length) % recipe.steps.length]
+  const index = recipe.steps.indexOf(step)
+  step.slug = String(index)
+  step.next = { slug: String((index + 1) % recipe.steps.length) }
+  step.prev = { slug: String((index - 1 + recipe.steps.length) % recipe.steps.length) }
   if (step.definitionSlug) {
     const def = stepDefinitions.find((def) => def.slug === step.definitionSlug)
     step.title = def?.title ?? step.title
@@ -72,7 +74,7 @@ function normalizeIndentation(code: string): string {
   return lines.map((line) => line.replace(indent, '')).join('\n')
 }
 
-export default function RecipesLoader(): Loader {
+export default function RecipesLoader() {
   const filePath = './recipes.json'
   const definitionsFilePath = './step-definitions.json'
   const fileURL = new URL(filePath, import.meta.url).pathname
@@ -89,6 +91,6 @@ export default function RecipesLoader(): Loader {
       })
     },
 
-    schema: async () => RecipeSchema,
-  }
+    schema: RecipeSchema,
+  } satisfies Loader
 }

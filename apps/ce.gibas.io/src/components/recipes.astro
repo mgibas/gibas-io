@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const { class: classes } = Astro.props
-const allRecipes = await getCollection('recipes')
+const allRecipes = (await getCollection('recipes')).sort((a, b) => a.data.order - b.data.order)
 const groupedRecipes = Object.groupBy(allRecipes, (r) => r.data.category)
 ---
 

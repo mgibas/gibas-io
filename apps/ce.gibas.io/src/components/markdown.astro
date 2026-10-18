@@ -15,11 +15,11 @@ const contentHtml = await processor.render(content)
   .markdown {
     & a {
       text-decoration: underline;
-      font-weight: theme('fontWeight.bold');
+      font-weight: 700;
     }
     & code {
-      font-family: theme('fontFamily.mono');
-      font-weight: theme('fontWeight.bold');
+      font-family: var(--font-mono);
+      font-weight: 700;
       &::before,
       &::after {
         content: '`';

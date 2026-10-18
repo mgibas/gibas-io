@@ -4,14 +4,21 @@
 }
 
 .reveal .controls {
-  color: theme('colors.purple.500');
+  color: var(--color-purple-500);
 }
 
 .reveal .progress {
   background: transparent;
-  color: theme('colors.purple.500');
+  color: var(--color-purple-500);
 }
 
 .reveal section {
   text-align: left;
+}
+
+/* Tailwind v4 preflight hides [hidden] with !important, which overrides the inline display reveal.js sets on upcoming slides */
+@layer base {
+  .reveal .slides section[hidden]:not([style*='display: none']) {
+    display: block !important;
+  }
 }

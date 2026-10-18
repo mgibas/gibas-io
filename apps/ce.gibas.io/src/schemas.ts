@@ -1,4 +1,4 @@
-import { z } from 'astro:content'
+import { z } from 'astro/zod'
 
 export const StepDefinitionSchema = z.object({
   slug: z.string(),
@@ -17,6 +17,7 @@ export const StepSchema = z.object({
 })
 export const RecipeSchema = z.object({
   slug: z.string(),
+  order: z.number(),
   category: z.union([z.literal('basic'), z.literal('forms'), z.literal('atoms')]),
   title: z.string(),
   hero: z.object({

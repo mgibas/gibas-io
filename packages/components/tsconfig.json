@@ -3,10 +3,9 @@
   "include": [".astro/types.d.ts", "**/*"],
   "compilerOptions": {
     "types": ["node"],
-    "baseUrl": ".",
     "strictNullChecks": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

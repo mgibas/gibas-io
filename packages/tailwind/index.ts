@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
 import TypographyPlugin from '@tailwindcss/typography'
 import plugin from 'tailwindcss/plugin'
 import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
@@ -59,7 +58,7 @@ const preset: Partial<Config> = {
         fit: 'fit-content',
       },
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--font-inter)'],
       },
       spacing: {
         100: '25rem',
@@ -185,6 +184,16 @@ const preset: Partial<Config> = {
           outlineColor: theme('colors.zinc.400'),
           outlineWidth: '2px',
           outlineOffset: '4px',
+        },
+        // Tailwind v3 preflight defaults that v4 changed
+        '*, ::after, ::before, ::backdrop, ::file-selector-button': {
+          borderColor: theme('colors.gray.200', 'currentColor'),
+        },
+        'input::placeholder, textarea::placeholder': {
+          color: theme('colors.gray.400'),
+        },
+        'button:not(:disabled), [role="button"]:not(:disabled)': {
+          cursor: 'pointer',
         },
       })
       addComponents({
