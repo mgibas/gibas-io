@@ -27,9 +27,7 @@ apps/**/.DS_Store
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-/build-archive.log
 apps/**/test-results/
 apps/**/playwright-report/
 apps/**/blob-report/
 apps/**/playwright/.cache/
-apps/**/build-archive.log

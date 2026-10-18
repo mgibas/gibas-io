@@ -1,3 +1,0 @@
-/* Shared theme for component <style> blocks: @reference '@gibas/tailwind/theme.css'; */
-@import 'tailwindcss';
-@config './index.ts';
