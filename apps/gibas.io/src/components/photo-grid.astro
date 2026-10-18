@@ -1,6 +1,6 @@
 ---
 import { Picture } from 'astro:assets'
-import photo1 from '@assets/photos/photo-grid-1.jpeg'
+import photo1 from '@assets/photos/photo-grid-1.webp'
 import photo2 from '@assets/photos/photo-grid-2.webp'
 import photo2Overlay from '@assets/photos/photo-grid-2-overlay.webp'
 import photo3 from '@assets/photos/photo-grid-3.webp'
@@ -23,12 +23,17 @@ const widths = [320, 640, 960, 1280]
 const sizes = '(min-width: 768px) 25vw, 300px'
 
 const photos = [
-  { src: photo1, alt: 'Me, smiling in front of a camera.' },
-  { src: photo2, overlaySrc: photo2Overlay, alt: 'Carrying my 4y old daughter down the mountain trail.' },
-  { src: photo3, alt: 'Looking into the ocean with both of my kids' },
-  { src: photo4, overlaySrc: photo4Overlay, alt: 'Stirring coffee during pour-over brew.' },
-  { src: photo5, alt: 'Park, on the skateboard with my daughter.' },
-  { src: photo6, overlaySrc: photo6Overlay, alt: 'Climbing at my local gym.' },
+  { src: photo1, alt: 'Me, laughing at a table in a café.' },
+  {
+    src: photo2,
+    overlaySrc: photo2Overlay,
+    position: 'object-[50%_70%]',
+    alt: 'Standing on a rock in a red canyon at Zion National Park.',
+  },
+  { src: photo3, position: 'object-[50%_66%]', alt: 'Walking into the ocean at sunset with my two kids.' },
+  { src: photo4, overlaySrc: photo4Overlay, alt: 'Climbing at my local gym.' },
+  { src: photo5, alt: 'My two kids posing on the Bonneville Salt Flats.' },
+  { src: photo6, overlaySrc: photo6Overlay, alt: 'Stirring coffee during pour-over brew.' },
   { src: photo7, overlaySrc: photo7Overlay, alt: 'Library, open laptop with a visible code on the screen.' },
   { src: photo8, alt: 'Me and my wife smiling next to a graffiti heart.' },
 ]
@@ -36,11 +41,12 @@ const photos = [
 
 <div class:list={['flex gap-2 overflow-x-scroll md:block md:columns-4', classes]}>
   {
-    photos.map(({ src, overlaySrc, alt }) => (
+    photos.map(({ src, overlaySrc, alt, position = 'object-center' }) => (
       <div class="group relative mb-2 max-h-80 shrink-0 basis-[300px] md:aspect-video md:max-h-100 md:odd-alternate:aspect-square md:odd-alternate:max-h-150 lg:max-h-150 lg:odd-alternate:max-h-200">
         <Picture
           class:list={[
-            'h-full w-full object-cover object-center saturate-0 transition-all duration-500 ease-in-out group-hover:saturate-100 dark:brightness-150 dark:group-hover:brightness-100',
+            'h-full w-full object-cover saturate-0 transition-all duration-500 ease-in-out group-hover:saturate-100 dark:brightness-150 dark:group-hover:brightness-100',
+            position,
             imgClass,
           ]}
           src={src}
@@ -54,7 +60,8 @@ const photos = [
         {overlaySrc && (
           <Picture
             class:list={[
-              'absolute inset-0 h-full w-full object-cover object-center transition-all duration-500 ease-in-out group-hover:opacity-0 dark:brightness-150',
+              'absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-in-out group-hover:opacity-0 dark:brightness-150',
+              position,
             ]}
             src={overlaySrc}
             alt={alt}
