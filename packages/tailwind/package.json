@@ -6,7 +6,7 @@
     "./preset": "./index.ts"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.5.15",
+    "@tailwindcss/typography": "^0.5.20",
     "tailwindcss": "^3.4.17"
   }
 }

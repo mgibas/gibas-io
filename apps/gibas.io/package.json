@@ -9,24 +9,24 @@
     "preview": "astro preview --port 4320"
   },
   "devDependencies": {
-    "@gibas/tailwind": "workspace:*",
-    "@gibas/components": "workspace:*",
     "@astrojs/alpinejs": "^0.4.1",
     "@astrojs/tailwind": "^5.1.4",
-    "@types/reveal.js": "^5.0.4",
-    "alpinejs": "^3.14.8",
+    "@chromatic-com/playwright": "^1.0.0",
+    "@gibas/components": "workspace:*",
+    "@gibas/tailwind": "workspace:*",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5",
+    "@types/reveal.js": "^5.2.2",
+    "alpinejs": "^3.17.4",
     "astro": "^5.1.1",
-    "sharp": "^0.33.5",
+    "chromatic": "^18.13.0",
+    "sharp": "^0.35.5",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2",
-    "@chromatic-com/playwright": "^0.10.2",
-    "@playwright/test": "^1.49.1",
-    "@types/node": "^22.10.2",
-    "chromatic": "^11.20.2"
+    "typescript": "^6.0.3"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/sitemap": "^3.2.1",
-    "reveal.js": "^5.1.0"
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/sitemap": "^3.7.4",
+    "reveal.js": "^6.0.2"
   }
 }
