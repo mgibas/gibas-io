@@ -15,7 +15,7 @@ const { class: classes, href = 'https://gibas.io/' } = Astro.props
   <slot />
   <div class="flex flex-col gap-2">
     <span>Made by <Link href={href}>gibas.io</Link></span>
-    <ul class="flex gap-4">
+    <ul class="flex flex-wrap gap-x-4 gap-y-2">
       <li class="inline-flex gap-2 items-center">
         <LogoAstro class="w-4 h-4" /> Astro
       </li>
