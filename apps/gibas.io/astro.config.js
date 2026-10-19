@@ -2,10 +2,15 @@ import { defineConfig, fontProviders } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 import alpinejs from '@astrojs/alpinejs'
 import sitemap from '@astrojs/sitemap'
+import rehypeExternalLinks from './src/lib/rehype-external-links.ts'
 
 export default defineConfig({
   site: 'https://gibas.io',
   compressHTML: true,
+  markdown: {
+    smartypants: false,
+    rehypePlugins: [rehypeExternalLinks],
+  },
   fonts: [
     {
       provider: fontProviders.fontsource(),

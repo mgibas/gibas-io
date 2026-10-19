@@ -19,8 +19,8 @@ export default {
               fontWeight: '510',
               letterSpacing: '-0.022em',
             },
-            b: {
-              color: 'var(--tw-prose-bold)',
+            strong: {
+              fontWeight: '700',
             },
           },
         },

@@ -7,112 +7,79 @@ import Typewriter from '@components/typewriter.astro'
 import PhotoGrid from '@components/photo-grid.astro'
 import Link from '@gibas/components/link'
 import ArrowRight from '@gibas/components/icons/arrow-right'
+import { getEntry, render } from 'astro:content'
+import { getOrderedCollection } from '@src/lib/content'
+import { profile } from '@data/profile'
+
+const section = async (id: string) => {
+  const entry = await getEntry('sections', id)
+  if (!entry) throw new Error(`Missing section: ${id}`)
+  return { data: entry.data, Content: (await render(entry)).Content }
+}
+const about = await section('about')
+const approach = await section('approach')
+const personal = await section('personal')
+const work = await section('work')
+const contact = await section('contact')
+const projects = await Promise.all(
+  (await getOrderedCollection('projects')).map(async (entry) => ({ data: entry.data, Content: (await render(entry)).Content })),
+)
 ---
 
 <Layout title="Maciej Gibas">
-  <PageHeader class="h-screen" slot="header" location="Gainesville, Florida">
+  <PageHeader class="h-screen" slot="header" location={`${profile.location.city}, ${profile.location.region}`}>
     <h1 class="text-6xl/[1.05] font-[510] tracking-[-0.03em]">
       <div>Hello <span class="inline-block origin-[70%_70%] animate-wave">👋🏼</span></div>
       <div>I'm Maciej Gibas</div>
-      <Typewriter class="mt-4 text-xl font-normal tracking-normal text-secondary" prefix="Frontend" copy={['leader', 'architect', 'developer', 'designer']} />
+      <Typewriter class="mt-4 text-xl font-normal tracking-normal text-secondary" prefix={profile.rolePrefix} copy={profile.roles} />
     </h1>
-    <h2 class="sr-only">Frontend leader, architect, developer and designer.</h2>
+    <h2 class="sr-only">{profile.description}</h2>
   </PageHeader>
 
-  <h2>About</h2>
+  <h2>{about.data.label}</h2>
 
-  <h3>Engineer, designer, and manager</h3>
-  <p>
-    I love creating software with people and for people! Helping others grow, solving engineering problems and reaching
-    business goals is what drives me every day.
-  </p>
-  <p>
-    Currently, I work as a frontend engineer at <Link href="https://stedi.com">Stedi</Link>, the first programmable
-    healthcare clearinghouse. Every day we build awesome things, and I get to do it with the most talented team I have
-    ever worked with. 🚀
-  </p>
+  <h3>{about.data.title}</h3>
+  <about.Content />
 
-  <h3>My approach</h3>
-  <p>
-    I'm very passionate about what I do and deliver, but at the same time, I'm first to criticize my work and pivot if
-    necessary. I'm focused on my craft, peace, and quality. I empathize with users and try to solve their problems and
-    achieve business goals. I firmly believe that software is 50% about engineering and 50% about people and
-    collaboration.
-  </p>
-  <ul>
-    <li><b>Software</b> - perfect is an enemy of good, fail fast, iterate.</li>
-    <li><b>Design</b> - user-centric, function over form yet beautiful.</li>
-    <li><b>Frontend</b> - light, accessible, close to the platform.</li>
-    <li><b>AI</b> - amplifies experience, never replaces it; humans decide, design, and verify.</li>
-    <li><b>Leadership</b> - deeply care, guide, and drive results collectively.</li>
-    <li><b>Collaboration</b> - full ownership of your work, influence others and accept their influence.</li>
-  </ul>
+  <h3>{approach.data.title}</h3>
+  <approach.Content />
 
   <section class="container-bleed bg-theme-inverted mt-12 pb-12 overflow-auto">
     <div class="prose-inverted container">
-      <h3>Personal life</h3>
-      <p>
-        After work, I spend most of my time with family and friends. I like brewing specialty ☕️ coffee, sport climbing
-        🧗‍♂️, watching 🎬 movies, traveling (mostly for food 😉), hiking and couple other minor things 🏎 🏋🏼‍♀️ 🏓 🏃🏼
-      </p>
+      <h3>{personal.data.title}</h3>
+      <personal.Content />
     </div>
     <PhotoGrid class="not-prose mt-6" />
   </section>
 
   <section>
-    <h3>Featured work</h3>
-    <p>My personal projects or initiatives worth mentioning 🤘🏼</p>
+    <h3>{work.data.title}</h3>
+    <work.Content />
 
     <ul class="mt-8 mb-0 p-0 list-none grid gap-8 sm:gap-16 sm:grid-cols-3">
-      <li class="grid grid-rows-[auto_1fr_auto] mt-0 mb-0 p-0">
-        <Link class="no-underline" bare href="https://ce.gibas.io/">Custom Elements Recipes</Link>
-        <span class="text-secondary">
-          A collection of custom elements recipes to help you get started with web components.
-        </span>
-        <Link class="mt-2 flex items-center gap-2" bare href="https://ce.gibas.io/">
-          Check it out <ArrowRight class="h-5 w-5" />
-        </Link>
-      </li>
-      <li class="grid grid-rows-[auto_1fr_auto] mt-0 mb-0 p-0">
-        <Link class="no-underline" bare href="https://frontendies.io/">frontendies.io</Link>
-        <span class="text-secondary">
-          A monthly frontend newsletter delivering only essential things you don't want to miss.
-        </span>
-        <Link class="mt-2 flex items-center gap-2" bare href="https://frontendies.io/">
-          Check it out <ArrowRight class="h-5 w-5" />
-        </Link>
-      </li>
-      <li class="grid grid-rows-[auto_1fr_auto] mt-0 mb-0 p-0">
-        <Link class="no-underline" bare href="https://www.npmjs.com/package/vue-router-fetch">vue-router-fetch</Link>
-        <span class="text-secondary">
-          Small vuejs plugin to move data fetching from your components to the router.
-        </span>
-        <Link class="mt-2 flex items-center gap-2" bare href="https://www.npmjs.com/package/vue-router-fetch">
-          Check it out <ArrowRight class="h-5 w-5" />
-        </Link>
-      </li>
-      <li class="grid grid-rows-[auto_1fr_auto] mt-0 mb-0 p-0">
-        <Link class="no-underline" bare href="/talks/2022-10-20/">CSS Layouts</Link>
-        <span class="text-secondary">
-          Presentation from a talk I gave at Gainseville <Link
-            class="font-normal"
-            href="https://www.meetup.com/Gainesville-Front-End-Dev-Meetup/">
-            Frontend Awesome
-          </Link> meetup about CSS layouts.
-        </span>
-        <Link class="mt-2 flex items-center gap-2" bare href="/talks/2022-10-20/">
-          Check it out <ArrowRight class="h-5 w-5" />
-        </Link>
-      </li>
+      {
+        projects.map(({ data, Content }) => (
+          <li class="grid grid-rows-[auto_1fr_auto] mt-0 mb-0 p-0">
+            <Link class="no-underline" bare href={data.href}>
+              {data.title}
+            </Link>
+            <div class="text-secondary [&_a]:font-normal [&_p]:my-0">
+              <Content />
+            </div>
+            <Link class="mt-2 flex items-center gap-2" bare href={data.href}>
+              Check it out <ArrowRight class="h-5 w-5" />
+            </Link>
+          </li>
+        ))
+      }
     </ul>
   </section>
 
-  <h2>Contact</h2>
-  <ContactForm class="-mt-12" name="contact" title="Let's get in touch" title-tag="h3">
-    <p class="mt-0 mb-0" slot="subtitle">
-      If you have something interesting to share or simply want to say hi - use the form below or connect on
-      <Link href="https://www.linkedin.com/in/gibasmaciej">LinkedIn</Link>.
-    </p>
+  <h2>{contact.data.label}</h2>
+  <ContactForm class="-mt-12" name="contact" title={contact.data.title} title-tag="h3">
+    <div class="[&_p]:my-0" slot="subtitle">
+      <contact.Content />
+    </div>
   </ContactForm>
 
   <PageFooter slot="footer" href="/" class="py-8">

@@ -4,6 +4,7 @@ import IconMapPin from '@gibas/components/icons/map-pin'
 import IconGithub from '@gibas/components/icons/logo-github'
 import IconLinkedin from '@gibas/components/icons/logo-linkedin'
 import IconX from '@gibas/components/icons/logo-x'
+import { profile } from '@data/profile'
 export interface PageHeaderProps {
   location: string
   class?: string
@@ -11,21 +12,9 @@ export interface PageHeaderProps {
 const { location, class: classes } = Astro.props
 
 const social = [
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/gibasmaciej',
-    Icon: IconLinkedin,
-  },
-  {
-    name: 'GitHub',
-    url: 'https://github.com/mgibas',
-    Icon: IconGithub,
-  },
-  {
-    name: 'X',
-    url: 'https://x.com/gibasmaciej',
-    Icon: IconX,
-  },
+  { name: 'LinkedIn', url: profile.social.linkedin, Icon: IconLinkedin },
+  { name: 'GitHub', url: profile.social.github, Icon: IconGithub },
+  { name: 'X', url: profile.social.x, Icon: IconX },
 ]
 ---
 
