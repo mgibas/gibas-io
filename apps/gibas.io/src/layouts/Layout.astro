@@ -1,6 +1,7 @@
 ---
 import '@assets/styles.css'
 import Pancakes from '@gibas/components/layouts/pancakes'
+import { personJsonLd } from '@data/json-ld'
 export interface LayoutProps {
   title: string
 }
@@ -13,6 +14,10 @@ const { title } = Astro.props
   class="text-xl"
   containers
   main-class="prose-lg prose">
+  <Fragment slot="head">
+    <link rel="alternate" type="text/markdown" href="/index.md" />
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+  </Fragment>
   <slot name="header" slot="header" />
   <slot />
   <slot name="footer" slot="footer" />
